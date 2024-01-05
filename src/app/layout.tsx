@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Koulen } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -29,7 +29,9 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navigation />
-            <ProgressBar>{children}</ProgressBar>
+            <ProgressBar>
+              <main className="container overflow-hidden">{children}</main>
+            </ProgressBar>
           </ThemeProvider>
         </body>
       </html>
