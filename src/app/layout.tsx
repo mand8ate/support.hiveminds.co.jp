@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Navigation from "@/components/Navbar";
+
+import Navigation from "@/components/Navigation";
+import ProgressBar from "@/components/ProgressBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +29,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navigation />
-            {children}
+            <ProgressBar>{children}</ProgressBar>
           </ThemeProvider>
         </body>
       </html>
