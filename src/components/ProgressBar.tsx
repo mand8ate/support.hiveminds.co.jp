@@ -7,12 +7,14 @@ export default function ProgressBar({
 }: {
   children: React.ReactNode;
 }) {
+  const color = "#FF9900";
+
   return (
     <>
       {children}
       <AppProgressBar
         height="6px"
-        color="#FF9900"
+        color={color}
         options={{ showSpinner: false }}
         shallowRouting
       />

@@ -13,8 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Angry } from "lucide-react";
-import { MoonIcon, SunIcon } from "lucide-react";
+import { FolderKanban, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "./ui/button";
@@ -33,13 +32,17 @@ import { navigationItems } from "@/constants";
 const koulen = Koulen({ subsets: ["latin"], weight: ["400"] });
 
 export default function Navigation() {
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
 
   return (
     <nav className="flex">
       <div className="flex gap-2 ml-2 mr-10 items-center">
         <div className="relative w-[40px] h-[40px]">
-          <Image src="/logo_only.svg" fill alt="hiveminds_logo" />
+          <Image
+            src={theme === "light" ? "/logo_only.svg" : "/logo_only_dark.svg"}
+            fill
+            alt="hiveminds_logo"
+          />
         </div>
         <Link
           href="/"
@@ -61,45 +64,51 @@ export default function Navigation() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Solution</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <li className="row-span-3">
+                  <li className="row-span-4">
                     <NavigationMenuLink asChild>
                       <a
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="/"
                       >
-                        <Angry className="h-6 w-6" />
+                        <FolderKanban className="h-6 w-6" />
                         <div className="mb-2 mt-4 text-lg font-medium">
-                          shadcn/ui
+                          Case Study
                         </div>
                         <p className="text-sm leading-tight text-muted-foreground">
-                          Beautifully designed components built with Radix UI
-                          and Tailwind CSS.
+                          私たちが過去に取り組んだプロジェクトの成果を、一緒にじっくりと見てみましょう！
                         </p>
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <ListItem href="/docs" title="Introduction">
-                    Re-usable components built using Radix UI and Tailwind CSS.
+                  <ListItem href="/solution/it" title="IT">
+                    ウェブサイト・オンラインショップ・プラットフォーム開発。
                   </ListItem>
-                  <ListItem href="/docs/installation" title="Installation">
-                    How to install dependencies and structure your app.
+                  <ListItem href="/solution/event" title="Event">
+                    展示会やオンラインイベントをお任せください！
                   </ListItem>
-                  <ListItem
-                    href="/docs/primitives/typography"
-                    title="Typography"
-                  >
-                    Styles for headings, paragraphs, lists...etc
+                  <ListItem href="/solution/consultation" title="Consultation">
+                    DX化、ワークフロー、効率化に悩んでいる企業様におすすめのサービス。
+                  </ListItem>
+                  <ListItem href="/solution/logistics" title="Logistics">
+                    日本への輸入、海外への輸出ソリューションを提案します！
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+              <Link href="/achievements" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Achievements
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Company</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
                   {navigationItems.map((navigationItems) => (
                     <ListItem
                       key={navigationItems.title}
@@ -113,16 +122,16 @@ export default function Navigation() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
+              <Link href="/about" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Documentation
+                  About
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/test" legacyBehavior passHref>
+              <Link href="/contact" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  test
+                  Contact
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
