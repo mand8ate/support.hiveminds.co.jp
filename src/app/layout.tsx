@@ -34,7 +34,9 @@ export default function RootLayout({
             <div className="flex flex-col min-h-screen">
               <Navigation />
               <ProgressBar>
-                <main className="flex-grow overflow-hidden">{children}</main>
+                <main className="flex-grow overflow-hidden mt-[55px]">
+                  {children}
+                </main>
               </ProgressBar>
               <Footer />
             </div>

@@ -35,9 +35,9 @@ export default function Navigation() {
   const { setTheme, theme } = useTheme();
 
   return (
-    <nav className="flex">
+    <nav className="fixed top-0 left-0 z-10 w-full h-[55px] items-center bg-background flex">
       <div className="flex gap-2 ml-2 mr-10 items-center">
-        <div className="relative w-[40px] h-[40px]">
+        <div className="relative w-[40px] h-[40px] my-1">
           <Image
             src={theme === "light" ? "/logo_only.svg" : "/logo_only_dark.svg"}
             fill
@@ -53,7 +53,7 @@ export default function Navigation() {
           <span className="text-primary">hive</span>minds
         </Link>
       </div>
-      <div>
+      <div className="hidden lg:block">
         <NavigationMenu>
           <NavigationMenuList className="py-2">
             <NavigationMenuItem>
