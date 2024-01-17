@@ -1,0 +1,9 @@
+@media screen and (orientation: portrait) {
+  /* .hide-on-vertical {
+    display: none;
+  } */
+
+  .height-for-vertical {
+    height: 50vh;
+  }
+}

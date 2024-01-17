@@ -50,6 +50,12 @@
 }
 
 @layer utilities {
+  img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+
   .hero_background {
     background-image: linear-gradient(to right, violet, darkred, purple);
     background-size: 100% 100%;
@@ -62,28 +68,52 @@
         rgba(255, 255, 255, 0.2) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-    background-size: 20px 20px;
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+      linear-gradient(to right, #ff9900, #ef7c52);
+    background-size:
+      20px 20px,
+      20px 20px,
+      100% 100%;
   }
-  /* 
-  .hero_clippath::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: linear-gradient(290deg, blue, black);
-    background-size: 100% 100%;
-  } */
 
-  .hero_clippath_md {
+  .hero_clippath-md {
     clip-path: polygon(0 0, 100% 0%, 90% 83%, 0% 100%);
     background-image: linear-gradient(
         to right,
         rgba(255, 255, 255, 0.2) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-    background-size: 15px 15px;
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+      linear-gradient(to right, #ff9900, #ef7c52);
+    background-size:
+      15px 15px,
+      15px 15px,
+      100% 100%;
+  }
+
+  .hero_clippath-picture-top {
+    clip-path: polygon(100% 0, 0 100%, 50% 0);
+    box-shadow: 0 0 0 3px white;
+  }
+
+  .hero_clippath-picture-bottom {
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    box-shadow: 0 0 0 3px white;
+  }
+
+  .hero_clippath-picture-bottom-left {
+    clip-path: polygon(0 50%, 0% 100%, 100% 100%);
+    box-shadow: 0 0 0 3px white;
+  }
+
+  /* Define the gradient for the text */
+  .text-gradient {
+    background: linear-gradient(to right, yellow, green);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .text-shadow {
+    text-shadow: 3px 2px 5px white;
   }
 }

@@ -35,9 +35,9 @@ export default function Navigation() {
   const { setTheme, theme } = useTheme();
 
   return (
-    <nav className="fixed top-0 left-0 z-10 w-full h-[55px] items-center bg-background flex">
-      <div className="flex gap-2 ml-2 mr-10 items-center">
-        <div className="relative w-[40px] h-[40px] my-1">
+    <nav className="fixed left-0 top-0 z-20 flex h-[55px] w-full items-center bg-background">
+      <div className="ml-2 mr-10 flex items-center gap-2">
+        <div className="relative my-1 h-[40px] w-[40px]">
           <Image
             src={theme === "light" ? "/logo_only.svg" : "/logo_only_dark.svg"}
             fill
@@ -47,7 +47,7 @@ export default function Navigation() {
         <Link
           href="/"
           className={
-            (koulen.className, "hidden md:block text-lg uppercase font-bold")
+            (koulen.className, "hidden text-lg font-bold uppercase md:block")
           }
         >
           <span className="text-primary">hive</span>minds
@@ -151,9 +151,6 @@ export default function Navigation() {
                   <DropdownMenuItem onClick={() => setTheme("dark")}>
                     Dark
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setTheme("system")}>
-                    System
-                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </NavigationMenuItem>
@@ -175,7 +172,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
+            className,
           )}
           {...props}
         >

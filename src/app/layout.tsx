@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Koulen } from "next/font/google";
 import "@/styles/globals.css";
+import "@/styles/custom.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 import Navigation from "@/components/Navigation";
@@ -31,10 +32,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="flex flex-col min-h-screen">
+            <div className="flex min-h-screen flex-col">
               <Navigation />
               <ProgressBar>
-                <main className="flex-grow overflow-hidden mt-[55px]">
+                <main className="mt-[55px] flex-grow overflow-hidden">
                   {children}
                 </main>
               </ProgressBar>
