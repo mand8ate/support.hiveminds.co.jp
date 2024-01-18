@@ -9,6 +9,7 @@ import { SVGImages } from "@/components/SVGImages";
 import { useTheme } from "next-themes";
 
 import Services from "@/components/landing/Services";
+import Company from "@/components/landing/Company";
 
 export default function Page() {
   const { setTheme, theme } = useTheme();
@@ -66,6 +67,7 @@ export default function Page() {
         </motion.div>
       </div>
       <Services />
+      <Company />
     </>
   );
 }
