@@ -63,7 +63,7 @@ export default function Company() {
                 </p>
               </div>
               <div>
-                <Accordion type="multiple" collapsible className="w-full">
+                <Accordion type="multiple" className="w-full">
                   <AccordionItem
                     value="vision"
                     className="border-b-foreground/30"
