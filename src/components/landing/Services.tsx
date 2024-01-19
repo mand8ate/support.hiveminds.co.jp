@@ -15,7 +15,7 @@ import {
   CardFooter,
 } from "../ui/card";
 import { CalendarRange, MonitorSmartphone, Ship, Speech } from "lucide-react";
-import DrawOutlineButton from "../ui/OutlineButton";
+import DrawOutlineButton from "../OutlineButton";
 import Link from "next/link";
 import SolutionsInterlude from "@/components/landing/ServicesInterlude";
 
@@ -94,22 +94,21 @@ export default function Services() {
           initial={{ opacity: 0, x: "-100px" }}
           whileInView={{ opacity: 1, x: 0 }}
           style={{ transformOrigin: "left" }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           className="container ml-6 flex flex-col"
         >
           <div className="mb-2 inline-block">
             <Badge variant="secondary">Trust in Professionals</Badge>
           </div>
-          <h1 className="text-glowgreen text-4xl font-semibold tracking-wider">
+          <h1 className="text-4xl font-semibold tracking-wider text-glowgreen">
             Solutions We Offer
           </h1>
           <motion.div
             onMouseMove={handleMouseMove}
             style={{
               backgroundImage: gradientStyle,
-              transform: "duration 0.5s",
             }}
-            className="shadow-glowgreen/20 mt-6 rounded-2xl border border-foreground/30 bg-foreground/10 p-8 shadow-md backdrop-blur-xl"
+            className="mt-6 rounded-2xl border border-foreground/30 bg-foreground/10 p-8 shadow-md shadow-glowgreen/20 backdrop-blur-xl"
           >
             <Tabs defaultValue="itsolution">
               <TabsList className="grid w-full grid-cols-1 border border-foreground/20 lg:grid-cols-4">

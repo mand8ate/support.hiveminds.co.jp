@@ -6,6 +6,9 @@ interface Props {
     color?: string;
     height: string;
   };
+  circle: {
+    color?: string;
+  };
 }
 
 export const SVGImages = {
@@ -125,6 +128,117 @@ export const SVGImages = {
             <stop stopColor={color} stopOpacity="0" />
             <stop offset="1" stopColor={color} />
           </linearGradient>
+        </defs>
+      </svg>
+    );
+  },
+  gradientCircleGreen: (props: Props["circle"]) => {
+    const color =
+      props?.color === "light"
+        ? "rgba(10, 207, 131, 1)"
+        : "rgba(10, 207, 131, 0.6)";
+
+    return (
+      <svg viewBox="0 0 925 925" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="462.5"
+          cy="462.5"
+          r="462.5"
+          fill="url(#paint0_radial_84_70)"
+        />
+        <circle
+          cx="463"
+          cy="463"
+          r="104.5"
+          stroke={color}
+          strokeOpacity="0.15"
+          strokeWidth="3"
+        />
+        <circle
+          cx="463"
+          cy="463"
+          r="55.5"
+          stroke={color}
+          strokeOpacity="0.15"
+          strokeWidth="3"
+        />
+        <circle
+          cx="463"
+          cy="463"
+          r="139.5"
+          stroke={color}
+          strokeOpacity="0.15"
+          strokeWidth="3"
+        />
+        <defs>
+          <radialGradient
+            id="paint0_radial_84_70"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(463 463) rotate(90.062) scale(462)"
+          >
+            <stop stopColor={color} stopOpacity="0.8" />
+            <stop offset="0.59" stopColor="#82FACC" stopOpacity="0.2" />
+            <stop offset="1" stopColor="#D9D9D9" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+      </svg>
+    );
+  },
+  gradientCircleViolet: (props: Props["circle"]) => {
+    const color =
+      props?.color === "light"
+        ? "rgba(162, 89, 255, 1)"
+        : "rgba(162, 89, 255, 0.6)";
+
+    return (
+      <svg viewBox="0 0 925 925" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="462.5"
+          cy="462.5"
+          r="462.5"
+          fill="url(#paint0_radial_84_70)"
+          fillOpacity="0.8"
+        />
+        <circle
+          cx="463"
+          cy="463"
+          r="104.5"
+          stroke={color}
+          strokeOpacity="0.15"
+          strokeWidth="3"
+        />
+        <circle
+          cx="463"
+          cy="463"
+          r="55.5"
+          stroke={color}
+          strokeOpacity="0.15"
+          strokeWidth="3"
+        />
+        <circle
+          cx="463"
+          cy="463"
+          r="139.5"
+          stroke={color}
+          strokeOpacity="0.15"
+          strokeWidth="3"
+        />
+        <defs>
+          <radialGradient
+            id="paint0_radial_84_70"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(462.5 462.5) rotate(90) scale(462.5)"
+          >
+            <stop stopColor={color} />
+            <stop offset="0.76" stopColor="#8850CF" stopOpacity="0.24" />
+            <stop offset="1" stopColor={color} stopOpacity="0" />
+          </radialGradient>
         </defs>
       </svg>
     );

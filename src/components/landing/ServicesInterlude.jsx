@@ -4,27 +4,47 @@ import { SVGImages } from "../SVGImages";
 export default function ServicesInterlude() {
   return (
     <div className="container mt-32 flex items-start justify-between">
-      <div>
-        <h1 className="text-glowgreen text-4xl font-semibold tracking-wider">
+      <motion.div
+        initial={{ opacity: 0, x: "-100px" }}
+        whileInView={{ opacity: 1, x: 0 }}
+        style={{ transformOrigin: "left" }}
+        transition={{ duration: 0.5 }}
+        className="z-10"
+      >
+        <h1 className="text-4xl font-semibold tracking-wider text-glowgreen">
           Your Project, Our Passion.
         </h1>
         <div className="mt-6">
-          <div className="bg-glowgreen mb-2 h-[2px] w-[100px]"></div>{" "}
+          <hr
+            style={{
+              border: "0",
+              height: "1px",
+              backgroundColor: "#0ACF83",
+              width: "100px",
+              marginBottom: "0.5rem",
+            }}
+          />
           <h4 className="text-3xl font-semibold">
-            From visionary websites to cutting-edge mobile applications, we
-            craft digital experiences that captivate and inspire. Partner with
-            us, and let's bring your dream project to life – on time and within
-            budget.
+            ビジョナリーなウェブサイトから最先端のモバイルアプリケーションまで、私たちは魅力的でインスピレーションを与えるデジタル体験を創造します。私たちとパートナーを組み、あなたの夢のプロジェクトを予定通り、そして予算内で実現しましょう。
           </h4>
-          <div className="bg-glowgreen mt-2 h-[2px] w-[100px]"></div>{" "}
+          <hr
+            style={{
+              border: "0",
+              height: "1px",
+              backgroundColor: "#0ACF83",
+              width: "100px",
+              marginTop: "0.5rem",
+            }}
+          />
         </div>
-      </div>
+      </motion.div>
       <div className="flex-grow"></div>
       <motion.div
         initial={{ scaleY: 0 }}
         whileInView={{ scaleY: 1 }}
         style={{ transformOrigin: "top" }}
         transition={{ duration: 0.5 }}
+        className="ml-6"
       >
         <SVGImages.lineLeft height="h-36 md:h-96" color="#0ACF83" />
       </motion.div>

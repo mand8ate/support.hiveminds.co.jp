@@ -25,6 +25,7 @@
     --ring: 36 100% 50%;
     --radius: 0.5rem;
     --glowgreen: 156.85 90.78% 42.55%;
+    --glowviolet: 266.39 100% 67.45%;
   }
 
   .dark {
@@ -48,6 +49,7 @@
     --input: 12 6.5% 15.1%;
     --ring: 36 100% 50%;
     --glowgreen: 156.85 90.78% 42.55%;
+    --glowviolet: 266.39 100% 67.45%;
   }
 }
 
@@ -108,14 +110,7 @@
     box-shadow: 0 0 0 3px white;
   }
 
-  /* Define the gradient for the text */
-  .text-gradient {
-    background: linear-gradient(to right, yellow, green);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  .text-shadow {
-    text-shadow: 3px 2px 5px white;
+  .accordion-trigger[data-state="open"] {
+    @apply font-bold text-primary;
   }
 }

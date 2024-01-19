@@ -53,6 +53,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         glowgreen: "hsl(var(--glowgreen))",
+        glowviolet: "hsl(var(--glowviolet))",
       },
       borderRadius: {
         lg: "var(--radius)",

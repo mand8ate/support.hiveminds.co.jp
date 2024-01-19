@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { Koulen } from "next/font/google";
 
 const koulen = Koulen({ subsets: ["latin"], weight: ["400"] });
@@ -20,10 +21,9 @@ export default function Page() {
         <div className="hero_clippath-md lg:hero_clippath height-for-vertical relative z-10 h-[70vh] w-full md:h-[60vh] lg:h-[80vh] xl:h-[90vh]">
           <div className="md:pt-30 container pt-14 sm:pt-20 lg:pt-40">
             <h1
-              className={
-                (koulen.className,
-                "text-4xl font-bold text-white md:text-6xl lg:text-8xl")
-              }
+              className={cn(
+                "text-4xl font-bold text-white md:text-6xl lg:text-8xl",
+              )}
             >
               HiveMinds
             </h1>
@@ -37,7 +37,6 @@ export default function Page() {
                   repeatType: "reverse",
                   ease: "easeOut",
                   duration: 2,
-                  bounce: 0.25,
                 }}
                 initial={{
                   opacity: 0.5,

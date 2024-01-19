@@ -46,9 +46,10 @@ export default function Navigation() {
         </div>
         <Link
           href="/"
-          className={
-            (koulen.className, "hidden text-lg font-bold uppercase md:block")
-          }
+          className={cn(
+            "hidden text-xl font-bold uppercase md:block",
+            koulen.className,
+          )}
         >
           <span className="text-primary">hive</span>minds
         </Link>
