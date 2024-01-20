@@ -54,6 +54,7 @@ const config = {
         },
         glowgreen: "hsl(var(--glowgreen))",
         glowviolet: "hsl(var(--glowviolet))",
+        glowblue: "hsl(var(--glowblue))",
       },
       borderRadius: {
         lg: "var(--radius)",
