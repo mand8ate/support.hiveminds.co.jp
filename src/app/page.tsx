@@ -10,7 +10,11 @@ import { SVGImages } from "@/components/SVGImages";
 import { useTheme } from "next-themes";
 
 import Services from "@/components/landing/Services";
+import ServicesInterlude from "@/components/landing/ServicesInterlude";
 import Company from "@/components/landing/Company";
+import AchievementsInterlude from "@/components/landing/AchievementsInterlude";
+import Achievements from "@/components/landing/Achievements";
+import CompanyInterlude from "@/components/landing/CompanyInterlude";
 
 export default function Page() {
   const { setTheme, theme } = useTheme();
@@ -48,24 +52,28 @@ export default function Page() {
             </motion.div>
           </div>
           <div className="hero_clippath-picture-top  absolute right-0 top-0 hidden h-full w-1/2 bg-white md:block">
-            <img src="achievements/hero_img_1.jpg" alt="" />
+            <img src="/landing/hero_img_1.jpg" alt="" />
           </div>
           <div className="hero_clippath-picture-bottom  absolute right-0 top-0 hidden h-full w-1/2 bg-white md:block">
-            <img src="achievements/hero_img_2.jpg" alt="" />
+            <img src="/landing/hero_img_2.jpg" alt="" />
           </div>
           <div className="hero_clippath-picture-bottom-left bg-fill absolute bottom-0 left-0  h-full w-1/2 bg-white">
-            <img src="achievements/hero_img_3.jpg" alt="" />
+            <img src="/landing/hero_img_3.jpg" alt="" />
           </div>
         </div>
         <motion.div
           animate={{ rotate: [0, 180, 360] }}
           transition={{ duration: 200, ease: "linear", repeat: Infinity }}
-          className="absolute bottom-0 right-0 h-[100px] w-[100px] md:h-[500px] md:w-[500px]"
+          className="absolute bottom-0 right-0 h-[150px] w-[150px] md:h-[300px] md:w-[300px] lg:h-[500px] lg:w-[500px]"
         >
           <SVGImages.polygon color={theme} />
         </motion.div>
       </div>
+      <ServicesInterlude />
       <Services />
+      <AchievementsInterlude />
+      <Achievements />
+      <CompanyInterlude />
       <Company />
     </>
   );

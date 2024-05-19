@@ -115,4 +115,48 @@
   .accordion-trigger[data-state="open"] {
     @apply font-bold text-primary;
   }
+
+  .edged-div {
+    position: relative;
+  }
+
+  .edged-div::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: -25px;
+    background-image: url("/svg/before.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .edged-div::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: -25px;
+    background-image: url("/svg/after.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .solution-div {
+    clip-path: polygon(80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
+  }
+
+  .responsiveWidth {
+    width: 100%;
+  }
+
+  @media (min-width: 770px) {
+    .responsiveWidth {
+      width: calc(100% - 250px);
+    }
+  }
 }

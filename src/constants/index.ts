@@ -17,3 +17,38 @@ export const navigationItems: NavigationItemsProps[] = [
     description: "HiveMindsの会社概要",
   },
 ];
+
+export const footerNav = [
+  {
+    title: "Solutions",
+    links: [
+      {
+        title: "IT",
+        url: "/solution/it",
+      },
+      { title: "Event", url: "/solution/event" },
+      { title: "Consulting", url: "/solution/consulting" },
+      { title: "Logistics", url: "/solution/logistics" },
+    ],
+  },
+  {
+    title: "Achievements",
+    links: [
+      { title: "IT", url: "/achievements/#it" },
+      { title: "Event", url: "/achievements/#event" },
+      { title: "Consulting", url: "/achievements/#consulting" },
+      { title: "Logistics", url: "/achievements/#logistics" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { title: "Team", url: "/company/team" },
+      {
+        title: "VMV",
+        url: "/company/vmv",
+      },
+      { title: "Company", url: "/company" },
+    ],
+  },
+];

@@ -9,6 +9,10 @@ interface Props {
   circle: {
     color?: string;
   };
+  hexagon: {
+    color: string;
+    image?: string;
+  };
 }
 
 export const SVGImages = {
@@ -85,48 +89,154 @@ export const SVGImages = {
       </svg>
     );
   },
-  lineLeft: (props: Props["line"]) => {
+  lineLeftGreen: (props: Props["line"]) => {
     const { height, color } = props;
 
     return (
       <svg
-        width="20"
-        viewBox="0 0 20 501"
+        width="22"
+        viewBox="0 0 22 501"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={`${height} w-auto`}
       >
+        <path
+          d="M2.97372 216.366L11 211.732L19.0263 216.366V225.634L11 230.268L2.97372 225.634V216.366Z"
+          stroke="#0ACF83"
+          strokeWidth="3"
+        />
         <rect
           x="8"
           y="229"
-          width="5"
+          width="6"
           height="272"
-          fill="url(#paint0_linear_74_72)"
+          fill="url(#paint0_linear_189_69)"
         />
-        <rect x="8" width="5" height="212" fill="url(#paint1_linear_74_72)" />
-        <circle cx="10" cy="221" r="8" stroke={color} strokeWidth="4" />
+        <rect x="8" width="6" height="212" fill="url(#paint1_linear_189_69)" />
         <defs>
           <linearGradient
-            id="paint0_linear_74_72"
-            x1="10.5"
+            id="paint0_linear_189_69"
+            x1="11"
             y1="229"
-            x2="10.5"
+            x2="11"
             y2="501"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor={color} />
-            <stop offset="1" stopColor={color} stopOpacity="0" />
+            <stop stopColor="#0ACF83" />
+            <stop offset="1" stopColor="#0ACF83" stopOpacity="0" />
           </linearGradient>
           <linearGradient
-            id="paint1_linear_74_72"
-            x1="10.5"
+            id="paint1_linear_189_69"
+            x1="11"
             y1="0"
-            x2="10.5"
+            x2="11"
             y2="212"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor={color} stopOpacity="0" />
-            <stop offset="1" stopColor={color} />
+            <stop stopColor="#0ACF83" stopOpacity="0" />
+            <stop offset="1" stopColor="#0ACF83" />
+          </linearGradient>
+        </defs>
+      </svg>
+    );
+  },
+  lineLeftBlue: (props: Props["line"]) => {
+    const { height, color } = props;
+
+    return (
+      <svg
+        width="22"
+        viewBox="0 0 22 501"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={`${height} w-auto`}
+      >
+        <path
+          d="M2.97372 216.366L11 211.732L19.0263 216.366V225.634L11 230.268L2.97372 225.634V216.366Z"
+          stroke="#1ABCFE"
+          strokeWidth="3"
+        />
+        <rect
+          x="8"
+          y="229"
+          width="6"
+          height="272"
+          fill="url(#paint0_linear_189_70)"
+        />
+        <rect x="8" width="6" height="212" fill="url(#paint1_linear_189_70)" />
+        <defs>
+          <linearGradient
+            id="paint0_linear_189_70"
+            x1="11"
+            y1="229"
+            x2="11"
+            y2="501"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#1ABCFE" />
+            <stop offset="1" stopColor="#1ABCFE" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_189_70"
+            x1="11"
+            y1="0"
+            x2="11"
+            y2="212"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#1ABCFE" stopOpacity="0" />
+            <stop offset="1" stopColor="#1ABCFE" />
+          </linearGradient>
+        </defs>
+      </svg>
+    );
+  },
+  lineLeftViolet: (props: Props["line"]) => {
+    const { height, color } = props;
+
+    return (
+      <svg
+        width="22"
+        viewBox="0 0 22 501"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={`${height} w-auto`}
+      >
+        <path
+          d="M2.97372 216.366L11 211.732L19.0263 216.366V225.634L11 230.268L2.97372 225.634V216.366Z"
+          stroke="#A45CFF"
+          strokeWidth="3"
+        />
+        <rect
+          x="8"
+          y="229"
+          width="6"
+          height="272"
+          fill="url(#paint0_linear_189_68)"
+        />
+        <rect x="8" width="6" height="212" fill="url(#paint1_linear_189_68)" />
+        <defs>
+          <linearGradient
+            id="paint0_linear_189_68"
+            x1="11"
+            y1="229"
+            x2="11"
+            y2="501"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#A259FF" />
+            <stop offset="1" stopColor="#A259FF" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_189_68"
+            x1="11"
+            y1="0"
+            x2="11"
+            y2="212"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#A259FF" stopOpacity="0" />
+            <stop offset="1" stopColor="#A259FF" />
           </linearGradient>
         </defs>
       </svg>
@@ -295,6 +405,46 @@ export const SVGImages = {
             <stop offset="1" stopColor={color} stopOpacity="0" />
           </radialGradient>
         </defs>
+      </svg>
+    );
+  },
+  hexagon: (props: Props["hexagon"]) => {
+    const { color, image } = props;
+    const useColor = color === "primary" ? "#FF9900" : "#000000";
+
+    return (
+      <svg
+        viewBox="0 0 229 261"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-[120px] w-[120px] overflow-hidden sm:h-[180px] sm:w-[180px] md:h-[250px] md:w-[250px] lg:h-[300px] lg:w-[300px]"
+      >
+        <defs>
+          <clipPath id="hexagonClip">
+            <path
+              d="M113.941 8.13397C114.25 7.95534 114.631 7.95534 114.941
+              8.13398L220.029 68.8066C220.338 68.9853 220.529 69.3154 220.529
+              69.6726V191.018C220.529 191.375 220.338 191.705 220.029
+              191.884L114.941 252.557C114.631 252.735 114.25 252.735 113.941
+              252.557L8.85254 191.884C8.54314 191.705 8.35254 191.375 8.35254
+              191.018V69.6726C8.35254 69.3154 8.54314 68.9853 8.85254
+              68.8066L113.941 8.13397Z"
+            />
+          </clipPath>
+        </defs>
+        <g clipPath="url(#hexagonClip)">
+          <image
+            href={image}
+            width="100%"
+            height="100%"
+            preserveAspectRatio="xMidYMid slice"
+          />
+        </g>
+        <path
+          d="M113.941 8.13397C114.25 7.95534 114.631 7.95534 114.941 8.13398L220.029 68.8066C220.338 68.9853 220.529 69.3154 220.529 69.6726V191.018C220.529 191.375 220.338 191.705 220.029 191.884L114.941 252.557C114.631 252.735 114.25 252.735 113.941 252.557L8.85254 191.884C8.54314 191.705 8.35254 191.375 8.35254 191.018V69.6726C8.35254 69.3154 8.54314 68.9853 8.85254 68.8066L113.941 8.13397Z"
+          stroke={useColor}
+          strokeWidth="10"
+        />
       </svg>
     );
   },

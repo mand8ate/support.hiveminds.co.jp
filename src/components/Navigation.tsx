@@ -28,6 +28,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { navigationItems } from "@/constants";
+import HamburgerMenu from "./Hamburger";
 
 const koulen = Koulen({ subsets: ["latin"], weight: ["400"] });
 
@@ -70,9 +71,9 @@ export default function Navigation() {
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-4">
                     <NavigationMenuLink asChild>
-                      <a
+                      <Link
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/"
+                        href="/achievements/case-study"
                       >
                         <FolderKanban className="h-6 w-6" />
                         <div className="mb-2 mt-4 text-lg font-medium">
@@ -81,7 +82,7 @@ export default function Navigation() {
                         <p className="text-sm leading-tight text-muted-foreground">
                           私たちが過去に取り組んだプロジェクトの成果を、一緒にじっくりと見てみましょう！
                         </p>
-                      </a>
+                      </Link>
                     </NavigationMenuLink>
                   </li>
                   <ListItem href="/solution/it" title="IT">
@@ -90,7 +91,7 @@ export default function Navigation() {
                   <ListItem href="/solution/event" title="Event">
                     展示会やオンラインイベントをお任せください！
                   </ListItem>
-                  <ListItem href="/solution/consultation" title="Consultation">
+                  <ListItem href="/solution/consulting" title="Consulting">
                     DX化、ワークフロー、効率化に悩んでいる企業様におすすめのサービス。
                   </ListItem>
                   <ListItem href="/solution/logistics" title="Logistics">
@@ -123,20 +124,13 @@ export default function Navigation() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/about" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  About
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
               <Link href="/contact" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Contact
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="ml-auto">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" size="icon">
@@ -157,6 +151,9 @@ export default function Navigation() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+      </div>
+      <div className="ml-auto lg:hidden">
+        <HamburgerMenu />
       </div>
     </nav>
   );

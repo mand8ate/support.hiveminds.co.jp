@@ -1,11 +1,11 @@
 "use client";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { SVGImages } from "../SVGImages";
 import { Badge } from "../ui/badge";
-
-import { cn } from "@/lib/utils";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
+import { CalendarRange, MonitorSmartphone, Ship, Speech } from "lucide-react";
+import DrawOutlineButton from "../OutlineButton";
+import { useGradientEffect } from "@/lib/useGradientEffect";
 import {
   Card,
   CardHeader,
@@ -14,151 +14,136 @@ import {
   CardContent,
   CardFooter,
 } from "../ui/card";
-import { CalendarRange, MonitorSmartphone, Ship, Speech } from "lucide-react";
-import DrawOutlineButton from "../OutlineButton";
+
 import Link from "next/link";
-import SolutionsInterlude from "@/components/landing/ServicesInterlude";
 
 const solutions = [
   {
-    title: "IT Solution",
-    subtitle: "ITソリューション",
+    titleEN: "IT Solution",
+    titleJP: "IT",
     value: "itsolution",
     url: "/solution/it",
     description:
-      "IT SolutionやDX導入を通じてお客様の収益拡大および業務効率改善に貢献します。",
-    icon: <MonitorSmartphone className="h-[70px] w-[70px] text-primary" />,
+      "ITソリューションの提供やDX化支援を通じて、お客様の課題や業務効率化を行います。",
+    icon: (
+      <MonitorSmartphone className="h-[50px] w-[50px] text-primary md:h-[70px] md:w-[70px] lg:h-[100px] lg:w-[100px]" />
+    ),
     bulletpoints: ["ウェブサイト作成", "アプリケーション開発", "DXサポート"],
   },
   {
-    title: "Event",
-    subtitle: "イベントソリューション",
+    titleEN: "Event",
+    titleJP: "イベント",
     value: "event",
     url: "/solution/event",
     description:
-      "国内外を問わず、商品・サービス展示会イベントなどの仲介サポートをさせていただきます。",
-    icon: <CalendarRange className="h-[70px] w-[70px] text-primary" />,
-    bulletpoints: ["展示会", "オンラインイベント", "アカウントマネジメント"],
+      "国内外を問わず、展示会イベントなどの出展サポートを行い、お客様の集客力向上に貢献します。",
+    icon: (
+      <CalendarRange className="h-[50px] w-[50px] text-primary md:h-[70px] md:w-[70px] lg:h-[100px] lg:w-[100px]" />
+    ),
+    bulletpoints: [
+      "展示会",
+      "オンラインイベント",
+      "プロジェクトマネージメント",
+    ],
   },
   {
-    title: "Consultation",
-    subtitle: "コンサルティング",
+    titleEN: "Consulting",
+    titleJP: "コンサルティング",
     value: "consultation",
     url: "/solution/consultation",
     description:
-      "Webマーケティング・人材採用・ブランディングの3つの領域のコンサルティングサポートを通じて、お客様の企業力を底上げします。",
-    icon: <Speech className="h-[70px] w-[70px] text-primary" />,
+      "Webマーケティング・人材採用・ブランディングの3つのコンサルティングサポートを通じて、お客様の企業力を底上げします。",
+    icon: (
+      <Speech className="h-[50px] w-[50px] text-primary md:h-[70px] md:w-[70px] lg:h-[100px] lg:w-[100px]" />
+    ),
     bulletpoints: ["Webマーケティング", "ブランディング", "人材採用"],
   },
   {
-    title: "Logistics",
-    subtitle: "ロジスティックス",
+    titleEN: "Logistics",
+    titleJP: "ロジスティックス",
     value: "logistics",
     url: "/solution/logistics",
     description:
-      "輸入フォワーダーとしての機能を用いて、主にアジア諸国からの国外輸入をサポートいたします。",
-    icon: <Ship className="h-[70px] w-[70px] text-primary" />,
+      "アジア諸国を中心に、お客様の輸入手続きをフォワーディングサポートいたします。",
+    icon: (
+      <Ship className="h-[50px] w-[50px] text-primary md:h-[70px] md:w-[70px] lg:h-[100px] lg:w-[100px]" />
+    ),
     bulletpoints: ["輸入出サポート", "フォーワーディング", "市場調査"],
   },
 ];
 
 export default function Services() {
-  const gradientX = useMotionValue(0);
-  const gradientY = useMotionValue(0);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-    gradientX.set(x);
-    gradientY.set(y);
-  };
-
-  const gradientStyle = useTransform([gradientX, gradientY], ([x, y]) => {
-    return `radial-gradient(circle at ${x}% ${y}%, rgba(10, 207, 131, 0.2) 5%, transparent 60%)`;
-  });
+  const { gradientStyle, handleMouseMove } = useGradientEffect(
+    "rgba(10,207,131,0.2)",
+  );
 
   return (
-    <>
-      <div className="container flex items-center">
+    <div className="container mt-32 flex w-full flex-wrap">
+      <motion.div
+        initial={{ opacity: 0, x: "-100px" }}
+        whileInView={{ opacity: 1, x: 0 }}
+        style={{ transformOrigin: "left" }}
+        transition={{ duration: 0.5 }}
+        className="flex w-full flex-col"
+      >
+        <div className="mb-2 inline-block">
+          <Badge variant="secondary">Trust in Professionals</Badge>
+        </div>
+        <h1 className="text-3xl font-semibold tracking-wider text-glowgreen md:text-4xl">
+          Our Solutions
+        </h1>
         <motion.div
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          style={{ transformOrigin: "top" }}
-          transition={{ duration: 0.5 }}
+          onMouseMove={handleMouseMove}
+          style={{
+            backgroundImage: gradientStyle,
+          }}
+          className="mt-6 border border-foreground/30 bg-foreground/10 p-4 shadow-lg shadow-glowgreen/20 backdrop-blur-xl lg:p-8"
         >
-          <SVGImages.lineLeft height="h-36 md:h-96" color="#0ACF83" />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: "-100px" }}
-          whileInView={{ opacity: 1, x: 0 }}
-          style={{ transformOrigin: "left" }}
-          transition={{ duration: 0.5 }}
-          className="container ml-6 flex flex-col"
-        >
-          <div className="mb-2 inline-block">
-            <Badge variant="secondary">Trust in Professionals</Badge>
-          </div>
-          <h1 className="text-4xl font-semibold tracking-wider text-glowgreen">
-            Solutions We Offer
-          </h1>
-          <motion.div
-            onMouseMove={handleMouseMove}
-            style={{
-              backgroundImage: gradientStyle,
-            }}
-            className="mt-6 rounded-2xl border border-foreground/30 bg-foreground/10 p-8 shadow-md shadow-glowgreen/20 backdrop-blur-xl"
-          >
-            <Tabs defaultValue="itsolution">
-              <TabsList className="grid w-full grid-cols-1 border border-foreground/20 lg:grid-cols-4">
-                <TabsTrigger value="itsolution">It Solution</TabsTrigger>
-                <TabsTrigger value="event">Event</TabsTrigger>
-                <TabsTrigger value="consultation">Consultation</TabsTrigger>
-                <TabsTrigger value="logistics">Logistics</TabsTrigger>
-              </TabsList>
-              {solutions.map((solution, index) => (
-                <TabsContent value={solution.value} key={index}>
-                  {
-                    <Card className="border-foreground/20">
-                      <CardHeader className="flex flex-col items-center">
-                        <CardTitle className="mt-4  flex flex-col items-center gap-4 text-4xl">
-                          {solution.icon}
-                          {solution.title}
-                        </CardTitle>
-                        <CardDescription className="text-lg">
-                          {solution.subtitle}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent className="text-center">
-                        <div className="flex flex-col items-center">
-                          <div className="text-xl">{solution.description}</div>
-                          <ul className="mt-8 list-inside list-disc text-left text-xl">
-                            {solution.bulletpoints?.map(
-                              (bulletpoint, index) => (
-                                <li key={index} className="mb-2 text-xl">
-                                  {bulletpoint}
-                                </li>
-                              ),
-                            )}
-                          </ul>
-                        </div>
-                      </CardContent>
+          <div className="grid grid-cols-1 gap-4  border-none sm:grid-cols-2 md:grid-cols-2 md:border  md:p-4 lg:grid-cols-4 lg:p-8">
+            {solutions.map((solution, index) => (
+              <motion.div
+                initial={{ opacity: 0, x: "-100px" }}
+                whileInView={{ opacity: 1, x: 0 }}
+                style={{ transformOrigin: "left" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                key={index}
+              >
+                <Card className="flex h-full flex-col justify-between rounded-none border border-foreground/20">
+                  <CardHeader className="flex flex-col items-center">
+                    <CardTitle className="mt-4 flex flex-col items-center gap-4 text-xl md:text-2xl">
+                      {solution.icon}
+                      {solution.titleJP}
+                    </CardTitle>
+                    <CardDescription className="text-md text-primary md:text-lg">
+                      {solution.titleEN}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow text-center">
+                    <div className="flex flex-col items-center">
+                      <div className="text-md min-h-[90px] md:text-xl lg:min-h-[180px]">
+                        {solution.description}
+                      </div>
+                      <ul className="mt-8 list-inside list-disc text-left">
+                        {solution.bulletpoints?.map((bulletpoint, index) => (
+                          <li key={index} className="text-md mb-2 md:text-xl">
+                            {bulletpoint}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
 
-                      <CardFooter className="my-4 flex justify-center">
-                        <DrawOutlineButton color="glowgreen">
-                          <Link href={solution.url}>See More !</Link>
-                        </DrawOutlineButton>
-                      </CardFooter>
-                    </Card>
-                  }
-                </TabsContent>
-              ))}
-            </Tabs>
-          </motion.div>
+                  <CardFooter className="my-2 flex justify-center md:my-4">
+                    <DrawOutlineButton color="glowgreen">
+                      <Link href={solution.url}>See More !</Link>
+                    </DrawOutlineButton>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
-      </div>
-      <SolutionsInterlude />
-    </>
+      </motion.div>
+    </div>
   );
 }
