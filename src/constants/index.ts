@@ -52,3 +52,33 @@ export const footerNav = [
     ],
   },
 ];
+
+export const achievements = [
+  {
+    it: [
+      {
+        project: "",
+        client: "",
+        details: "",
+        image: "",
+      },
+    ],
+    event: [{ project: "", client: "", date: "", details: "", image: "" }],
+    consulting: [
+      {
+        project: "",
+        client: "",
+        details: "",
+        image: "",
+      },
+    ],
+    logistics: [
+      {
+        project: "",
+        client: "",
+        details: "",
+        image: "",
+      },
+    ],
+  },
+];

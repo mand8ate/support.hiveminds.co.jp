@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Koulen } from "next/font/google";
+
+const koulen = Koulen({ subsets: ["latin"], weight: ["400"] });
 
 const menuVariants = {
   initial: {
@@ -116,7 +120,7 @@ const HamburgerMenu = () => {
   }, [isOpen]);
 
   return (
-    <div className="z-50 m-4 flex h-12 w-12 flex-col items-center justify-center overflow-auto p-4">
+    <div className="z-50 m-4 flex h-12 w-12 flex-col items-center justify-center overflow-visible p-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="z-50 flex flex-col space-y-2"
@@ -141,19 +145,31 @@ const HamburgerMenu = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed left-0 top-0 z-40 flex h-screen w-screen flex-col items-center justify-start bg-black/50 p-8 backdrop-blur-lg"
+            className="fixed left-0 top-0 z-40 flex h-screen w-screen flex-col items-center justify-start overflow-auto bg-black/50 p-8 backdrop-blur-lg"
             variants={menuVariants}
             initial="initial"
             animate="animate"
             exit="exit"
             style={{ originX: 1, originY: 0 }}
           >
-            <motion.img
-              src="/logo_footer.svg"
-              alt="Logo"
-              className="mb-4 mt-8 h-[80px] w-[150px] lg:w-[200px]"
+            <motion.div
               variants={itemVariants}
-            />
+              className="mb-4 mt-8 flex items-center"
+            >
+              <motion.img
+                src={
+                  theme === "light" ? "/logo_only.svg" : "/logo_only_dark.svg"
+                }
+                alt="Logo"
+                className="h-[50px] w-[50px]"
+              />
+              <Link
+                href="/"
+                className={cn("text-xl font-bold uppercase", koulen.className)}
+              >
+                <span className="text-primary">hive</span>minds
+              </Link>
+            </motion.div>
 
             <motion.hr
               className="w-full border-t border-gray-600"
