@@ -33,7 +33,7 @@ export default function Page() {
         lg:px-[8rem]"
       >
         <h1 className="text-3xl font-semibold tracking-wider text-glowblue lg:text-4xl">
-          Achievements
+          Projects
         </h1>
         <div className="mt-6">
           <hr

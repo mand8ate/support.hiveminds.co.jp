@@ -66,44 +66,16 @@ export default function Navigation() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Solution</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <li className="row-span-4">
-                    <NavigationMenuLink asChild>
-                      <Link
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/achievements/case-study"
-                      >
-                        <FolderKanban className="h-6 w-6" />
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          Case Study
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          私たちが過去に取り組んだプロジェクトの成果を、一緒にじっくりと見てみましょう！
-                        </p>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-                  <ListItem href="/solution/it" title="IT">
-                    ウェブサイト・オンラインショップ・プラットフォーム開発。
-                  </ListItem>
-                  <ListItem href="/solution/event" title="Event">
-                    展示会やオンラインイベントをお任せください！
-                  </ListItem>
-                  <ListItem href="/solution/consulting" title="Consulting">
-                    DX化、ワークフロー、効率化に悩んでいる企業様におすすめのサービス。
-                  </ListItem>
-                  <ListItem href="/solution/logistics" title="Logistics">
-                    日本への輸入、海外への輸出ソリューションを提案します！
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
+              <Link href="/service" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Service
+                </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/achievements" legacyBehavior passHref>
+              <Link href="/projects" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Achievements
+                  Projects
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>

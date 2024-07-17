@@ -18,22 +18,12 @@ export default function Footer() {
               <h1 className="text-2xl font-bold xl:text-3xl">Contact Us</h1>
             </div>
           </Link>
-          <div className="flex flex-col items-center justify-center gap-16 sm:flex-row sm:items-start lg:w-1/3 lg:gap-24">
+          <div className="flex flex-col justify-center gap-16 self-center sm:flex-row sm:items-start lg:w-1/3 lg:gap-24">
             {footerNav.map((items, i) => (
-              <div
-                className="flex flex-col items-center sm:items-start"
-                key={i}
-              >
-                <h2 className="mb-2 text-xl font-semibold">{items.title}</h2>
-                <ul>
-                  {items.links.map((link, i) => (
-                    <li key={i}>
-                      <Link className="text-lg" href={link.url}>
-                        {link.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex flex-col sm:items-start" key={i}>
+                <h2 className="text-xl font-semibold">
+                  <Link href={items.link ? items.link : ""}>{items.title}</Link>
+                </h2>
               </div>
             ))}
           </div>
