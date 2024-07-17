@@ -32,7 +32,7 @@ export default function Page() {
         className="container px-[2rem] sm:px-[4rem] md:px-[6rem]
         lg:px-[8rem]"
       >
-        <h1 className="text-center text-3xl font-semibold tracking-wider text-glowgreen lg:text-4xl">
+        <h1 className="text-3xl font-semibold tracking-wider text-glowgreen lg:text-4xl">
           Service
         </h1>
         <div className="mt-6">

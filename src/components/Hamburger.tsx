@@ -69,38 +69,6 @@ const lineVariants = {
   },
 };
 
-const navigationItems = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "Solution",
-    subsections: [
-      { label: "IT Solutions", href: "/solution/it" },
-      { label: "Event Planning", href: "/solution/event" },
-      { label: "Consulting Services", href: "/solution/consulting" },
-      { label: "Logistics", href: "/solution/logistics" },
-    ],
-  },
-  {
-    label: "Company",
-    subsections: [
-      { label: "About Us", href: "/company/about" },
-      { label: "Our Team", href: "/company/team" },
-      { label: "Careers", href: "/company/careers" },
-    ],
-  },
-  {
-    label: "Achievements",
-    href: "/achievements",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-  },
-];
-
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { setTheme, theme } = useTheme();
@@ -182,41 +150,43 @@ const HamburgerMenu = () => {
             >
               <Link href="/">Home</Link>
             </motion.div>
-            <motion.div variants={itemVariants}>
-              <h1 className="-ml-16 text-lg underline">Solution</h1>
-              <motion.div variants={itemVariants} className="text-xl sm:mb-2">
-                <Link href="/solution/it">IT</Link>
-              </motion.div>
-              <motion.div variants={itemVariants} className="text-xl sm:mb-2">
-                <Link href="/solution/event">Event</Link>
-              </motion.div>
-              <motion.div variants={itemVariants} className="text-xl sm:mb-2">
-                <Link href="/solution/consulting">Consulting</Link>
-              </motion.div>
-              <motion.div variants={itemVariants} className="text-xl sm:mb-2">
-                <Link href="/solution/logistics">Logistics</Link>
-              </motion.div>
-            </motion.div>
+
             <motion.div
               className="my-2 text-xl sm:my-4"
               variants={itemVariants}
             >
-              <Link href="/achievements">Achievements</Link>
+              <Link href="/service">Service</Link>
+            </motion.div>
+
+            <motion.div
+              className="my-2 text-xl sm:my-4"
+              variants={itemVariants}
+            >
+              <Link href="/projects">Projects</Link>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <h1 className="-ml-16 text-lg underline">Company</h1>
-              <motion.div variants={itemVariants} className="text-xl sm:mb-2">
-                <Link href="/company/team">Team</Link>
+              <h1 className="mt-2 text-xl sm:mb-2 sm:mt-4">Company</h1>
+              <motion.div
+                variants={itemVariants}
+                className="text-md text-center sm:mb-2"
+              >
+                <Link href="/company/team">-Team-</Link>
               </motion.div>
-              <motion.div variants={itemVariants} className="text-xl sm:mb-2">
-                <Link href="/company/vmv">VMV</Link>
+              <motion.div
+                variants={itemVariants}
+                className="text-md text-center sm:mb-2"
+              >
+                <Link href="/company/vmv">-VMV-</Link>
               </motion.div>
-              <motion.div variants={itemVariants} className="text-xl sm:mb-2">
-                <Link href="/company">Company</Link>
+              <motion.div
+                variants={itemVariants}
+                className="text-md mb-2 text-center sm:mb-4"
+              >
+                <Link href="/company">-Company-</Link>
               </motion.div>
             </motion.div>
             <motion.div
-              className="my-2 text-xl sm:my-4"
+              className="my-4 text-xl sm:my-4"
               variants={itemVariants}
             >
               <Link href="/contact">Contact</Link>
