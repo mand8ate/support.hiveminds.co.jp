@@ -38,13 +38,15 @@ export default function Navigation() {
   return (
     <nav className="fixed left-0 top-0 z-20 flex h-[55px] w-full items-center bg-background">
       <div className="ml-2 mr-10 flex items-center gap-2">
-        <div className="relative my-1 h-[40px] w-[40px]">
-          <Image
-            src={theme === "light" ? "/logo_only.svg" : "/logo_only_dark.svg"}
-            fill
-            alt="hiveminds_logo"
-          />
-        </div>
+        <Link href="/">
+          <div className="relative my-1 h-[40px] w-[40px]">
+            <Image
+              src={theme === "light" ? "/logo_only.svg" : "/logo_only_dark.svg"}
+              fill
+              alt="hiveminds_logo"
+            />
+          </div>
+        </Link>
         <Link
           href="/"
           className={cn(
