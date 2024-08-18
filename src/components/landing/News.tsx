@@ -9,7 +9,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import queryString from "query-string";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
-import { SVGImages } from "../SVGImages";
+import { SVGImages } from "@/components/SVGImages";
+import { Suspense } from "react";
 
 const newsCategories = [
   {
@@ -62,7 +63,7 @@ const newsItems = [
   },
 ];
 
-export default function News() {
+function NewsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -203,5 +204,13 @@ export default function News() {
         </motion.div>
       </div>
     </div>
+  );
+}
+
+export default function News() {
+  return (
+    <Suspense>
+      <NewsContent />
+    </Suspense>
   );
 }
