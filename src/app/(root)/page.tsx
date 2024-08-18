@@ -9,21 +9,28 @@ import { motion } from "framer-motion";
 import { SVGImages } from "@/components/SVGImages";
 import { useTheme } from "next-themes";
 
-import Services from "@/components/landing/Services";
-import ServicesInterlude from "@/components/landing/ServicesInterlude";
-import Company from "@/components/landing/Company";
-import AchievementsInterlude from "@/components/landing/AchievementsInterlude";
-import Achievements from "@/components/landing/Achievements";
-import CompanyInterlude from "@/components/landing/CompanyInterlude";
+import Services from "@/components/landing/old/Services";
+import ServicesInterlude from "@/components/landing/old/ServicesInterlude";
+import Company from "@/components/landing/old/Company";
+import AchievementsInterlude from "@/components/landing/old/AchievementsInterlude";
+import Achievements from "@/components/landing/old/Achievements";
+import CompanyInterlude from "@/components/landing/old/CompanyInterlude";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import News from "@/components/landing/News";
+import BrandSupport from "@/components/landing/BrandSupport";
+import Service from "@/components/landing/Service";
+import Contact from "@/components/landing/Contact";
 
 export default function Page() {
   const { setTheme, theme } = useTheme();
 
   return (
-    <>
-      <div className="height-for-vertical relative h-[70vh] w-full md:h-[60vh] lg:h-[80vh] xl:h-[90vh]">
-        <div className="hero_clippath-md lg:hero_clippath height-for-vertical relative z-10 h-[70vh] w-full md:h-[60vh] lg:h-[80vh] xl:h-[90vh]">
-          <div className="md:pt-30 container pt-14 sm:pt-20 lg:pt-40">
+    <div className="h-screen snap-y snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
+      <Navigation />
+      <div className="relative h-screen w-full snap-start">
+        <div className="hero_clippath relative z-10 h-[90vh] w-full">
+          <div className="md:pt-30 container pt-28 lg:pt-40">
             <h1
               className={cn(
                 "text-4xl font-bold text-white md:text-6xl lg:text-8xl",
@@ -64,17 +71,17 @@ export default function Page() {
         <motion.div
           animate={{ rotate: [0, 180, 360] }}
           transition={{ duration: 200, ease: "linear", repeat: Infinity }}
-          className="absolute bottom-0 right-0 h-[150px] w-[150px] md:h-[300px] md:w-[300px] lg:h-[500px] lg:w-[500px]"
+          className="absolute bottom-20 right-0 h-[200px] w-[200px] md:bottom-32 md:right-20 md:h-[300px] md:w-[300px]"
         >
-          <SVGImages.polygon color={theme} />
+          <SVGImages.polygon color="dark" />
         </motion.div>
       </div>
-      <ServicesInterlude />
-      <Services />
-      <AchievementsInterlude />
-      <Achievements />
-      <CompanyInterlude />
-      <Company />
-    </>
+      <BrandSupport />
+      <Service />
+      <News />
+      <Contact />
+
+      <Footer root />
+    </div>
   );
 }

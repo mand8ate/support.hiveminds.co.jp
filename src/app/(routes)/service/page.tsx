@@ -85,8 +85,9 @@ export default function Page() {
 
             <div className="flex w-full items-center md:w-1/2">
               <div>
-                <p className="mb-4 text-center text-lg font-semibold sm:text-xl md:text-2xl lg:text-3xl">
-                  お客様の「やりたいこと」に合わせた 最適なシステムの開発を。
+                <p className="mb-4 break-keep text-center text-lg font-semibold sm:text-xl md:text-2xl lg:text-3xl">
+                  お客様の「やりたいこと」に合わせた<br></br>
+                  最適なシステムの開発を。
                 </p>
                 <p className="text-md mb-4 font-semibold sm:text-lg md:text-xl lg:text-2xl">
                   システム開発は必要なシステムを構築して終わりではなく、構築から導入後の業務改善を実現するまでがゴールとなります。
@@ -167,12 +168,17 @@ export default function Page() {
             <div className="relative w-full md:w-1/2">
               <div className="relative pb-[56.25%]">
                 <Image
-                  src="/service/service-1.jpg"
+                  src="/service/service-4.jpg"
                   fill
                   className="object-contain"
-                  alt="service image 1"
+                  alt="service image 4"
                 />
               </div>
+              <p className="px-8 text-center text-xs">
+                Dior - Travel Retail Asia Pasific - BEAUTY CONSULTANT SEMINAR
+                <br />
+                @Grand Hyatt Tokyo & Hilton Roppongi, Tokyo, Japan
+              </p>
             </div>
           </div>
 
@@ -180,35 +186,47 @@ export default function Page() {
             <div className="w-full flex-1">
               <div className="relative pb-[56.25%]">
                 <Image
-                  src="/service/service-2.jpg"
+                  src="/service/service-5.jpg"
                   fill
                   className="object-contain"
-                  alt="service image 2"
+                  alt="service image 5"
                 />
               </div>
-              <p className="text-center">Webシステム</p>
+              <p className="text-center text-xs">
+                JAXA (Japan Aerospace Exploration Agency) - IAC (International
+                Astronautical Congress) <br />
+                @Walter E. Washington Convention Center, Washington D.C., United
+                States of America
+              </p>
             </div>
             <div className="w-full flex-1">
               <div className="relative pb-[56.25%]">
                 <Image
-                  src="/service/service-3.jpg"
+                  src="/service/service-6.jpg"
                   fill
                   className="object-contain"
-                  alt="service image 3"
+                  alt="service image 6"
                 />
               </div>
-              <p className="text-center">Webシステム</p>
+              <p className="text-center text-xs">
+                JOGMEC - IPTC (International Petroleum Technology Conference)
+                <br />
+                @Beijing International Convention Center, Beijing, China
+              </p>
             </div>
             <div className="w-full flex-1">
               <div className="relative pb-[56.25%]">
                 <Image
-                  src="/service/service-3.jpg"
+                  src="/service/service-7.jpg"
                   fill
                   className="object-contain"
-                  alt="service image 3"
+                  alt="service image 7"
                 />
               </div>
-              <p className="text-center">Webシステム</p>
+              <p className="text-center text-xs">
+                IHI Corporation - POWER-GEN Asia <br />
+                @ICE, BSD City, Jakarta, Indonesia
+              </p>
             </div>
           </div>
 
@@ -216,7 +234,7 @@ export default function Page() {
             href="/projects"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
-              "w-fit self-center bg-foreground text-lg text-background",
+              "w-fit self-center bg-foreground text-lg text-background hover:bg-foreground/90 hover:text-background",
             )}
           >
             Projects｜実績
@@ -245,10 +263,10 @@ export default function Page() {
             <div className="relative w-full md:w-1/2">
               <div className="relative pb-[56.25%]">
                 <Image
-                  src="/service/service-5.jpg"
+                  src="/service/service-8.jpg"
                   fill
                   className="object-contain"
-                  alt="service image 5"
+                  alt="service image 8"
                 />
               </div>
             </div>
@@ -271,10 +289,10 @@ export default function Page() {
             <div className="w-full flex-1">
               <div className="relative pb-[56.25%]">
                 <Image
-                  src="/service/service-6.jpg"
+                  src="/service/service-9.jpg"
                   fill
                   className="object-contain"
-                  alt="service image 6"
+                  alt="service image 9"
                 />
               </div>
               <p className="text-center">人材採用</p>
@@ -282,10 +300,10 @@ export default function Page() {
             <div className="w-full flex-1">
               <div className="relative pb-[56.25%]">
                 <Image
-                  src="/service/service-7.jpg"
+                  src="/service/service-10.jpg"
                   fill
                   className="object-contain"
-                  alt="service image 7"
+                  alt="service image 10"
                 />
               </div>
               <p className="text-center">ブランディング・WEBマーケティング</p>

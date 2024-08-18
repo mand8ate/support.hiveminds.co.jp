@@ -2,10 +2,10 @@ import { Koulen } from "next/font/google";
 
 const koulen = Koulen({ subsets: ["latin"], weight: ["400"] });
 
-import { SVGImages } from "../SVGImages";
+import { SVGImages } from "../../SVGImages";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Badge } from "../ui/badge";
+import { Badge } from "../../ui/badge";
 import { useGradientEffect } from "@/lib/useGradientEffect";
 
 export default function Company() {

@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SVGImages } from "../SVGImages";
-import { Badge } from "../ui/badge";
+import { SVGImages } from "../../SVGImages";
+import { Badge } from "../../ui/badge";
 import { CalendarRange, MonitorSmartphone, Ship, Speech } from "lucide-react";
-import DrawOutlineButton from "../OutlineButton";
+import DrawOutlineButton from "../../OutlineButton";
 import { useGradientEffect } from "@/lib/useGradientEffect";
 import {
   Card,
@@ -13,7 +13,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "../ui/card";
+} from "../../ui/card";
 
 import Link from "next/link";
 

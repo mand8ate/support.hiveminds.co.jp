@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { SVGImages } from "../SVGImages";
-import { Badge } from "../ui/badge";
+import { SVGImages } from "../../SVGImages";
+import { Badge } from "../../ui/badge";
 import { useGradientEffect } from "@/lib/useGradientEffect";
 import {
   Dialog,
@@ -16,7 +16,7 @@ import {
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "../../ui/button";
 
 const achievements1 = [
   {

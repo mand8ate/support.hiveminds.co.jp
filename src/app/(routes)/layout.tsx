@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "Your dream, Your reality! 私たちは、魅力的なランディングページから包括的な電子商取引プラットフォーム、革新的なモバイルアプリに至るまで、理想的なブランド作りを専門としています。私たちのコンサルティングは、デジタルエクスペリエンスの全ての面に及びます。ブランドをレベルアップしませんか？お問い合わせフォーム、ライン、またはどのプラットフォームからでもご連絡ください。一緒にこのワクワクする旅を始めましょう！",
 };
 
-export default function RootLayout({
+export default function RoutesLayout({
   children,
 }: {
   children: React.ReactNode;

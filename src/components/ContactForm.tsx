@@ -74,24 +74,29 @@ export default function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-2 sm:space-y-6"
+      >
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-xl font-semibold">氏名</FormLabel>
+              <FormLabel className="text-xs font-semibold sm:text-base">
+                氏名
+              </FormLabel>
               <FormControl>
                 <Input
-                  className="py-6 text-lg"
+                  className="py-2 text-xs sm:py-4 sm:text-base"
                   placeholder="山田太郎"
                   {...field}
                 />
               </FormControl>
-              <FormDescription className="text-md">
+              <FormDescription className="text-xs">
                 お名前をフルネームで入力してください
               </FormDescription>
-              <FormMessage className="text-md" />
+              <FormMessage className="hidden text-xs sm:flex" />
             </FormItem>
           )}
         />
@@ -100,20 +105,20 @@ export default function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-xl font-semibold">
+              <FormLabel className="text-xs font-semibold sm:text-base">
                 メールアドレス
               </FormLabel>
               <FormControl>
                 <Input
-                  className="py-6 text-lg"
+                  className="py-2 text-xs sm:py-4 sm:text-base"
                   placeholder="taro@hiveminds.co.jp"
                   {...field}
                 />
               </FormControl>
-              <FormDescription className="text-md">
+              <FormDescription className="text-xs">
                 返信して欲しいメールアドレスを入力してください
               </FormDescription>
-              <FormMessage className="text-md" />
+              <FormMessage className="hidden text-xs sm:flex" />
             </FormItem>
           )}
         />
@@ -122,18 +127,20 @@ export default function ContactForm() {
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-xl font-semibold">件名</FormLabel>
+              <FormLabel className="xs:text-base text-xs font-semibold">
+                件名
+              </FormLabel>
               <FormControl>
                 <Input
-                  className="py-6 text-lg"
+                  className="py-2 text-xs sm:py-4 sm:text-base"
                   placeholder="相談希望"
                   {...field}
                 />
               </FormControl>
-              <FormDescription className="text-md">
+              <FormDescription className="text-xs">
                 問い合わせの理由を入力してください
               </FormDescription>
-              <FormMessage className="text-md" />
+              <FormMessage className="hidden text-xs sm:flex" />
             </FormItem>
           )}
         />
@@ -142,28 +149,28 @@ export default function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-xl font-semibold">
+              <FormLabel className="text-xs font-semibold sm:text-base">
                 メッセージ
               </FormLabel>
               <FormControl>
                 <Textarea
-                  className="py-6 text-lg"
+                  className="py-2 text-xs sm:py-4 sm:text-base"
                   placeholder="ホームページを改善したいので、相談させてください"
-                  rows={6 as number}
+                  rows={4 as number}
                   {...field}
                 />
               </FormControl>
-              <FormDescription className="text-md">
+              <FormDescription className="text-xs">
                 問い合わせの内容を入力してください
               </FormDescription>
-              <FormMessage className="text-md" />
+              <FormMessage className="hidden text-xs sm:flex" />
             </FormItem>
           )}
         />
         <Button
           disabled={loading}
           type="submit"
-          className="w-full py-6 text-xl font-semibold"
+          className="w-full py-2 text-base font-semibold sm:py-4 sm:text-lg"
         >
           送信
         </Button>

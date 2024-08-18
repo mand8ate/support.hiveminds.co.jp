@@ -3,10 +3,11 @@ import { Mails } from "lucide-react";
 import { footerNav } from "@/constants";
 
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
-export default function Footer() {
+export default function Footer({ root }: { root?: boolean }) {
   return (
-    <footer className="h-fit w-full">
+    <footer className={cn("h-fit w-full", root ? "snap-end" : "")}>
       <div className="flex h-full bg-foreground/30 backdrop-blur-xl">
         <div className="flex w-full flex-col py-16 lg:flex-row lg:py-24">
           <Link

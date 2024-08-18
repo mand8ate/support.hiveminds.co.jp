@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import Company from "@/components/landing/Company";
+import Company from "@/components/landing/old/Company";
 
 const pictureArray = [
   {

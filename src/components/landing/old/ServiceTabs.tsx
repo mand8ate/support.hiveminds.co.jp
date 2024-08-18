@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../../ui/tabs";
 import {
   Card,
   CardHeader,
@@ -7,9 +7,9 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "../ui/card";
+} from "../../ui/card";
 import { CalendarRange, MonitorSmartphone, Ship, Speech } from "lucide-react";
-import DrawOutlineButton from "../OutlineButton";
+import DrawOutlineButton from "../../OutlineButton";
 
 import Link from "next/link";
 

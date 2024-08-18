@@ -1,3 +1,7 @@
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import React from "react";
+
 interface Props {
   polygon: {
     color?: string;
@@ -13,14 +17,156 @@ interface Props {
     color: string;
     image?: string;
   };
+  arrow: {
+    visible: boolean;
+  };
 }
 
 export const SVGImages = {
+  triangle: () => {
+    const controls = useAnimation();
+    const { ref, inView } = useInView({
+      triggerOnce: false,
+      threshold: 0.5,
+      onChange: (inView) => {
+        if (inView) {
+          controls.start("visible");
+        } else {
+          controls.start("hidden");
+        }
+      },
+    });
+
+    return (
+      <motion.svg
+        ref={ref}
+        viewBox="0 0 596 522"
+        fill="none"
+        initial="hidden"
+        animate={controls}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <motion.g
+          initial={{ opacity: 0, y: -50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            delay: 0.2,
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+          }}
+        >
+          <path
+            d="M277.646 11.5C286.498 -3.83334 308.63 -3.83333 317.483 11.5L459.255 257.056L386.254 290.441C370.863 256.841 336.939 233.5 297.564 233.5C258.491 233.5 224.786 256.485 209.232 289.671L135.499 257.706L277.646 11.5Z"
+            fill="#FE9607"
+          />
+          <text
+            x="297"
+            y="150"
+            fill="black"
+            fontSize="24"
+            fontWeight="bold"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
+            <tspan x="297">Digital</tspan>
+            <tspan x="297" dy="30">
+              Solution
+            </tspan>
+          </text>
+        </motion.g>
+        <motion.g
+          initial={{ opacity: 0, y: 50, x: -50 }}
+          animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
+          transition={{
+            delay: 0.2,
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+          }}
+        >
+          <path
+            d="M203.388 305.666L126.943 272.525L3.11573 487C-5.73697 502.333 5.3289 521.5 23.0343 521.5H290.564V428.253C239.984 424.664 200.064 382.494 200.064 331C200.064 322.237 201.22 313.745 203.388 305.666Z"
+            fill="#FFBB00"
+          />
+          <text
+            x="150"
+            y="450"
+            fill="black"
+            fontSize="24"
+            fontWeight="bold"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
+            Consulting
+          </text>
+        </motion.g>
+        <motion.g
+          initial={{ opacity: 0, y: 50, x: 50 }}
+          animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
+          transition={{
+            delay: 0.2,
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+          }}
+        >
+          <path
+            d="M307.564 427.993V521.5H572.094C589.8 521.5 600.866 502.333 592.013 487L467.793 271.845L391.966 306.522C393.989 314.344 395.064 322.546 395.064 331C395.064 381.472 356.714 422.986 307.564 427.993Z"
+            fill="#FE6E07"
+          />
+          <text
+            x="460"
+            y="450"
+            fill="black"
+            fontSize="24"
+            fontWeight="bold"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
+            <tspan x="460">Events</tspan>
+          </text>
+        </motion.g>
+
+        <motion.g
+          initial={{ opacity: 0, scale: 0.3 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{
+            delay: 0.1,
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+          }}
+        >
+          <path
+            d="M381 331C381 376.84 343.84 414 298 414C252.16 414 215 376.84 215 331C215 285.16 252.16 248 298 248C343.84 248 381 285.16 381 331Z"
+            fill="white"
+          />
+          <text
+            x="298"
+            y="320"
+            fill="black"
+            fontSize="24"
+            fontWeight="bold"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
+            <tspan x="298">Brand</tspan>
+            <tspan x="298" dy="30">
+              Support
+            </tspan>
+          </text>
+        </motion.g>
+      </motion.svg>
+    );
+  },
   polygon: (props: Props["polygon"]) => {
     const color =
       props?.color === "light"
         ? "rgba(162, 89, 255, 0.5)"
-        : "rgba(162, 89, 255, 0.2)";
+        : props?.color === "dark"
+          ? "rgba(162, 89, 255, 0.2)"
+          : `rgba(${props?.color})`;
 
     return (
       <svg viewBox="0 0 722 747" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -445,6 +591,21 @@ export const SVGImages = {
           stroke={useColor}
           strokeWidth="10"
         />
+      </svg>
+    );
+  },
+  arrow: (props: Props["arrow"]) => {
+    const visible = props.visible;
+
+    return (
+      <svg
+        width="17"
+        height="14"
+        viewBox="0 0 17 14"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ opacity: visible ? 1 : 0 }}
+      >
+        <path d="M17 7L0.5 13.9282L0.5 0.0717969L17 7Z" fill="#0ACF83" />
       </svg>
     );
   },

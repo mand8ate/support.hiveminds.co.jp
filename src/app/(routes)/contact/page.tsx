@@ -42,7 +42,7 @@ export default function Page() {
         </div>
       </motion.div>
       <div
-        className="container mb-48  mt-40 flex flex-col gap-36 px-[3rem] sm:px-[5rem] md:px-[7rem] lg:px-[9rem] xl:mt-64
+        className="container mb-48  mt-20 flex flex-col gap-36 px-[3rem] sm:px-[5rem] md:px-[7rem] lg:px-[9rem] xl:mt-24
         xl:w-1/2"
       >
         <ContactForm />
