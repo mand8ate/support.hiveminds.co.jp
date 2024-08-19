@@ -85,8 +85,8 @@ function NewsContent() {
     : newsItems;
 
   return (
-    <div className="container relative flex h-screen w-full snap-end pt-20 sm:pt-32">
-      <div className="flex w-full flex-col">
+    <div className="container relative flex h-screen w-full snap-end pt-[60px]">
+      <div className="flex w-full flex-col justify-evenly gap-2">
         <div className="w-1/2 md:w-1/3">
           <Separator className="mb-2 h-[3px] w-1/4 bg-primary" />
           <motion.h1
@@ -106,7 +106,7 @@ function NewsContent() {
           style={{ transformOrigin: "bottom" }}
           transition={{ duration: 0.5 }}
         >
-          <div className="mt-8 flex flex-wrap justify-center gap-2 sm:mt-12">
+          <div className="flex flex-wrap justify-center gap-2">
             <Button
               onClick={() => onClick(undefined)}
               className="text-xs sm:text-base"

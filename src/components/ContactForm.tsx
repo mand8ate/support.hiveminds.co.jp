@@ -76,7 +76,7 @@ export default function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-2 sm:space-y-6"
+        className="space-y-2 sm:space-y-4"
       >
         <FormField
           control={form.control}
@@ -96,7 +96,6 @@ export default function ContactForm() {
               <FormDescription className="text-xs">
                 お名前をフルネームで入力してください
               </FormDescription>
-              <FormMessage className="hidden text-xs sm:flex" />
             </FormItem>
           )}
         />
@@ -118,7 +117,6 @@ export default function ContactForm() {
               <FormDescription className="text-xs">
                 返信して欲しいメールアドレスを入力してください
               </FormDescription>
-              <FormMessage className="hidden text-xs sm:flex" />
             </FormItem>
           )}
         />
@@ -140,7 +138,6 @@ export default function ContactForm() {
               <FormDescription className="text-xs">
                 問い合わせの理由を入力してください
               </FormDescription>
-              <FormMessage className="hidden text-xs sm:flex" />
             </FormItem>
           )}
         />
@@ -163,7 +160,6 @@ export default function ContactForm() {
               <FormDescription className="text-xs">
                 問い合わせの内容を入力してください
               </FormDescription>
-              <FormMessage className="hidden text-xs sm:flex" />
             </FormItem>
           )}
         />

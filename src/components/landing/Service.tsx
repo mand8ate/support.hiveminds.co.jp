@@ -66,7 +66,7 @@ export default function Service() {
           <CarouselContent>
             {/* Item 1 */}
             <CarouselItem className="flex w-full">
-              <div className="relative h-screen w-full pt-32 text-center text-base md:text-xl xl:w-1/2 xl:text-2xl 2xl:text-4xl">
+              <div className="relative flex h-screen w-full flex-col justify-evenly gap-2 pt-[60px] text-center text-base md:text-xl xl:w-1/2 xl:text-2xl 2xl:text-4xl">
                 <div className="ml-auto flex w-2/3 flex-col">
                   <Separator className="mb-2 mr-auto h-[3px] w-1/3 bg-primary" />
                   <motion.h1
@@ -81,7 +81,7 @@ export default function Service() {
                   </motion.h1>
                   <Separator className="ml-auto mt-2 h-[3px] w-1/3 bg-primary" />
                 </div>
-                <div className="mt-20 flex h-full justify-center text-glowgreen md:mt-32 lg:mt-40 xl:mt-0 xl:items-center">
+                <div className="flex justify-center text-glowgreen">
                   <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -111,7 +111,7 @@ export default function Service() {
                     </motion.h1>
                   </motion.div>
                 </div>
-                <div className="absolute bottom-0 left-0 flex items-end justify-end p-8 text-white">
+                <div className="absolute bottom-0 left-0 hidden items-end justify-end p-8 text-white sm:flex">
                   <motion.ul
                     initial={{ opacity: 0, y: "100px" }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -151,7 +151,7 @@ export default function Service() {
                     </li>
                   </motion.ul>
                 </div>
-                <div className="absolute bottom-10 right-28 h-[150px] w-[150px] md:h-[200px] md:w-[200px] lg:h-[300px] lg:w-[300px] xl:-bottom-16 xl:-right-20 xl:h-[500px] xl:w-[500px]">
+                <div className="absolute -bottom-12 right-10 h-[150px] w-[150px] md:h-[200px] md:w-[200px] lg:h-[300px] lg:w-[300px] xl:-bottom-16 xl:-right-20 xl:h-[500px] xl:w-[500px]">
                   <motion.div
                     animate={{ rotate: [0, 180, 360] }}
                     transition={{
@@ -163,7 +163,7 @@ export default function Service() {
                   >
                     <SVGImages.polygon color={"209, 209, 209, .2"} />
                   </motion.div>
-                  <div className="absolute bottom-36 left-1/2 z-20 flex -translate-x-1/2 transform gap-16 text-center">
+                  <div className="absolute bottom-20 left-1/2 z-20 flex -translate-x-1/2 transform gap-16 text-center sm:bottom-36">
                     <button
                       className="flex items-center justify-center text-2xl font-normal text-glowgreen"
                       onClick={() => prevSlide()}
@@ -190,7 +190,7 @@ export default function Service() {
             </CarouselItem>
             {/* Item 2 */}
             <CarouselItem className="flex w-full">
-              <div className="relative h-screen w-full pt-32 text-center text-base md:text-xl xl:w-1/2 xl:text-2xl 2xl:text-4xl">
+              <div className="relative flex h-screen w-full flex-col justify-evenly gap-2 pt-[60px] text-center text-base md:text-xl xl:w-1/2 xl:text-2xl 2xl:text-4xl">
                 <div className="ml-auto flex w-2/3 flex-col">
                   <Separator className="mb-2 mr-auto h-[3px] w-1/3 bg-primary" />
                   <motion.h1
@@ -205,7 +205,7 @@ export default function Service() {
                   </motion.h1>
                   <Separator className="ml-auto mt-2 h-[3px] w-1/3 bg-primary" />
                 </div>
-                <div className="mt-20 flex h-full justify-center text-glowgreen md:mt-32 lg:mt-40 xl:mt-0 xl:items-center">
+                <div className="flex justify-center text-glowgreen">
                   <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -241,7 +241,7 @@ export default function Service() {
                     </motion.h1>
                   </motion.div>
                 </div>
-                <div className="absolute bottom-0 left-0 flex items-end justify-end p-8 text-white">
+                <div className="absolute bottom-0 left-0 hidden items-end justify-end p-8 text-white sm:flex">
                   <motion.ul
                     initial={{ opacity: 0, y: "100px" }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -281,7 +281,7 @@ export default function Service() {
                     </li>
                   </motion.ul>
                 </div>
-                <div className="absolute bottom-10 right-28 h-[150px] w-[150px] md:h-[200px] md:w-[200px] lg:h-[300px] lg:w-[300px] xl:-bottom-16 xl:-right-20 xl:h-[500px] xl:w-[500px]">
+                <div className="absolute -bottom-12 right-10 h-[150px] w-[150px] md:h-[200px] md:w-[200px] lg:h-[300px] lg:w-[300px] xl:-bottom-16 xl:-right-20 xl:h-[500px] xl:w-[500px]">
                   <motion.div
                     animate={{ rotate: [0, 180, 360] }}
                     transition={{
@@ -293,7 +293,7 @@ export default function Service() {
                   >
                     <SVGImages.polygon color={"209, 209, 209, .2"} />
                   </motion.div>
-                  <div className="absolute bottom-36 left-1/2 z-20 flex -translate-x-1/2 transform gap-16 text-center">
+                  <div className="absolute bottom-20 left-1/2 z-20 flex -translate-x-1/2 transform gap-16 text-center sm:bottom-36">
                     <button
                       className="flex items-center justify-center text-2xl font-normal text-glowgreen"
                       onClick={() => prevSlide()}
@@ -320,7 +320,7 @@ export default function Service() {
             </CarouselItem>
             {/* Item 3  */}
             <CarouselItem className="flex w-full">
-              <div className="relative h-screen w-full pt-32 text-center text-base md:text-xl xl:w-1/2 xl:text-2xl 2xl:text-4xl">
+              <div className="relative flex h-screen w-full flex-col justify-evenly gap-2 pt-[60px] text-center text-base md:text-xl xl:w-1/2 xl:text-2xl 2xl:text-4xl">
                 <div className="ml-auto flex w-2/3 flex-col">
                   <Separator className="mb-2 mr-auto h-[3px] w-1/3 bg-primary" />
                   <motion.h1
@@ -334,7 +334,7 @@ export default function Service() {
                   </motion.h1>
                   <Separator className="ml-auto mt-2 h-[3px] w-1/3 bg-primary" />
                 </div>
-                <div className="mt-20 flex h-full justify-center text-glowgreen md:mt-32 lg:mt-40 xl:mt-0 xl:items-center">
+                <div className="flex justify-center text-glowgreen">
                   <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -367,7 +367,7 @@ export default function Service() {
                     </motion.h1>
                   </motion.div>
                 </div>
-                <div className="absolute bottom-0 left-0 flex items-end justify-end p-8 text-white">
+                <div className="absolute bottom-0 left-0 hidden items-end justify-end p-8 text-white sm:flex">
                   <motion.ul
                     initial={{ opacity: 0, y: "100px" }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -407,7 +407,7 @@ export default function Service() {
                     </li>
                   </motion.ul>
                 </div>
-                <div className="absolute bottom-10 right-28 h-[150px] w-[150px] md:h-[200px] md:w-[200px] lg:h-[300px] lg:w-[300px] xl:-bottom-16 xl:-right-20 xl:h-[500px] xl:w-[500px]">
+                <div className="absolute -bottom-12 right-10 h-[150px] w-[150px] md:h-[200px] md:w-[200px] lg:h-[300px] lg:w-[300px] xl:-bottom-16 xl:-right-20 xl:h-[500px] xl:w-[500px]">
                   <motion.div
                     animate={{ rotate: [0, 180, 360] }}
                     transition={{
@@ -419,7 +419,7 @@ export default function Service() {
                   >
                     <SVGImages.polygon color={"209, 209, 209, .2"} />
                   </motion.div>
-                  <div className="absolute bottom-36 left-1/2 z-20 flex -translate-x-1/2 transform gap-16 text-center">
+                  <div className="absolute bottom-20 left-1/2 z-20 flex -translate-x-1/2 transform gap-16 text-center sm:bottom-36">
                     <button
                       className="flex items-center justify-center text-2xl font-normal text-glowgreen"
                       onClick={() => prevSlide()}

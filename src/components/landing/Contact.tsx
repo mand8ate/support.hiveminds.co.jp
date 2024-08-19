@@ -8,8 +8,8 @@ import ContactForm from "../ContactForm";
 
 export default function News() {
   return (
-    <div className="relative flex h-screen w-full snap-end px-2 pt-20 sm:container sm:px-0 sm:pt-32">
-      <div className="flex w-full flex-col">
+    <div className="relative flex h-screen w-full snap-end px-2 pt-[60px] sm:container sm:px-0">
+      <div className="flex w-full flex-col items-center justify-evenly lg:items-start">
         <div className="mx-auto w-1/3">
           <Separator className="mb-2 h-[3px] w-1/4 bg-primary" />
           <motion.h1
@@ -23,7 +23,7 @@ export default function News() {
           </motion.h1>
           <Separator className="ml-auto mt-2 h-[3px] w-1/4 bg-primary" />
         </div>
-        <div className="z-10 mt-8 w-full gap-2 sm:mt-12 lg:ml-28 lg:w-1/2">
+        <div className="z-10 w-full gap-2 sm:w-3/4 lg:ml-28 lg:w-2/3">
           <div className="rounded-lg border border-foreground bg-background px-4 py-2 lg:px-12 lg:py-6">
             <ContactForm />
           </div>
