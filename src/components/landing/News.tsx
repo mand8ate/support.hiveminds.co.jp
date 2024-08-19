@@ -86,7 +86,7 @@ function NewsContent() {
 
   return (
     <div className="container relative flex h-screen w-full snap-end pt-[60px]">
-      <div className="flex w-full flex-col justify-evenly gap-2">
+      <div className="flex w-full flex-col justify-evenly">
         <div className="w-1/2 md:w-1/3">
           <Separator className="mb-2 h-[3px] w-1/4 bg-primary" />
           <motion.h1

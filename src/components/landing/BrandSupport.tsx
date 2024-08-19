@@ -48,7 +48,7 @@ export default function BrandSupport() {
           <Separator className="ml-auto mt-4 h-[3px] w-1/4 bg-primary" />
         </div>
         <div className="relative flex w-full justify-center">
-          <div className="h-[300px] w-[300px] md:h-[500px] md:w-[500px]">
+          <div className="h-[250px] w-[250px] sm:h-[300px] sm:w-[300px] md:h-[500px] md:w-[500px]">
             <SVGImages.triangle />
           </div>
           <motion.div
