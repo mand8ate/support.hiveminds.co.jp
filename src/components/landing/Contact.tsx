@@ -8,7 +8,7 @@ import ContactForm from "../ContactForm";
 
 export default function News() {
   return (
-    <div className="relative flex h-screen w-full snap-end px-2 pt-[60px] sm:container sm:px-0">
+    <div className="relative flex h-screen w-full px-2 pt-[60px] sm:container sm:px-0">
       <div className="flex w-full flex-col items-center justify-evenly lg:items-start">
         <div className="mx-auto hidden w-1/3 flex-col sm:flex">
           <Separator className="mb-2 h-[3px] w-1/4 bg-primary" />

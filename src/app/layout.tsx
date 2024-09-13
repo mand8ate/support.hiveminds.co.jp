@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Koulen } from "next/font/google";
+import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import "@/styles/custom.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -28,7 +28,7 @@ export default function RoutesLayout({
         <body className={(cn("antialiased"), inter.className)}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >

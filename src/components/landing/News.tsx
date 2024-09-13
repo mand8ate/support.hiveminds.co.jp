@@ -77,7 +77,7 @@ function NewsContent() {
       { skipNull: true },
     );
 
-    router.push(url);
+    router.push(url, { scroll: false });
   };
 
   const filteredNews = category
@@ -85,7 +85,7 @@ function NewsContent() {
     : newsItems;
 
   return (
-    <div className="container relative flex h-screen w-full snap-end pt-[60px]">
+    <div className="container relative flex h-screen w-full pt-[60px]">
       <div className="flex w-full flex-col justify-evenly">
         <div className="w-1/2 md:w-1/3">
           <Separator className="mb-2 h-[3px] w-1/4 bg-primary" />

@@ -57,7 +57,7 @@ export default function Service() {
   };
 
   return (
-    <div className="relative flex h-screen w-full snap-end">
+    <div className="relative flex h-screen w-full">
       <div className="absolute left-[-30px] top-[30px] z-10 h-[100px] w-[100px] sm:h-[150px] sm:w-[150px] md:h-[200px] md:w-[200px] lg:h-[300px] lg:w-[300px]">
         <SVGPatterns.hivepattern />
       </div>

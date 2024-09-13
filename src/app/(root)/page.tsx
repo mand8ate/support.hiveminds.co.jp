@@ -26,9 +26,8 @@ export default function Page() {
   const { setTheme, theme } = useTheme();
 
   return (
-    <div className="h-screen snap-y snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth">
-      <Navigation />
-      <div className="relative h-screen w-full snap-start">
+    <>
+      <div className="relative h-screen w-full">
         <div className="hero_clippath relative z-10 h-[90vh] w-full">
           <div className="md:pt-30 container pt-28 lg:pt-40">
             <h1
@@ -80,8 +79,6 @@ export default function Page() {
       <Service />
       <News />
       <Contact />
-
-      <Footer root />
-    </div>
+    </>
   );
 }
