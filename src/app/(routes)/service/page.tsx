@@ -61,7 +61,7 @@ export default function Page() {
       </motion.div>
 
       {/* First Section  */}
-      <div className="edged-div my-24 w-full bg-glowgreen lg:my-32 xl:my-64">
+      <div className="edged-div my-24 w-full bg-glowgreen lg:my-32">
         <motion.div
           initial={{ opacity: 0, x: "-100px" }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -240,16 +240,10 @@ export default function Page() {
             Projects｜実績
           </Link>
         </motion.div>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          className="flex flex-wrap justify-center gap-12 lg:gap-24"
-        ></motion.div>
       </div>
 
       {/* Third Section  */}
-      <div className="edged-div my-24 mb-48 w-full bg-glowgreen lg:my-32 xl:my-64">
+      <div className="edged-div my-24 mb-48 w-full bg-glowgreen lg:my-32 xl:mb-64 xl:mt-32">
         <motion.div
           initial={{ opacity: 0, x: "-100px" }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -320,12 +314,6 @@ export default function Page() {
             Projects｜実績
           </Link>
         </motion.div>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          className="flex flex-wrap justify-center gap-12 lg:gap-24"
-        ></motion.div>
       </div>
     </div>
   );
