@@ -28,11 +28,11 @@ export default function BrandSupport() {
   };
 
   return (
-    <div className="container relative flex w-full pt-[60px]">
+    <div className="container relative flex h-screen w-full pt-[60px]">
       <div className="absolute left-[-30px] top-[30px] h-[100px] w-[100px] sm:h-[150px] sm:w-[150px] md:h-[200px] md:w-[200px] lg:h-[300px] lg:w-[300px]">
         <SVGPatterns.hivepattern />
       </div>
-      <div className="flex flex-col items-center justify-evenly gap-2">
+      <div className="flex h-screen flex-col items-center justify-evenly gap-2">
         <div className="w-2/3 lg:w-1/2">
           <Separator className="mb-4 h-[3px] w-1/4 bg-primary" />
           <motion.h1
