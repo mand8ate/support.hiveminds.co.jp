@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import ProgressBar from "@/components/ProgressBar";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default function RoutesLayout({
               <Navigation />
               <ProgressBar>
                 <main className="mt-[55px] overflow-hidden">{children}</main>
+                <Toaster />
               </ProgressBar>
               <Footer />
             </div>

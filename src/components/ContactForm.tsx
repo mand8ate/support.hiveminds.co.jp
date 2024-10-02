@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -35,6 +36,7 @@ const formSchema = z.object({
 export default function ContactForm() {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,27 +49,36 @@ export default function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setLoading(true);
     try {
-      setLoading(true);
-      const response = await fetch("email.php", {
+      const response = await fetch("/api/send", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams(values),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
       });
 
-      const result = await response.json();
-
-      if (result.success) {
-        router.push("/contact/success");
-        setLoading(false);
-      } else {
-        console.log(result.message);
-        setLoading(false);
+      if (!response.ok) {
+        toast({
+          title: "メッセージ送信が失敗しました。",
+          description: "メールの送信に失��しました。もう一度お��し下さい。",
+          variant: "destructive",
+        });
+        throw new Error("Failed to send email");
       }
+
+      const data = await response.json();
+
+      toast({
+        title: "メッセージを送信しました。",
+        description:
+          "お問い合わせありがとうございました。ご返信まではしばらくお待ちください。",
+      });
+      form.reset();
+      router.push("/");
     } catch (error) {
       console.error("Error submitting form:", error);
+      setLoading(false);
+    } finally {
       setLoading(false);
     }
   }
