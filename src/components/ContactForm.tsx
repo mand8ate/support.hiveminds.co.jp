@@ -60,7 +60,7 @@ export default function ContactForm() {
       if (!response.ok) {
         toast({
           title: "メッセージ送信が失敗しました。",
-          description: "メールの送信に失��しました。もう一度お��し下さい。",
+          description: "メールの送信に失敗しました。もう一度送信してください。",
           variant: "destructive",
         });
         throw new Error("Failed to send email");
