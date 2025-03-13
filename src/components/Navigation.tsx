@@ -13,21 +13,12 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { FolderKanban, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-
-import { Button } from "./ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 import Image from "next/image";
 import Link from "next/link";
 
-import { navigationItems } from "@/constants";
+import { navigationItems, navigationItemsService } from "@/constants";
 import HamburgerMenu from "./Hamburger";
 
 const koulen = Koulen({ subsets: ["latin"], weight: ["400"] });
@@ -68,11 +59,20 @@ export default function Navigation() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/service" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Service
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuTrigger>Service</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[250px] gap-3 p-4 md:w-[350px] md:grid-cols-2 lg:w-[450px] ">
+                  {navigationItemsService.map((navigationItems) => (
+                    <ListItem
+                      key={navigationItems.title}
+                      title={navigationItems.title}
+                      href={navigationItems.href}
+                    >
+                      {navigationItems.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/projects" legacyBehavior passHref>

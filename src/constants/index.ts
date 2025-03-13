@@ -18,17 +18,30 @@ export const navigationItems: NavigationItemsProps[] = [
   },
 ];
 
+export const navigationItemsService: NavigationItemsProps[] = [
+  {
+    title: "Branding",
+    href: "/service",
+    description: "多角的なブランド支援",
+  },
+  {
+    title: "Global",
+    href: "https://global.hiveminds.co.jp",
+    description: "事業の国際化を支援",
+  },
+];
+
 export const footerNav = [
   {
     title: "Service",
-    link: "/service"
+    link: "/service",
   },
   {
     title: "Projects",
-    link: "/projects"
+    link: "/projects",
   },
   {
     title: "Company",
-    link: "/company"
-  }
+    link: "/company",
+  },
 ];
