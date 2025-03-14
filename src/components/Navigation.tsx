@@ -59,45 +59,6 @@ export default function Navigation() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Service</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[250px] gap-3 p-4 md:w-[350px] md:grid-cols-2 lg:w-[450px] ">
-                  {navigationItemsService.map((navigationItems) => (
-                    <ListItem
-                      key={navigationItems.title}
-                      title={navigationItems.title}
-                      href={navigationItems.href}
-                    >
-                      {navigationItems.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/projects" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Projects
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Company</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
-                  {navigationItems.map((navigationItems) => (
-                    <ListItem
-                      key={navigationItems.title}
-                      title={navigationItems.title}
-                      href={navigationItems.href}
-                    >
-                      {navigationItems.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
               <Link href="/contact" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Contact
