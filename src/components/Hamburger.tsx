@@ -107,7 +107,7 @@ const HamburgerMenu = () => {
           className="block h-0.5 w-8 rounded-xl bg-foreground"
           variants={lineVariants}
           animate={isOpen ? "openBottom" : "closed"}
-          style={{ originY: "100%" }} // Anchor rotation to the bottom of the span
+          style={{ originY: "100%" }}
         />
       </button>
       <AnimatePresence>
@@ -155,41 +155,27 @@ const HamburgerMenu = () => {
               className="my-2 text-xl sm:my-4"
               variants={itemVariants}
             >
-              <Link href="/service">Service</Link>
+              <Link href="/inbound">Inbound</Link>
             </motion.div>
 
             <motion.div
               className="my-2 text-xl sm:my-4"
               variants={itemVariants}
             >
-              <Link href="/projects">Projects</Link>
+              <Link href="/outbound">Outbound</Link>
             </motion.div>
-            <motion.div variants={itemVariants}>
-              <h1 className="mt-2 text-xl sm:mb-2 sm:mt-4">Company</h1>
-              <motion.div
-                variants={itemVariants}
-                className="text-md text-center sm:mb-2"
-              >
-                <Link href="/company/team">-Team-</Link>
-              </motion.div>
-              <motion.div
-                variants={itemVariants}
-                className="text-md text-center sm:mb-2"
-              >
-                <Link href="/company/vmv">-VMV-</Link>
-              </motion.div>
-              <motion.div
-                variants={itemVariants}
-                className="text-md mb-2 text-center sm:mb-4"
-              >
-                <Link href="/company">-Company-</Link>
-              </motion.div>
-            </motion.div>
+
             <motion.div
-              className="my-4 text-xl sm:my-4"
+              className="my-2 text-xl sm:my-4"
               variants={itemVariants}
             >
-              <Link href="/contact">Contact</Link>
+              <a
+                href="https://hiveminds.co.jp/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact
+              </a>
             </motion.div>
           </motion.div>
         )}
