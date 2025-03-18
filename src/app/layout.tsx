@@ -36,7 +36,7 @@ export default function RoutesLayout({
             <div className="flex min-h-screen flex-col">
               <Navigation />
               <ProgressBar>
-                <main className="mt-[55px] overflow-hidden">{children}</main>
+                <main className="overflow-hidden">{children}</main>
                 <Toaster />
               </ProgressBar>
               <Footer />

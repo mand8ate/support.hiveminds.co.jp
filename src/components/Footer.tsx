@@ -22,7 +22,7 @@ export default function Footer({ root }: { root?: boolean }) {
           <div className="flex flex-col items-center justify-center gap-16 text-center sm:flex-row lg:w-1/3 lg:gap-24">
             <div className="flex flex-col items-center sm:items-start">
               <h2 className="text-xl font-semibold">
-                <Link href="/home">Home</Link>
+                <Link href="/">Home</Link>
               </h2>
             </div>
             <div className="flex flex-col items-center sm:items-start">

@@ -40,8 +40,8 @@ export default function Page() {
         <div className="hero_clippath-picture-bottom-left absolute bottom-0 left-0 h-2/3 w-1/3 rounded-full bg-blue-600 opacity-10 blur-3xl"></div>
         <div className="absolute right-0 top-0 h-1/2 w-1/4 rounded-full bg-indigo-700 opacity-10 blur-3xl"></div>
 
-        <div className="container relative z-10 flex min-h-screen flex-col justify-center pt-16">
-          <div className="max-w-4xl">
+        <div className="container relative z-10 flex h-screen flex-col justify-center pl-12 pt-16">
+          <div className="max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -86,10 +86,8 @@ export default function Page() {
       {/* Inbound Support Section */}
       <section className="py-20 md:py-28">
         <div className="container grid grid-cols-1 gap-12 md:grid-cols-2">
+          {/* Image Column */}
           <div className="flex flex-col justify-center">
-            <h2 className="mb-8 text-3xl font-semibold text-primary md:text-4xl lg:text-5xl">
-              INBOUND TOTAL SUPPORT
-            </h2>
             <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-muted">
               <motion.div
                 initial={{ scale: 1.1 }}
@@ -99,7 +97,7 @@ export default function Page() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <img
-                  src="https://placehold.co/992x662"
+                  src="/landing/inbound.png"
                   alt="Inbound Support"
                   className="h-full w-full object-cover"
                 />
@@ -107,7 +105,11 @@ export default function Page() {
             </div>
           </div>
 
+          {/* Text Column */}
           <div className="flex flex-col justify-center space-y-6">
+            <h2 className="text-3xl font-semibold text-primary md:text-4xl lg:text-5xl">
+              INBOUND TOTAL SUPPORT
+            </h2>
             <h3 className="text-2xl font-medium text-foreground md:text-3xl">
               「うち」の良いところを世界中の人に体験してもらう。
             </h3>
@@ -130,10 +132,8 @@ export default function Page() {
       {/* Outbound Support Section */}
       <section className="bg-muted/30 py-20 md:py-28">
         <div className="container grid grid-cols-1 gap-12 md:grid-cols-2">
+          {/* Image Column */}
           <div className="order-2 flex flex-col justify-center md:order-1">
-            <h2 className="mb-8 text-3xl font-semibold text-primary md:text-4xl lg:text-5xl">
-              OUTBOUND PERSONAL SUPPORT
-            </h2>
             <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-muted">
               <motion.div
                 initial={{ scale: 1.1 }}
@@ -143,7 +143,7 @@ export default function Page() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <img
-                  src="https://placehold.co/1001x628"
+                  src="/landing/outbound.png"
                   alt="Outbound Support"
                   className="h-full w-full object-cover"
                 />
@@ -151,9 +151,13 @@ export default function Page() {
             </div>
           </div>
 
+          {/* Text Column */}
           <div className="order-1 flex flex-col justify-center space-y-6 md:order-2">
+            <h2 className="text-3xl font-semibold text-primary md:text-4xl lg:text-5xl">
+              OUTBOUND PERSONAL SUPPORT
+            </h2>
             <h3 className="text-2xl font-medium text-foreground md:text-3xl">
-              世界に誇れる「JAPAN BRAND」へ
+              世界に誇れる「JAPAN BRAND」へ。
             </h3>
             <p className="text-lg leading-relaxed text-foreground/80">
               日本から海外へ進出することが必要な時代に突入している中で、様々な「JAPAN
@@ -199,7 +203,7 @@ export default function Page() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <img
-                  src="https://placehold.co/976x662"
+                  src="/landing/recruitement.png"
                   alt="Recruit Support"
                   className="h-full w-full object-cover"
                 />
