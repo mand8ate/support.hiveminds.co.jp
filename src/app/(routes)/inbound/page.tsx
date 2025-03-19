@@ -14,7 +14,7 @@ export default function InboundPage() {
         {/* Background images with color overlays */}
         <img
           className="h-[400px] w-full object-cover sm:h-[500px] md:h-[600px] lg:h-[676px]"
-          src="https://placehold.co/1920x676"
+          src="/inbound/inbound.png"
           alt="Background"
         />
         <div className="absolute inset-0 bg-sky-400/40"></div>
@@ -25,8 +25,13 @@ export default function InboundPage() {
             className={cn(
               roboto.className,
               "text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-7xl",
-              "shadow-[4px_4px_4px_rgb(0_0_0_/_0.14)]",
+              "text-shadow-lg shadow-black drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]",
+              "relative z-10 tracking-wider",
             )}
+            style={{
+              textShadow:
+                "3px 3px 6px rgba(0,0,0,0.6), 0 0 20px rgba(0,0,0,0.4), 0 0 40px rgba(56,189,248,0.3)",
+            }}
           >
             INBOUND TOTAL SUPPORT
           </h1>
@@ -449,7 +454,8 @@ export default function InboundPage() {
               {/* Phase 1 Circle */}
               <div className="h-64 w-64 flex-shrink-0 overflow-hidden rounded-full bg-white">
                 <img
-                  src="/inbound/group1.png"
+                  src="/inbound/group1.png
+                  "
                   alt="Phase 1"
                   className="h-full w-full object-cover"
                 />

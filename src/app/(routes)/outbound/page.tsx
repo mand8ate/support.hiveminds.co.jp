@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Roboto, Inter } from "next/font/google";
+import Link from "next/link";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700", "900"] });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "700"] });
@@ -9,23 +10,28 @@ export default function OutboundPage() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-stone-950 text-white">
       {/* Hero Section with Overlay Images */}
-      <div className="relative">
+      <div className="relative mt-[55px]">
         {/* Background images with color overlays */}
         <img
           className="h-[400px] w-full object-cover sm:h-[500px] md:h-[600px] lg:h-[676px]"
-          src="https://placehold.co/1920x676"
+          src="/outbound/outbound.png"
           alt="Background"
         />
         <div className="absolute inset-0 bg-amber-500/40"></div>
 
         {/* Header Title */}
-        <div className="absolute left-1/2 top-1/3 w-full -translate-x-1/2 px-4 text-center">
+        <div className="absolute left-0 right-0 top-0 flex h-full w-full items-center justify-center px-4 text-center">
           <h1
             className={cn(
               roboto.className,
               "text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-7xl",
-              "shadow-[4px_4px_4px_rgb(0_0_0_/_0.14)]",
+              "text-shadow-lg shadow-black drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]",
+              "relative z-10 tracking-wider",
             )}
+            style={{
+              textShadow:
+                "3px 3px 6px rgba(0,0,0,0.6), 0 0 20px rgba(0,0,0,0.4), 0 0 40px rgba(245,158,11,0.3)",
+            }}
           >
             OUTBOUND PERSONAL SUPPORT
           </h1>
@@ -71,7 +77,10 @@ export default function OutboundPage() {
           </div>
 
           {/* CTA Button */}
-          <div className="rounded-[70px] bg-amber-500 px-6 py-4 text-center text-white shadow-[0px_4px_0px_0px_rgba(141,85,0,1)] hover:bg-amber-600 sm:px-8 sm:py-5 md:px-12 md:py-6 lg:px-16 lg:py-6">
+          <Link
+            href="https://hiveminds.co.jp/contact"
+            className="rounded-[70px] bg-amber-500 px-6 py-4 text-center text-white shadow-[0px_4px_0px_0px_rgba(141,85,0,1)] hover:bg-amber-600 sm:px-8 sm:py-5 md:px-12 md:py-6 lg:px-16 lg:py-6"
+          >
             <div className="flex flex-col sm:flex-row sm:items-center">
               <span className="mb-1 text-lg font-bold sm:mb-0 sm:mr-2 md:text-xl">
                 海外進出について
@@ -80,97 +89,99 @@ export default function OutboundPage() {
                 無料相談する
               </span>
             </div>
-          </div>
+          </Link>
         </div>
 
         {/* Strengths Section */}
-        <div className="mt-16 flex w-full flex-col items-center gap-16 sm:mt-20 md:mt-24 lg:mt-28 lg:gap-28">
-          <div className="flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
-            <h2
-              className={cn(
-                inter.className,
-                "text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl",
-              )}
-            >
-              HiveMindsの強み
-            </h2>
-            <div className="h-0 w-16 outline outline-[3px] outline-offset-[-1.5px] outline-red-700 md:w-20"></div>
-          </div>
-
-          {/* Strengths Grid */}
-          <div className="grid w-full grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
-            {/* Point 01 */}
-            <div className="relative h-auto min-h-[280px] overflow-hidden bg-stone-950 outline outline-[3px] outline-offset-[-3px] outline-red-700 sm:min-h-[320px] md:h-80">
-              <div className="absolute left-0 top-0 h-12 w-40 bg-red-700 sm:h-14 sm:w-52"></div>
-              <div className="absolute left-[25px] top-[13px] text-2xl font-bold leading-7 tracking-[2.8px] sm:left-[35px] sm:text-3xl">
-                Point01
-              </div>
-              <div className="absolute left-[20px] top-[70px] flex max-w-full flex-col gap-4 px-4 pr-4 sm:left-[50px] sm:top-[88px] sm:gap-6 md:left-[76px] md:gap-8 md:pr-6">
-                <h3 className="text-xl font-bold leading-normal sm:text-2xl sm:leading-[48px]">
-                  海外市場を熟知したネイティブメンバーがサポート
-                </h3>
-                <p className="text-base font-medium leading-relaxed sm:text-lg md:text-xl">
-                  東南アジアネイティブ（インドネシア）、EUネイティブ（ドイツ）のメンバーが海外目線でサポートします。
-                </p>
-              </div>
+        <div className="mt-16 flex w-full flex-col items-center sm:mt-20 md:mt-24 lg:mt-28">
+          <div className="flex w-full flex-col items-center">
+            <div className="mb-12 flex flex-col items-center gap-2 sm:mb-14 md:mb-16 md:gap-3 lg:mb-20 lg:gap-4">
+              <h2
+                className={cn(
+                  inter.className,
+                  "text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl",
+                )}
+              >
+                HiveMindsの強み
+              </h2>
+              <div className="h-0 w-16 outline outline-[3px] outline-offset-[-1.5px] outline-red-700 md:w-20"></div>
             </div>
 
-            {/* Point 02 */}
-            <div className="relative h-auto min-h-[280px] overflow-hidden bg-stone-950 outline outline-[3px] outline-offset-[-3px] outline-red-700 sm:min-h-[320px] md:h-80">
-              <div className="absolute left-0 top-0 h-12 w-40 bg-red-700 sm:h-14 sm:w-52"></div>
-              <div className="absolute left-[25px] top-[13px] text-2xl font-bold leading-7 tracking-[2.8px] sm:left-[35px] sm:text-3xl">
-                Point02
+            {/* Strengths Grid */}
+            <div className="grid w-full grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+              {/* Point 01 */}
+              <div className="relative h-auto min-h-[280px] overflow-hidden bg-stone-950 outline outline-[3px] outline-offset-[-3px] outline-red-700 sm:min-h-[320px] md:h-80">
+                <div className="absolute left-0 top-0 h-12 w-40 bg-red-700 sm:h-14 sm:w-52"></div>
+                <div className="absolute left-[25px] top-[13px] text-2xl font-bold leading-7 tracking-[2.8px] sm:left-[35px] sm:text-3xl">
+                  Point01
+                </div>
+                <div className="absolute left-[20px] top-[70px] flex max-w-full flex-col gap-4 px-4 pr-4 sm:left-[50px] sm:top-[88px] sm:gap-6 md:left-[76px] md:gap-8 md:pr-6">
+                  <h3 className="text-xl font-bold leading-normal sm:text-2xl sm:leading-[48px]">
+                    海外市場を熟知したネイティブメンバーがサポート
+                  </h3>
+                  <p className="text-base font-medium leading-relaxed sm:text-lg md:text-xl">
+                    東南アジアネイティブ（インドネシア）、EUネイティブ（ドイツ）のメンバーが海外目線でサポートします。
+                  </p>
+                </div>
               </div>
-              <div className="absolute left-[20px] top-[70px] flex max-w-full flex-col gap-4 px-4 pr-4 sm:left-[50px] sm:top-[88px] sm:gap-6 md:left-[76px] md:gap-8 md:pr-6">
-                <h3 className="text-xl font-bold leading-normal sm:text-2xl sm:leading-[48px]">
-                  現地パートナーとの強固な
-                  <br className="hidden sm:block" />
-                  ネットワークによる進出支援
-                </h3>
-                <p className="text-base font-medium leading-relaxed sm:text-lg md:text-xl">
-                  現地パートナーとの密な連携で販売・進出の細かなところまでアドバイス可能。
-                </p>
-              </div>
-            </div>
 
-            {/* Point 03 */}
-            <div className="relative h-auto min-h-[280px] overflow-hidden bg-stone-950 outline outline-[3px] outline-offset-[-3px] outline-red-700 sm:min-h-[320px] md:h-80">
-              <div className="absolute left-0 top-0 h-12 w-40 bg-red-700 sm:h-14 sm:w-52"></div>
-              <div className="absolute left-[25px] top-[13px] text-2xl font-bold leading-7 tracking-[2.8px] sm:left-[35px] sm:text-3xl">
-                Point03
+              {/* Point 02 */}
+              <div className="relative h-auto min-h-[280px] overflow-hidden bg-stone-950 outline outline-[3px] outline-offset-[-3px] outline-red-700 sm:min-h-[320px] md:h-80">
+                <div className="absolute left-0 top-0 h-12 w-40 bg-red-700 sm:h-14 sm:w-52"></div>
+                <div className="absolute left-[25px] top-[13px] text-2xl font-bold leading-7 tracking-[2.8px] sm:left-[35px] sm:text-3xl">
+                  Point02
+                </div>
+                <div className="absolute left-[20px] top-[70px] flex max-w-full flex-col gap-4 px-4 pr-4 sm:left-[50px] sm:top-[88px] sm:gap-6 md:left-[76px] md:gap-8 md:pr-6">
+                  <h3 className="text-xl font-bold leading-normal sm:text-2xl sm:leading-[48px]">
+                    現地パートナーとの強固な
+                    <br className="hidden sm:block" />
+                    ネットワークによる進出支援
+                  </h3>
+                  <p className="text-base font-medium leading-relaxed sm:text-lg md:text-xl">
+                    現地パートナーとの密な連携で販売・進出の細かなところまでアドバイス可能。
+                  </p>
+                </div>
               </div>
-              <div className="absolute left-[20px] top-[70px] flex max-w-full flex-col gap-4 px-4 pr-4 sm:left-[50px] sm:top-[88px] sm:gap-6 md:left-[76px] md:gap-8 md:pr-6">
-                <h3 className="text-xl font-bold leading-normal sm:text-2xl sm:leading-[48px]">
-                  日本法人ならではのスピーディーな対応力
-                </h3>
-                <p className="text-base font-medium leading-relaxed sm:text-lg md:text-xl">
-                  日本法人のため、国内でのスピーディーなコミュニケーションが可能。
-                </p>
-              </div>
-            </div>
 
-            {/* Point 04 */}
-            <div className="relative h-auto min-h-[280px] overflow-hidden bg-stone-950 outline outline-[3px] outline-offset-[-3px] outline-red-700 sm:min-h-[320px] md:h-80">
-              <div className="absolute left-0 top-0 h-12 w-40 bg-red-700 sm:h-14 sm:w-52"></div>
-              <div className="absolute left-[25px] top-[13px] text-2xl font-bold leading-7 tracking-[2.8px] sm:left-[35px] sm:text-3xl">
-                Point04
+              {/* Point 03 */}
+              <div className="relative h-auto min-h-[280px] overflow-hidden bg-stone-950 outline outline-[3px] outline-offset-[-3px] outline-red-700 sm:min-h-[320px] md:h-80">
+                <div className="absolute left-0 top-0 h-12 w-40 bg-red-700 sm:h-14 sm:w-52"></div>
+                <div className="absolute left-[25px] top-[13px] text-2xl font-bold leading-7 tracking-[2.8px] sm:left-[35px] sm:text-3xl">
+                  Point03
+                </div>
+                <div className="absolute left-[20px] top-[70px] flex max-w-full flex-col gap-4 px-4 pr-4 sm:left-[50px] sm:top-[88px] sm:gap-6 md:left-[76px] md:gap-8 md:pr-6">
+                  <h3 className="text-xl font-bold leading-normal sm:text-2xl sm:leading-[48px]">
+                    日本法人ならではのスピーディーな対応力
+                  </h3>
+                  <p className="text-base font-medium leading-relaxed sm:text-lg md:text-xl">
+                    日本法人のため、国内でのスピーディーなコミュニケーションが可能。
+                  </p>
+                </div>
               </div>
-              <div className="absolute left-[20px] top-[70px] flex max-w-full flex-col gap-4 px-4 pr-4 sm:left-[50px] sm:top-[88px] sm:gap-6 md:left-[76px] md:gap-8 md:pr-6">
-                <h3 className="text-xl font-bold leading-normal sm:text-2xl sm:leading-[48px]">
-                  シームレスなワンストップサポート
-                </h3>
-                <p className="text-base font-medium leading-relaxed sm:text-lg md:text-xl">
-                  サポート内容は1項目に限らず、必要に応じてシームレスなサポート対応もご協力できます。
-                </p>
+
+              {/* Point 04 */}
+              <div className="relative h-auto min-h-[280px] overflow-hidden bg-stone-950 outline outline-[3px] outline-offset-[-3px] outline-red-700 sm:min-h-[320px] md:h-80">
+                <div className="absolute left-0 top-0 h-12 w-40 bg-red-700 sm:h-14 sm:w-52"></div>
+                <div className="absolute left-[25px] top-[13px] text-2xl font-bold leading-7 tracking-[2.8px] sm:left-[35px] sm:text-3xl">
+                  Point04
+                </div>
+                <div className="absolute left-[20px] top-[70px] flex max-w-full flex-col gap-4 px-4 pr-4 sm:left-[50px] sm:top-[88px] sm:gap-6 md:left-[76px] md:gap-8 md:pr-6">
+                  <h3 className="text-xl font-bold leading-normal sm:text-2xl sm:leading-[48px]">
+                    シームレスなワンストップサポート
+                  </h3>
+                  <p className="text-base font-medium leading-relaxed sm:text-lg md:text-xl">
+                    サポート内容は1項目に限らず、必要に応じてシームレスなサポート対応もご協力できます。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Support Categories Section */}
-        <div className="mt-16 flex w-full flex-col items-center sm:mt-20 md:mt-24">
-          <div className="flex w-full flex-col items-center gap-16 sm:gap-20 md:gap-24 lg:gap-28">
-            <div className="flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
+        <div className="mt-16 flex w-full flex-col items-center sm:mt-20 md:mt-24 lg:mt-28">
+          <div className="flex w-full flex-col items-center">
+            <div className="mb-12 flex flex-col items-center gap-2 sm:mb-14 md:mb-16 md:gap-3 lg:mb-20 lg:gap-4">
               <h2
                 className={cn(
                   inter.className,
@@ -198,7 +209,6 @@ export default function OutboundPage() {
                 <br />
                 自社の商品が対象国に需要があるのかどうかを確認する手段としてもご活用いただけるご支援内容です。
               </p>
-
               <div className="mt-10">
                 <div className="inline-block bg-red-600 px-4 py-2 text-xl font-bold sm:text-2xl md:text-3xl">
                   HiveMindsの掲載実績
@@ -210,37 +220,40 @@ export default function OutboundPage() {
                   </p>
                 </div>
               </div>
-
               <div className="mt-16 grid grid-cols-1 gap-5 sm:mt-20 md:mt-24 md:grid-cols-3">
                 <div className="text-center">
                   <p className="mb-8 text-base font-bold sm:mb-10 sm:text-lg md:mb-14 md:text-xl">
                     越境ECサイト A
                   </p>
-                  <img
-                    src="https://placehold.co/400x200"
-                    alt="EC Site A"
-                    className="mx-auto h-auto w-full rounded-lg object-cover"
-                  />
+                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg">
+                    <img
+                      src="/outbound/ekyou1.png"
+                      alt="EC Site A"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
                 <div className="text-center">
                   <p className="mb-8 text-base font-bold sm:mb-10 sm:text-lg md:mb-14 md:text-xl">
                     越境ECサイト B
                   </p>
-                  <img
-                    src="https://placehold.co/400x200"
-                    alt="EC Site B"
-                    className="mx-auto h-auto w-full rounded-lg object-cover shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-                  />
+                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
+                    <img
+                      src="/outbound/ekyou2.png"
+                      alt="EC Site B"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
                 <div className="text-center">
                   <p className="mb-8 text-base font-bold sm:mb-10 sm:text-lg md:mb-14 md:text-xl">
                     現地小売店
                   </p>
-                  <div className="relative aspect-video w-full">
+                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg">
                     <img
-                      src="https://placehold.co/400x200"
+                      src="/outbound/ekyou3.png"
                       alt="Retail Store"
-                      className="h-auto w-full rounded-lg object-cover"
+                      className="h-full w-full object-cover"
                     />
                   </div>
                 </div>
@@ -248,7 +261,7 @@ export default function OutboundPage() {
             </div>
 
             {/* Case 2 */}
-            <div className="w-full">
+            <div className="mt-16 w-full sm:mt-20 md:mt-24 lg:mt-28">
               <div className="mb-7">
                 <span className="text-xl font-bold text-red-600 sm:text-2xl">
                   Case 2
@@ -273,15 +286,26 @@ export default function OutboundPage() {
                 </p>
               </div>
 
-              <img
-                src="https://placehold.co/1200x240"
-                alt="Exhibition Support"
-                className="mx-auto mt-16 h-auto w-full rounded-lg object-cover sm:mt-20 md:mt-24"
-              />
+              {/* Responsive image for Case 2 using picture element */}
+              <picture className="mt-16 block sm:mt-20 md:mt-24">
+                <source
+                  media="(min-width: 1024px)"
+                  srcSet="/outbound/case2wide.png"
+                />
+                <source
+                  media="(max-width: 1023px)"
+                  srcSet="/outbound/case2tall.png"
+                />
+                <img
+                  src="/outbound/case2tall.png"
+                  alt="Exhibition Support"
+                  className="mx-auto h-auto w-full rounded-lg object-cover"
+                />
+              </picture>
             </div>
 
             {/* Case 3 */}
-            <div className="w-full">
+            <div className="mt-16 w-full sm:mt-20 md:mt-24 lg:mt-28">
               <div className="mb-7">
                 <span className="text-xl font-bold text-red-600 sm:text-2xl">
                   Case 3
@@ -297,16 +321,30 @@ export default function OutboundPage() {
                 各国ごとに海外法人が進出する際の要件やポイントが異なるため、現地パートナーと協力しながらお客様の海外進出をトータルサポートいたします。
               </p>
 
-              <img
-                src="https://placehold.co/1200x360"
-                alt="International Support"
-                className="mx-auto mt-7 h-auto w-full rounded-lg object-cover"
-              />
+              {/* Responsive image for Case 3 using picture element */}
+              <picture className="mt-7 block">
+                <source
+                  media="(min-width: 1024px)"
+                  srcSet="/outbound/case3wide.png"
+                />
+                <source
+                  media="(max-width: 1023px)"
+                  srcSet="/outbound/case3tall.png"
+                />
+                <img
+                  src="/outbound/case3tall.png"
+                  alt="International Support"
+                  className="mx-auto h-auto w-full rounded-lg object-cover"
+                />
+              </picture>
             </div>
           </div>
 
           {/* Bottom CTA Button */}
-          <div className="mt-8 rounded-[70px] bg-amber-500 px-6 py-4 text-center text-white shadow-[0px_4px_0px_0px_rgba(141,85,0,1)] hover:bg-amber-600 sm:mt-10 sm:px-8 sm:py-5 md:px-12 md:py-6 lg:px-16 lg:py-6">
+          <Link
+            href="https://hiveminds.co.jp/contact"
+            className="mt-16 rounded-[70px] bg-amber-500 px-6 py-4 text-center text-white shadow-[0px_4px_0px_0px_rgba(141,85,0,1)] hover:bg-amber-600 sm:mt-20 sm:px-8 sm:py-5 md:mt-24 md:px-12 md:py-6 lg:mt-28 lg:px-16 lg:py-6"
+          >
             <div className="flex flex-col sm:flex-row sm:items-center">
               <span className="mb-1 text-lg font-bold sm:mb-0 sm:mr-2 md:text-xl">
                 海外進出について
@@ -315,7 +353,7 @@ export default function OutboundPage() {
                 無料相談する
               </span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
