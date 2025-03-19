@@ -37,10 +37,7 @@ export default function Footer({ root }: { root?: boolean }) {
             </div>
           </div>
           <div className="mt-8 flex items-center justify-center lg:mt-0 lg:w-1/3">
-            <Link
-              href="/home"
-              className="relative h-[80px] w-[150px] lg:w-[200px]"
-            >
+            <Link href="/" className="relative h-[80px] w-[150px] lg:w-[200px]">
               <Image src="/logo_footer.svg" alt="HiveMinds Logo" fill />
             </Link>
           </div>
