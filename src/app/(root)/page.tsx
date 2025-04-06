@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function Page() {
+export default function RecruitPage() {
   const { theme } = useTheme();
 
   return (
@@ -52,7 +52,7 @@ export default function Page() {
                   "mb-4 text-4xl font-bold text-white md:text-6xl lg:text-8xl",
                 )}
               >
-                OVER SEAS ADVISORY
+                RECRUIT SUPPORT SYSTEM
               </h1>
             </motion.div>
 
@@ -62,7 +62,7 @@ export default function Page() {
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <p className="mt-6 text-xl font-medium text-white/90 lg:text-3xl">
-                国内・国外のJAPAN NEEDsに対応し、事業の更なる加速をサポート。
+                すべての企業に「採用担当」を。
               </p>
             </motion.div>
 
@@ -72,127 +72,19 @@ export default function Page() {
               transition={{ duration: 0.7, delay: 0.4 }}
             >
               <p className="mt-8 text-lg font-normal leading-relaxed text-white/80 lg:text-xl">
-                「JAPAN
-                BRAND」という言葉は世界中で使われ、日本の世界に対する需要は依然高くなっています。
-                弊社ではこれからのJAPAN
-                NEEDsに対応できるよう訪日ニーズ、進出ニーズを抑え、各カテゴリーに対応する施策を、
-                ネイティブと共にサポートし、お客様の更なる事業成長に貢献いたします。
+                今や「採用難」は当たり前の時代に突入し、どの業界、どの業種でも人材採用が課題になっています。
+                弊社では約300社におよぶ採用アドバイザリーの経験を基に、この課題を解消するための手法・ノウハウをご提供することが可能です。
+                細かな施策レベルではなく、根本的な課題解決のためのシステム提供やアドバイザリーをご提供させていただきます。
               </p>
             </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Inbound Support Section */}
+      {/* Recruit Outsourcing Service Section */}
       <section className="py-20 md:py-28">
         <div className="container grid grid-cols-1 gap-12 md:grid-cols-2">
           {/* Image Column */}
-          <div className="flex flex-col justify-center">
-            <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-muted">
-              <motion.div
-                initial={{ scale: 1.1 }}
-                whileHover={{ scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="h-full w-full"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <img
-                  src="/landing/inbound.png"
-                  alt="Inbound Support"
-                  className="h-full w-full object-cover"
-                />
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Text Column */}
-          <div className="flex flex-col justify-center space-y-6">
-            <h2 className="text-3xl font-semibold text-primary md:text-4xl lg:text-5xl">
-              INBOUND TOTAL SUPPORT
-            </h2>
-            <h3 className="text-2xl font-medium text-foreground md:text-3xl">
-              「うち」の良いところを世界中の人に体験してもらう。
-            </h3>
-            <p className="text-lg leading-relaxed text-foreground/80">
-              インバウンドニーズを獲得するためには、ただ単に言語対応などを行えばよいというわけではなく、
-              時期や段階に応じた最適な施策を多なうことが重要です。弊社ではお客様のご状況に合わせた
-              各種の施策を1つずつ丁寧にご案内させていただきます。
-            </p>
-            <div>
-              <Link href="/inbound">
-                <Button className="mt-4 rounded-full bg-violet-800 px-8 py-6 text-lg font-medium text-white hover:bg-violet-700">
-                  READ MORE
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Outbound Support Section */}
-      <section className="bg-muted/30 py-20 md:py-28">
-        <div className="container grid grid-cols-1 gap-12 md:grid-cols-2">
-          {/* Image Column */}
-          <div className="order-2 flex flex-col justify-center md:order-1">
-            <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-muted">
-              <motion.div
-                initial={{ scale: 1.1 }}
-                whileHover={{ scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="h-full w-full"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <img
-                  src="/landing/outbound.png"
-                  alt="Outbound Support"
-                  className="h-full w-full object-cover"
-                />
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Text Column */}
-          <div className="order-1 flex flex-col justify-center space-y-6 md:order-2">
-            <h2 className="text-3xl font-semibold text-primary md:text-4xl lg:text-5xl">
-              OUTBOUND PERSONAL SUPPORT
-            </h2>
-            <h3 className="text-2xl font-medium text-foreground md:text-3xl">
-              世界に誇れる「JAPAN BRAND」へ。
-            </h3>
-            <p className="text-lg leading-relaxed text-foreground/80">
-              日本から海外へ進出することが必要な時代に突入している中で、様々な「JAPAN
-              BRAND」が生まれています。
-              HiveMindsでは東南アジア・EUを中心に、お客様の商品を世界へ届けるサポートをいたします。
-              貴社の「JAPAN BRAND」を一緒に届けませんか？
-            </p>
-            <div>
-              <Link href="outbound">
-                <Button className="mt-4 rounded-full bg-amber-700 px-8 py-6 text-lg font-medium text-white hover:bg-amber-600">
-                  READ MORE
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recruit Support Section */}
-      <section className="py-20 md:py-28">
-        <div className="container mb-16 text-center">
-          <h2 className="mb-6 text-4xl font-bold text-primary md:text-5xl lg:text-7xl">
-            RECRUIT SUPPORT SYSTEM
-          </h2>
-          <p className="mx-auto max-w-4xl text-2xl font-normal text-foreground/80 lg:text-3xl">
-            すべての企業に「採用担当」を。
-          </p>
-          <p className="mx-auto mt-8 max-w-4xl text-lg font-normal leading-relaxed text-foreground/70 lg:text-xl">
-            今や「採用難」は当たり前の時代に突入し、どの業界、どの業種でも人材採用が課題になっています。
-            弊社では約300社におよぶ採用アドバイザリーの経験を基に、この課題を解消するための手法・ノウハウをご提供することが可能です。
-            細かな施策レベルではなく、根本的な課題解決のためのシステム提供やアドバイザリーをご提供させていただきます。
-          </p>
-        </div>
-
-        <div className="container grid grid-cols-1 gap-12 md:grid-cols-2">
           <div className="flex flex-col justify-center">
             <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-muted">
               <motion.div
@@ -204,35 +96,152 @@ export default function Page() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <img
                   src="/landing/recruitement.png"
-                  alt="Recruit Support"
+                  alt="Recruit Outsourcing"
                   className="h-full w-full object-cover"
                 />
               </motion.div>
             </div>
           </div>
 
+          {/* Text Column */}
           <div className="flex flex-col justify-center space-y-6">
+            <h2 className="text-3xl font-semibold text-primary md:text-4xl lg:text-5xl">
+              採用業務 外注サービス
+            </h2>
             <h3 className="text-2xl font-medium text-foreground md:text-3xl">
-              採用活動に「専念」できる環境を。
+              人材採用に「プロの時間」を使う。
             </h3>
             <p className="text-lg leading-relaxed text-foreground/80">
-              HiveMindsのRECRUIT SUPPORT
-              SYSTEMでは、採用活動に課題を感じる企業が持つ根本的な要因を解決するためのご提案をさせていただきます。
-              対象となる方は主に従業員100名以下の中小企業および新興企業の方がベストマッチしたサービスのご提供ができています。
+              昨今の人材採用市場では、何か特別な一手を打てば候補者が興味を持つ。という状況ではなくなり、多角的な方面のアプローチが必要となりました。
+              HiveMindsの採用業務
+              外注サービスでは、日々忙しい皆様に変わり、「中小企業採用の専門家」がしっかり時間と知見を使い、
+              貴社の採用活動を一緒に大きく動かします。
+            </p>
+            <div>
+              <Link href="/recruit-outsourcing">
+                <Button className="mt-4 rounded-full bg-violet-800 px-8 py-6 text-lg font-medium text-white hover:bg-violet-700">
+                  READ MORE
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Company Recruit Site Service */}
+      <section className="bg-muted/30 py-20 md:py-28">
+        <div className="container grid grid-cols-1 gap-12 md:grid-cols-2">
+          {/* Text Column */}
+          <div className="order-2 flex flex-col justify-center md:order-2">
+            <h2 className="text-3xl font-semibold text-primary md:text-4xl lg:text-5xl">
+              採用サイト 制作サービス
+            </h2>
+            <h3 className="mt-6 text-2xl font-medium text-foreground md:text-3xl">
+              「うち」で働く魅力を「正しく」伝える。
+            </h3>
+            <p className="mt-6 text-lg leading-relaxed text-foreground/80">
+              情報媒体が多様化し、情報過多の中で求職者は「信用できる情報」の取得を求めており、
+              企業には正しい情報の発信、取得助長が求められます。HiveMindsの採用サイト制作サービスでは、
+              貴社で働く魅力を「正しく」「伝わりやすい」内容で発信できるよう設計から対応いたします。
+            </p>
+            <div className="mt-8">
+              <Link href="/recruit-site">
+                <Button className="rounded-full bg-amber-700 px-8 py-6 text-lg font-medium text-white hover:bg-amber-600">
+                  READ MORE
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Image Column */}
+          <div className="order-1 flex flex-col justify-center md:order-1">
+            <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-muted">
+              <motion.div
+                initial={{ scale: 1.1 }}
+                whileHover={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="h-full w-full"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <img
+                  src="/landing/company-page.png"
+                  alt="Company Recruit Page"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-3xl font-bold text-white">
+                    COMPANY
+                    <br />
+                    RECRUIT PAGE
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Recruiting Assistant */}
+      <section className="py-20 md:py-28">
+        <div className="container grid grid-cols-1 gap-12 md:grid-cols-2">
+          {/* Image Column */}
+          <div className="flex flex-col justify-center">
+            <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-muted">
+              <motion.div
+                initial={{ scale: 1.1 }}
+                whileHover={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="h-full w-full"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <img
+                  src="/landing/ai-recruit.png"
+                  alt="AI Recruiting Assistant"
+                  className="h-full w-full object-cover"
+                />
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Text Column */}
+          <div className="flex flex-col justify-center space-y-6">
+            <h2 className="text-3xl font-semibold text-primary md:text-4xl lg:text-5xl">
+              中小企業の採用担当（仮称AI）
+            </h2>
+            <h3 className="text-2xl font-medium text-foreground md:text-3xl">
+              すべての企業に「採用担当」を。
+            </h3>
+            <p className="text-lg leading-relaxed text-foreground/80">
+              HiveMindsの「中小企業の採用担当」では、すべての企業に「採用担当」を。というコンセプトのもと、
+              中小企業の採用活動が、社内でより高密度な設計・対応ができるシステムソリューションとなっております。
+              貴社にとってベストな採用活動を、「中小企業の採用担当」と一緒に社内で練りだし、資産となる採用力を醸成します。
             </p>
             <div>
               <Button className="mt-4 rounded-full bg-yellow-600/50 px-8 py-6 text-lg font-medium text-white hover:bg-yellow-600/70">
-                UNDER CONSTRUCTION
+                PAGE MAKING
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Additional Components */}
-      <div className="pb-20">
-        {/* You can add the BrandSupport, Service, News, Contact or other components here */}
-      </div>
+      {/* Contact Section */}
+      <section className="bg-muted/30 py-20 md:py-28">
+        <div className="container text-center">
+          <h2 className="mb-8 text-3xl font-bold text-primary md:text-4xl lg:text-5xl">
+            CONTACT US
+          </h2>
+          <p className="mx-auto mb-12 max-w-2xl text-lg text-foreground/80">
+            採用活動の課題解決に向けて、まずはお気軽にご相談ください。
+            貴社の状況に合わせた最適なソリューションをご提案いたします。
+          </p>
+          <Link href="https://hiveminds.co.jp/contact/">
+            <Button className="rounded-full bg-violet-800 px-12 py-6 text-lg font-medium text-white hover:bg-violet-700">
+              お問い合わせ
+            </Button>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

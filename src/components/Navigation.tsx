@@ -59,16 +59,16 @@ export default function Navigation() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/inbound" legacyBehavior passHref>
+              <Link href="/rpo" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Inbound
+                  RPO
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/outbound" legacyBehavior passHref>
+              <Link href="/ad" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Outbound
+                  AD
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>

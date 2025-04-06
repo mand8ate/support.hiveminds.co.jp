@@ -155,14 +155,14 @@ const HamburgerMenu = () => {
               className="my-2 text-xl sm:my-4"
               variants={itemVariants}
             >
-              <Link href="/inbound">Inbound</Link>
+              <Link href="/rpo">RPO</Link>
             </motion.div>
 
             <motion.div
               className="my-2 text-xl sm:my-4"
               variants={itemVariants}
             >
-              <Link href="/outbound">Outbound</Link>
+              <Link href="/ad">ad</Link>
             </motion.div>
 
             <motion.div
