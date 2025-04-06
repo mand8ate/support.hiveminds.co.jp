@@ -162,7 +162,7 @@ const HamburgerMenu = () => {
               className="my-2 text-xl sm:my-4"
               variants={itemVariants}
             >
-              <Link href="/ad">ad</Link>
+              <Link href="/website">Recruit Website</Link>
             </motion.div>
 
             <motion.div

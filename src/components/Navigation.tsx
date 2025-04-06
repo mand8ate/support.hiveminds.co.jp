@@ -66,9 +66,9 @@ export default function Navigation() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/ad" legacyBehavior passHref>
+              <Link href="/website" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  AD
+                  Recruit Website
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
