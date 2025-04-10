@@ -61,14 +61,14 @@ export default function Navigation() {
             <NavigationMenuItem>
               <Link href="/rpo" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  RPO
+                  Saiyou Support
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/website" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Recruit Website
+                  Recruitment Website
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>

@@ -32,15 +32,116 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+const caseStudies = [
+  {
+    company: "オフィスインフラ設備会社",
+    location: "東京都",
+    budget: "15万円",
+    period: "1年～",
+    description:
+      "同社はこれまで様々な採用手法を試されていましたが、応募者数が少なく、新たな採用手法を探していました。\nHiveMIndsではお客様がこれまで手をつけていなかった手法を丁寧に対応し、現在も若手人材からの応募を獲得しています。",
+    support: [
+      "求人媒体管理（求人作成・編集・更新）",
+      "応募者対応（※面接調整まで）",
+      "採用媒体内での自社ページ構築",
+      "採用方針・計画／採用ターゲット考案",
+      "自社の強み・魅力発掘・企業訪問　他",
+    ],
+    results: [
+      "各種求人媒体運用の習慣化",
+      "採用媒体内での自社ページ構築",
+      "事業戦略に合わせた人材採用計画の立案",
+      "20代、30代の若手社員の採用成功",
+      "若手求職者からの継続的な応募獲得",
+      "自社の成功求人パターンの形成　他",
+    ],
+  },
+  {
+    company: "電子機器メーカー会社",
+    location: "静岡県",
+    budget: "25万円",
+    period: "～6ヵ月",
+    description:
+      "同社はこれまで、代表様、取締役様が採用活動をされておられましたが、物理的な時間の確保ができず、採用業務も曖昧なものとなっておりました。そこでHiveMindsが中途・パート含め3職種の採用業務をお引き受けし、結果継続的な人材確保が可能となりました。",
+    support: [
+      "求人媒体管理（求人作成・編集・更新）",
+      "応募者対応（※面接調整まで）",
+      "採用媒体内での自社ページ構築",
+      "エージェントコントロール対応",
+      "採用方針／採用ターゲット考案",
+      "自社の強み・魅力発掘・企業訪問　他",
+    ],
+    results: [
+      "各種求人媒体運用の習慣化",
+      "採用媒体内での自社ページ構築",
+      "事業戦略に合わせた人材採用計画の立案",
+      "特定の国家資格保有者の採用成功",
+      "年間8名のパート人材の採用成功",
+      "自社の成功求人パターンの形成　他",
+    ],
+  },
+  {
+    company: "福祉事業者",
+    location: "東京都",
+    budget: "10万円",
+    period: "～6ヵ月",
+    description:
+      "同社が所属する福祉業界は人材難が著しく、これまで様々な採用投資を行ってきましたが応募は1~2名程度となっておりました。\nそこでHiveMindsより、全求人媒体の見直しと企業の魅力を正しくPRした結果、短期間で複数名のターゲット人材の確保に成功しました。",
+    support: [
+      "求人媒体管理（求人作成・編集・更新）",
+      "採用媒体内での自社ページ構築",
+      "採用方針・計画／採用ターゲット考案",
+      "自社の強み・魅力発掘・企業訪問　他",
+    ],
+    results: [
+      "各種求人媒体運用の習慣化",
+      "採用媒体内での自社ページ構築",
+      "事業戦略に合わせた人材採用計画の立案",
+      "20～30代 正社員3名の採用成功",
+      "年間5名のパート人材の採用成功",
+      "自社の成功求人パターンの形成　他",
+    ],
+  },
+  {
+    company: "建設プランター設計",
+    location: "愛媛県",
+    budget: "8万円",
+    period: "～3ヵ月",
+    description:
+      "同社は若手社員の確保に新卒採用を試みておりましたが、これまで経験がなく求人掲載のみとなっていました。HiveMindsでは求人内容の添削からインターンシップの企画、学校訪問対策などを共に構築した結果、新卒だけではなく若手中途社員の確保にもつながりました。",
+    support: [
+      "新卒採用アドバイザリー業務（高卒・大卒）",
+      "新卒向けインターンシップ企画立案",
+      "早期退職防止施策の提案と構築",
+      "採用方針/採用ターゲット考案",
+      "自社の強み・魅力発掘・企業訪問　他",
+    ],
+    results: [
+      "新卒向け会社PR内容の明確化",
+      "初めてのインターンシップで集客成功",
+      "ターゲット人材だけではなく、20代の第二新卒の集客と採用に成功",
+      "近隣地域の高校・大学への活動周知　他",
+    ],
+  },
+];
+
 export default function RecruitmentOutsourcingPage() {
   const { theme } = useTheme();
 
   return (
     <div className="bg-stone-950 text-white">
       {/* Hero Section */}
-      <div className="relative h-[480px] w-full overflow-hidden">
-        {/* Background overlay */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-r from-amber-500/40 to-amber-700/30"></div>
+      <div className="relative h-[580px] w-full overflow-hidden pt-14">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/rpo/hero.png"
+            alt="Hero Background"
+            className="h-full w-full object-cover"
+          />
+          {/* Overlay gradient on top of the image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/40 to-amber-700/30"></div>
+        </div>
 
         {/* Hero content */}
         <div className="container relative z-10 flex h-full flex-col items-center justify-center px-4">
@@ -53,15 +154,12 @@ export default function RecruitmentOutsourcingPage() {
             <h1 className="mb-6 text-4xl font-bold leading-tight text-white [text-shadow:_2px_2px_4px_rgb(0_0_0_/_0.25)] md:text-5xl lg:text-6xl">
               採用担当業務外注サービス
             </h1>
-            <p className="mx-auto max-w-3xl text-xl text-white/80 md:text-2xl">
-              「従業員100名以下の中小企業」で採用活動の時間が取れない企業様をサポート
-            </p>
           </motion.div>
         </div>
       </div>
 
       {/* Service Introduction */}
-      <div className="bg-gradient-to-b from-stone-950 to-stone-900 py-16">
+      <div className="mt-12 bg-gradient-to-b from-stone-950 to-stone-900 py-16">
         <div className="container mx-auto max-w-5xl px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -69,44 +167,53 @@ export default function RecruitmentOutsourcingPage() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex flex-col items-center"
           >
-            <h2 className="mb-8 text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl">
+            <h2 className="mb-16 text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl">
               採用業務を「プロ」が対応。
-              <br />
-              御社の採用活動を引き受けるプログラムです。
+              <br className="mb-4" />
+              <span className="mt-6 block pt-4">
+                御社の採用活動を引き受けるプログラムです。
+              </span>
             </h2>
             <div className="max-w-3xl space-y-4 text-center">
               <p className="text-lg text-white/90">
-                <span className="font-normal">
+                <span className="mb-3 block font-normal">
                   「従業員100名以下の中小企業」で採用業務を行ってきた、
                 </span>
-                <span className="font-bold text-amber-500">
-                  「中小企業採用の専門家」
+
+                <span className="mb-3 block">
+                  <span className="font-bold text-amber-500">
+                    「中小企業採用の専門家」
+                  </span>
+                  <span className="font-normal">が、</span>
                 </span>
-                <span className="font-normal">
-                  が御社の採用業務をお引き受けします。
+
+                <span className="block font-normal">
+                  御社の採用業務をお引き受けし、円滑でしっかり向き合った採用活動を創ります。
                 </span>
-              </p>
-              <p className="text-lg text-white/90">
-                円滑でしっかり向き合った採用活動を通じて、人材確保の課題を解決します。
               </p>
             </div>
           </motion.div>
-
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button
-              variant="destructive"
-              size="lg"
-              className="rounded-full font-medium shadow-lg"
-            >
-              すぐ見積もり相談する <ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
-            <Button
-              variant="default"
-              size="lg"
-              className="rounded-full bg-amber-500 font-medium shadow-lg hover:bg-amber-600"
-            >
-              まずは無料相談をする <ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
+            <Link href="https://hiveminds.co.jp/contact">
+              <Button
+                variant="destructive"
+                size="lg"
+                className="rounded-full px-6 py-3 text-base font-medium shadow-lg md:px-8 md:py-4 md:text-lg"
+              >
+                すぐ見積もり相談する{" "}
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              </Button>
+            </Link>
+            <Link href="https://hiveminds.co.jp/contact">
+              <Button
+                variant="default"
+                size="lg"
+                className="rounded-full bg-amber-500 px-6 py-3 text-base font-medium shadow-lg hover:bg-amber-600 md:px-8 md:py-4 md:text-lg"
+              >
+                まずは無料相談をする{" "}
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -127,16 +234,18 @@ export default function RecruitmentOutsourcingPage() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
-            <div className="flex justify-center">
+          <div className="relative">
+            {/* Image container that fills the entire width */}
+            <div className="w-full">
               <img
-                src="/api/placeholder/500/350"
+                src="/rpo/nayami.png"
                 alt="Recruitment Challenges"
-                className="h-auto w-full max-w-[500px] rounded-lg shadow-lg"
+                className="h-auto w-full rounded-lg object-cover shadow-lg"
               />
             </div>
 
-            <div className="flex flex-col gap-3">
+            {/* Text positioned over the image */}
+            <div className="absolute right-4 top-1/2 flex max-w-[50%] -translate-y-1/2 flex-col gap-3">
               {[
                 { text: "採用活動の時間が確保できない", delay: 0.1 },
                 { text: "何をどうすれば良いかわからない", delay: 0.2 },
@@ -264,38 +373,38 @@ export default function RecruitmentOutsourcingPage() {
               {
                 title:
                   "御社の採用活動をお引き受けし、時間と専門的な価値をご提供",
-                img: "/api/placeholder/50/50",
+                img: "/rpo/jobIcon.png",
               },
               {
                 title:
                   "各メンバーが中小企業出身。だから現場の実態が分かります！",
-                img: "/api/placeholder/50/50",
+                img: "/rpo/schoolIcon.png",
               },
               {
                 title:
                   "中小企業で「採用業務」を経験してきた専門家がご協力します！",
-                img: "/api/placeholder/50/50",
+                img: "/rpo/businessmanIcon.png",
               },
               {
                 title:
                   "専門官1人の経験ではなく、全社が持つ中小企業採用ノウハウを活用",
-                img: "/api/placeholder/50/50",
+                img: "/rpo/bookshelfIcon.png",
               },
             ].map((feature, index) => (
               <Card
                 key={index}
                 className="border-stone-700 bg-stone-900 shadow-md transition-shadow hover:shadow-lg"
               >
-                <CardContent className="p-5">
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full bg-gray-700">
+                <CardContent className="p-5 md:p-6">
+                  <div className="flex items-center gap-5">
+                    <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-amber-500/20">
                       <img
                         src={feature.img}
                         alt={`Feature ${index + 1}`}
-                        className="h-full w-full object-cover"
+                        className="h-10 w-10 object-contain"
                       />
                     </div>
-                    <p className="text-lg font-medium leading-snug text-white">
+                    <p className="text-base font-medium leading-relaxed tracking-wide text-white md:text-lg">
                       {feature.title}
                     </p>
                   </div>
@@ -320,10 +429,10 @@ export default function RecruitmentOutsourcingPage() {
             <Table className="w-full border-collapse">
               <TableHeader>
                 <TableRow className="border-green-500">
-                  <TableHead className="w-1/3 border border-green-500 bg-green-500/80 py-4 text-center font-bold text-white">
+                  <TableHead className="w-1/3 border border-green-500 bg-green-500/80 py-4 text-center text-lg font-bold text-white">
                     業務項目
                   </TableHead>
-                  <TableHead className="w-2/3 border border-green-500 bg-green-500/80 py-4 text-center font-bold text-white">
+                  <TableHead className="w-2/3 border border-green-500 bg-green-500/80 py-4 text-center text-lg font-bold text-white">
                     業務詳細
                   </TableHead>
                 </TableRow>
@@ -385,42 +494,38 @@ export default function RecruitmentOutsourcingPage() {
       </section>
 
       {/* Market Data */}
-      <section className="py-16">
+      <section className="bg-stone-950 py-16">
         <div className="container mx-auto max-w-5xl px-4">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
-            <div className="flex justify-center">
+          <div className="flex flex-col items-center">
+            {/* Graph image */}
+            <div className="mb-12 w-full max-w-[600px]">
               <img
-                src="/api/placeholder/450/350"
-                alt="Market Data"
-                className="h-auto w-full max-w-[450px] rounded-lg shadow-lg"
+                src="/rpo/graphic.png"
+                alt="Market Data showing 72.4% of SMEs have recruitment staff with concurrent duties"
+                className="h-auto w-full"
               />
             </div>
 
-            <div className="space-y-6">
-              <div className="text-center lg:text-left">
-                <h3 className="mb-2 text-4xl font-bold text-red-500">72.4%</h3>
-                <p className="text-xl font-medium">
-                  中小企業における採用担当者の兼務状況
-                </p>
-                <p className="mt-1 text-xs text-white/60">
-                  ※複数情報より、弊社作成
-                </p>
-              </div>
+            {/* Explanatory text */}
+            <div className="mb-12 max-w-3xl text-center text-lg leading-relaxed">
+              中小企業の多くが【採用担当】がおらず、
+              <br />
+              社長が担当、または兼務で採用活動を行っている状況であり、
+              <br />
+              十分な採用活動が実施出来ていません。
+            </div>
 
-              <p className="text-base lg:text-lg">
-                中小企業の多くが【採用担当】がおらず、社長が担当、または兼務で採用活動を行っている状況であり、
-                十分な採用活動が実施出来ていません。
+            {/* Bottom highlight */}
+            <div className="w-full max-w-4xl text-center text-xl leading-relaxed">
+              <p>
+                <span className="text-white">本サービスでは、</span>
+                <span className="font-bold text-amber-500">
+                  歩留まりしてしまっている中小企業の採用活動を動かし、
+                  <br />
+                  資産としての採用力を創り上げる
+                </span>
+                <span className="text-white">ことをご提供します。</span>
               </p>
-
-              <div className="rounded-lg bg-gradient-to-r from-stone-800 to-stone-900 p-4">
-                <p className="text-lg">
-                  <span className="text-white">本サービスでは、</span>
-                  <span className="font-medium text-amber-500">
-                    歩留まりしてしまっている中小企業の採用活動を動かし、資産としての採用力を創り上げる
-                  </span>
-                  <span className="text-white">ことをご提供します。</span>
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -429,40 +534,61 @@ export default function RecruitmentOutsourcingPage() {
       {/* Company Strengths */}
       <section className="bg-gradient-to-b from-stone-900 to-stone-950 py-16">
         <div className="container mx-auto max-w-5xl px-4">
-          <div className="mb-12 flex flex-col items-center">
+          <div className="mb-16 flex flex-col items-center">
             <h2 className="mb-4 text-2xl font-bold md:text-3xl">
               HiveMindsの強み
             </h2>
             <div className="h-0.5 w-16 bg-green-500"></div>
           </div>
 
-          <div className="mb-12 rounded-xl bg-stone-800/50 p-6 text-center">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div className="flex flex-col items-center md:items-end">
-                <span className="text-3xl font-bold text-amber-500 md:text-4xl">
-                  300社以上
-                </span>
-                <span className="text-lg text-white md:text-xl">
-                  の採用に携わり
-                </span>
+          {/* Redesigned statistics showcase */}
+          <div className="mb-16">
+            <div className="grid grid-cols-1 gap-8 md:gap-12">
+              {/* First statistic */}
+              <div className="overflow-hidden rounded-xl bg-gradient-to-r from-stone-900 to-stone-800 shadow-xl">
+                <div className="flex flex-col items-center p-8 md:flex-row md:items-center md:justify-center md:gap-6">
+                  <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-amber-500/20 md:mb-0">
+                    <span className="text-4xl font-bold text-amber-500 md:text-5xl">
+                      300+
+                    </span>
+                  </div>
+                  <div className="text-center md:text-left">
+                    <span className="block text-lg text-amber-500/90 md:text-xl">
+                      採用支援実績
+                    </span>
+                    <span className="text-xl font-medium text-white md:text-2xl">
+                      300社以上の採用に携わり
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col items-center md:items-start">
-                <span className="text-lg text-white md:text-xl">
-                  支援先採用成功率
-                </span>
-                <span className="text-3xl font-bold text-amber-500 md:text-4xl">
-                  90%以上
-                </span>
-                <span className="text-lg text-white md:text-xl">の実績</span>
+
+              {/* Second statistic */}
+              <div className="overflow-hidden rounded-xl bg-gradient-to-r from-stone-800 to-stone-900 shadow-xl">
+                <div className="flex flex-col items-center p-8 md:flex-row md:items-center md:justify-center md:gap-6">
+                  <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-amber-500/20 md:mb-0">
+                    <span className="text-4xl font-bold text-amber-500 md:text-5xl">
+                      90%
+                    </span>
+                  </div>
+                  <div className="text-center md:text-left">
+                    <span className="block text-lg text-amber-500/90 md:text-xl">
+                      支援先採用成功率
+                    </span>
+                    <span className="text-xl font-medium text-white md:text-2xl">
+                      90%以上の採用成功実績
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <h3 className="mb-8 text-center text-xl font-bold">
+          <h3 className="mb-12 text-center text-xl font-bold">
             HiveMindsの強み 他にも...
           </h3>
 
-          <div className="space-y-4">
+          <div className="space-y-6 md:space-y-8">
             {[
               {
                 point: "Point01",
@@ -493,9 +619,11 @@ export default function RecruitmentOutsourcingPage() {
                     {item.point}
                   </span>
                 </div>
-                <CardContent className="px-4 pb-4 pt-6">
-                  <h4 className="mb-2 text-lg font-bold">{item.title}</h4>
-                  <p className="text-sm text-white/90 md:text-base">
+                <CardContent className="px-4 pb-4 pt-6 md:px-6 md:pb-6 md:pt-8">
+                  <h4 className="mb-3 text-lg font-bold md:text-xl">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm leading-relaxed text-white/90 md:text-base">
                     {item.description}
                   </p>
                 </CardContent>
@@ -506,223 +634,98 @@ export default function RecruitmentOutsourcingPage() {
       </section>
 
       {/* Case Studies */}
-      <section className="py-16">
+      <section className="bg-stone-950 py-16">
         <div className="container mx-auto max-w-5xl px-4">
-          <div className="mb-12 flex flex-col items-center">
+          <div className="mb-16 flex flex-col items-center">
             <h2 className="mb-4 text-2xl font-bold md:text-3xl">支援事例</h2>
             <div className="h-0.5 w-16 bg-green-500"></div>
           </div>
 
           <Tabs defaultValue="case1" className="w-full">
-            <TabsList className="mb-6 h-auto w-full bg-stone-800 p-1">
-              <TabsTrigger
-                value="case1"
-                className="py-2 text-sm data-[state=active]:bg-green-500 md:text-base"
-              >
-                オフィスインフラ設備会社
-              </TabsTrigger>
-              <TabsTrigger
-                value="case2"
-                className="py-2 text-sm data-[state=active]:bg-green-500 md:text-base"
-              >
-                電子機器メーカー会社
-              </TabsTrigger>
-              <TabsTrigger
-                value="case3"
-                className="py-2 text-sm data-[state=active]:bg-green-500 md:text-base"
-              >
-                福祉事業者
-              </TabsTrigger>
+            <TabsList className="mb-8 flex h-auto w-full flex-col bg-stone-800 p-1 sm:flex-row">
+              {caseStudies.map((caseItem, index) => (
+                <TabsTrigger
+                  key={`tab-${index + 1}`}
+                  value={`case${index + 1}`}
+                  className={`py-2 text-sm ${index < 3 ? "mb-1 sm:mb-0" : ""} data-[state=active]:bg-green-500 md:text-base`}
+                >
+                  {caseItem.company}
+                </TabsTrigger>
+              ))}
             </TabsList>
 
-            <TabsContent value="case1" className="mt-0">
-              <Card className="border-stone-700 bg-stone-900 shadow-xl">
-                <CardHeader className="pb-2">
-                  <Badge className="mb-2 w-fit bg-green-500 hover:bg-green-600">
-                    Case 1
-                  </Badge>
-                  <CardTitle className="text-lg md:text-xl">
-                    東京都 オフィスインフラ設備会社 様
-                  </CardTitle>
-                  <CardDescription className="text-white/70">
-                    ご予算：15万円／月　ご支援期間：1年～
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pb-6">
-                  <div className="mb-4 border-t border-white/20 pt-4">
-                    <p className="mb-6 text-sm text-white/90 md:text-base">
-                      同社はこれまで様々な採用手法を試されていましたが、応募者数が少なく、新たな採用手法を探していました。
-                      <br />
-                      HiveMIndsではお客様がこれまで手をつけていなかった手法を丁寧に対応し、現在も若手人材からの応募を獲得しています。
-                    </p>
+            {caseStudies.map((caseItem, index) => (
+              <TabsContent
+                key={`content-${index + 1}`}
+                value={`case${index + 1}`}
+                className="mt-0"
+              >
+                <Card className="border-stone-700 bg-stone-900 shadow-xl">
+                  <CardHeader className="pb-2">
+                    <Badge className="mb-2 w-fit bg-green-500 hover:bg-green-600">
+                      Case {index + 1}
+                    </Badge>
+                    <CardTitle className="text-lg md:text-xl">
+                      {caseItem.location} {caseItem.company} 様
+                    </CardTitle>
+                    <CardDescription className="text-white/70">
+                      ご予算：{caseItem.budget}／月　ご支援期間：
+                      {caseItem.period}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pb-6">
+                    <div className="mb-4 border-t border-white/20 pt-4">
+                      <p className="mb-6 text-sm text-white/90 md:text-base">
+                        {caseItem.description}
+                      </p>
 
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                      <div className="space-y-6">
-                        <div>
-                          <div className="mb-3 inline-flex rounded bg-green-500 px-3 py-1 font-medium text-white">
-                            HiveMindsの支援内容
+                      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                        <div className="space-y-6">
+                          <div>
+                            <div className="mb-3 inline-flex rounded bg-green-500 px-3 py-1 font-medium text-white">
+                              HiveMindsの支援内容
+                            </div>
+                            <ul className="list-disc space-y-1 pl-5 text-sm text-white/90 md:text-base">
+                              {caseItem.support.map((item, itemIndex) => (
+                                <li key={`support-${index}-${itemIndex}`}>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                          <ul className="list-disc space-y-1 pl-5 text-sm text-white/90 md:text-base">
-                            <li>求人媒体管理（求人作成・編集・更新）</li>
-                            <li>応募者対応（※面接調整まで）</li>
-                            <li>採用媒体内での自社ページ構築</li>
-                            <li>採用方針・計画／採用ターゲット考案</li>
-                            <li>自社の強み・魅力発掘・企業訪問　他</li>
-                          </ul>
+
+                          <div>
+                            <div className="mb-3 inline-flex rounded bg-green-500 px-3 py-1 font-medium text-white">
+                              支援成果
+                            </div>
+                            <ul className="list-disc space-y-1 pl-5 text-sm text-white/90 md:text-base">
+                              {caseItem.results.map((item, itemIndex) => (
+                                <li key={`result-${index}-${itemIndex}`}>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
 
-                        <div>
-                          <div className="mb-3 inline-flex rounded bg-green-500 px-3 py-1 font-medium text-white">
-                            支援成果
-                          </div>
-                          <ul className="list-disc space-y-1 pl-5 text-sm text-white/90 md:text-base">
-                            <li>各種求人媒体運用の習慣化</li>
-                            <li>採用媒体内での自社ページ構築</li>
-                            <li>事業戦略に合わせた人材採用計画の立案</li>
-                            <li>20代、30代の若手社員の採用成功</li>
-                            <li>若手求職者からの継続的な応募獲得</li>
-                            <li>自社の成功求人パターンの形成　他</li>
-                          </ul>
+                        <div className="justify-top relative flex items-center">
+                          <img
+                            src={`/rpo/case${index + 1}Pic1.png`}
+                            alt={`Case Study ${index + 1} - Office`}
+                            className="z-10 h-auto w-full max-w-[350px] rounded-lg"
+                          />
+                          <img
+                            src={`/rpo/case${index + 1}Pic2.png`}
+                            alt={`Case Study ${index + 1} - Blueprint`}
+                            className="absolute bottom-4 right-2 z-20 hidden h-auto w-[350px] rounded-lg md:block"
+                          />
                         </div>
-                      </div>
-
-                      <div className="flex items-center justify-center">
-                        <img
-                          src="/api/placeholder/350/280"
-                          alt="Case Study 1"
-                          className="h-auto w-full max-w-[350px] rounded-lg"
-                        />
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            <TabsContent value="case2" className="mt-0">
-              <Card className="border-stone-700 bg-stone-900 shadow-xl">
-                <CardHeader className="pb-2">
-                  <Badge className="mb-2 w-fit bg-green-500 hover:bg-green-600">
-                    Case 2
-                  </Badge>
-                  <CardTitle className="text-lg md:text-xl">
-                    静岡県 電子機器メーカー会社 様
-                  </CardTitle>
-                  <CardDescription className="text-white/70">
-                    ご予算：25万円／月　ご支援期間：～6ヵ月
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pb-6">
-                  <div className="mb-4 border-t border-white/20 pt-4">
-                    <p className="mb-6 text-sm text-white/90 md:text-base">
-                      同社はこれまで、代表様、取締役様が採用活動をされておられましたが、物理的な時間の確保ができず、採用業務も曖昧なものとなっておりました。そこでHiveMindsが中途・パート含め3職種の採用業務をお引き受けし、結果継続的な人材確保が可能となりました。
-                    </p>
-
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                      <div className="space-y-6">
-                        <div>
-                          <div className="mb-3 inline-flex rounded bg-green-500 px-3 py-1 font-medium text-white">
-                            HiveMindsの支援内容
-                          </div>
-                          <ul className="list-disc space-y-1 pl-5 text-sm text-white/90 md:text-base">
-                            <li>求人媒体管理（求人作成・編集・更新）</li>
-                            <li>応募者対応（※面接調整まで）</li>
-                            <li>採用媒体内での自社ページ構築</li>
-                            <li>エージェントコントロール対応</li>
-                            <li>採用方針／採用ターゲット考案</li>
-                            <li>自社の強み・魅力発掘・企業訪問　他</li>
-                          </ul>
-                        </div>
-
-                        <div>
-                          <div className="mb-3 inline-flex rounded bg-green-500 px-3 py-1 font-medium text-white">
-                            支援成果
-                          </div>
-                          <ul className="list-disc space-y-1 pl-5 text-sm text-white/90 md:text-base">
-                            <li>各種求人媒体運用の習慣化</li>
-                            <li>採用媒体内での自社ページ構築</li>
-                            <li>事業戦略に合わせた人材採用計画の立案</li>
-                            <li>特定の国家資格保有者の採用成功</li>
-                            <li>年間8名のパート人材の採用成功</li>
-                            <li>自社の成功求人パターンの形成　他</li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-center">
-                        <img
-                          src="/api/placeholder/350/280"
-                          alt="Case Study 2"
-                          className="h-auto w-full max-w-[350px] rounded-lg"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            <TabsContent value="case3" className="mt-0">
-              <Card className="border-stone-700 bg-stone-900 shadow-xl">
-                <CardHeader className="pb-2">
-                  <Badge className="mb-2 w-fit bg-green-500 hover:bg-green-600">
-                    Case 3
-                  </Badge>
-                  <CardTitle className="text-lg md:text-xl">
-                    東京都 福祉事業者 様
-                  </CardTitle>
-                  <CardDescription className="text-white/70">
-                    ご予算：10万円／月　ご支援期間：～6ヵ月
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pb-6">
-                  <div className="mb-4 border-t border-white/20 pt-4">
-                    <p className="mb-6 text-sm text-white/90 md:text-base">
-                      同社が所属する福祉業界は人材難が著しく、これまで様々な採用投資を行ってきましたが応募は1~2名程度となっておりました。
-                      そこでHiveMindsより、全求人媒体の見直しと企業の魅力を正しくPRした結果、短期間で複数名のターゲット人材の確保に成功しました。
-                    </p>
-
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                      <div className="space-y-6">
-                        <div>
-                          <div className="mb-3 inline-flex rounded bg-green-500 px-3 py-1 font-medium text-white">
-                            HiveMindsの支援内容
-                          </div>
-                          <ul className="list-disc space-y-1 pl-5 text-sm text-white/90 md:text-base">
-                            <li>求人媒体管理（求人作成・編集・更新）</li>
-                            <li>採用媒体内での自社ページ構築</li>
-                            <li>採用方針・計画／採用ターゲット考案</li>
-                            <li>自社の強み・魅力発掘・企業訪問　他</li>
-                          </ul>
-                        </div>
-
-                        <div>
-                          <div className="mb-3 inline-flex rounded bg-green-500 px-3 py-1 font-medium text-white">
-                            支援成果
-                          </div>
-                          <ul className="list-disc space-y-1 pl-5 text-sm text-white/90 md:text-base">
-                            <li>各種求人媒体運用の習慣化</li>
-                            <li>採用媒体内での自社ページ構築</li>
-                            <li>事業戦略に合わせた人材採用計画の立案</li>
-                            <li>20～30代 正社員3名の採用成功</li>
-                            <li>年間5名のパート人材の採用成功</li>
-                            <li>自社の成功求人パターンの形成　他</li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-center">
-                        <img
-                          src="/api/placeholder/350/280"
-                          alt="Case Study 3"
-                          className="h-auto w-full max-w-[350px] rounded-lg"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            ))}
           </Tabs>
         </div>
       </section>
@@ -730,57 +733,28 @@ export default function RecruitmentOutsourcingPage() {
       {/* Service Flow */}
       <section className="bg-gradient-to-b from-stone-950 to-stone-900 py-16">
         <div className="container mx-auto max-w-5xl px-4">
-          <div className="mb-12 flex flex-col items-center">
-            <h2 className="mb-4 text-2xl font-bold md:text-3xl">
-              サービスフロー
-            </h2>
+          {/* Header - only visible on mobile */}
+          <div className="mb-12 flex flex-col items-center md:hidden">
+            <h2 className="mb-4 text-2xl font-bold">サービスフロー</h2>
             <div className="h-0.5 w-16 bg-green-500"></div>
           </div>
 
-          <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <Card className="border-green-500/50 bg-green-500/30">
-              <CardContent className="p-6">
-                <p className="text-center text-base font-medium text-white md:text-lg">
-                  定期的なミーティングを実施し、
-                  <br />
-                  今後の動き方や採用内容の調整を行い、自社の採用活動を改善していきます。
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-green-500/50 bg-green-500/30">
-              <CardContent className="p-6">
-                <p className="text-center text-base font-medium text-white md:text-lg">
-                  貴社へのヒアリング、お打ち合わせ等から自社の採用を成功させるための進め方を考案いたします
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="my-10 flex justify-center">
+          {/* Mobile image - only visible on small screens */}
+          <div className="flex justify-center md:hidden">
             <img
-              src="/api/placeholder/800/300"
-              alt="Service Flow Diagram"
-              className="h-auto w-full max-w-[800px] rounded-lg shadow-lg"
+              src="/rpo/serviceflowSP.png"
+              alt="Service Flow Diagram Mobile"
+              className="h-auto w-full rounded-lg shadow-lg"
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <Card className="border-green-500/50 bg-green-500/30">
-              <CardContent className="p-6">
-                <p className="text-center text-base font-medium text-white md:text-lg">
-                  クライアント様と擦り合わせた採用方針、実施内容をもとにHiveMindsが採用活動を行います。
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-green-500/50 bg-green-500/30">
-              <CardContent className="p-6">
-                <p className="text-center text-base font-medium text-white md:text-lg">
-                  考案した採用業務の進め方、求人内容などをクライアント様へご提案し、調整を行なっていきます。
-                </p>
-              </CardContent>
-            </Card>
+          {/* Desktop image - hidden on mobile, visible on md screens and up */}
+          <div className="hidden justify-center md:flex">
+            <img
+              src="/rpo/serviceflow.png"
+              alt="Service Flow Diagram Desktop"
+              className="h-auto w-full max-w-[900px] rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </section>
@@ -788,28 +762,38 @@ export default function RecruitmentOutsourcingPage() {
       {/* Call to Action */}
       <section className="bg-gradient-to-b from-stone-900 to-stone-950 py-20">
         <div className="container mx-auto max-w-5xl px-4">
-          <div className="mb-12 text-center text-2xl font-bold leading-tight md:text-3xl">
-            人手が足りず十分な採用活動を行えていない中小企業の皆様へ
-            <br />
-            人材採用に「プロの時間」を使いませんか？
+          <div className="mb-16 text-center">
+            <h2 className="text-2xl font-bold leading-relaxed md:text-3xl">
+              <span className="mb-6 block">
+                人手が足りず十分な採用活動を行えていない中小企業の皆様へ
+              </span>
+              <span className="block">
+                人材採用に「プロの時間」を使いませんか？
+              </span>
+            </h2>
           </div>
 
           <div className="flex flex-col justify-center gap-6 sm:flex-row">
-            <Button
-              variant="destructive"
-              size="lg"
-              className="rounded-full font-medium shadow-lg"
-            >
-              すぐ見積もり相談する <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-
-            <Button
-              variant="default"
-              size="lg"
-              className="rounded-full bg-amber-500 font-medium shadow-lg hover:bg-amber-600"
-            >
-              まずは無料相談をする <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link href="https://hiveminds.co.jp/contact">
+              <Button
+                variant="destructive"
+                size="lg"
+                className="rounded-full px-6 py-3 text-base font-medium shadow-lg md:px-8 md:py-4 md:text-lg"
+              >
+                すぐ見積もり相談する{" "}
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              </Button>
+            </Link>
+            <Link href="https://hiveminds.co.jp/contact">
+              <Button
+                variant="default"
+                size="lg"
+                className="rounded-full bg-amber-500 px-6 py-3 text-base font-medium shadow-lg hover:bg-amber-600 md:px-8 md:py-4 md:text-lg"
+              >
+                まずは無料相談をする{" "}
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

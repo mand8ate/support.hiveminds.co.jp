@@ -95,7 +95,7 @@ export default function RecruitPage() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <img
-                  src="/landing/recruitement.png"
+                  src="/rpo/hero.png"
                   alt="Recruit Outsourcing"
                   className="h-full w-full object-cover"
                 />
@@ -118,7 +118,7 @@ export default function RecruitPage() {
               貴社の採用活動を一緒に大きく動かします。
             </p>
             <div>
-              <Link href="/recruit-outsourcing">
+              <Link href="/rpo">
                 <Button className="mt-4 rounded-full bg-violet-800 px-8 py-6 text-lg font-medium text-white hover:bg-violet-700">
                   READ MORE
                 </Button>
@@ -145,7 +145,7 @@ export default function RecruitPage() {
               貴社で働く魅力を「正しく」「伝わりやすい」内容で発信できるよう設計から対応いたします。
             </p>
             <div className="mt-8">
-              <Link href="/recruit-site">
+              <Link href="/website">
                 <Button className="rounded-full bg-amber-700 px-8 py-6 text-lg font-medium text-white hover:bg-amber-600">
                   READ MORE
                 </Button>
@@ -164,7 +164,7 @@ export default function RecruitPage() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <img
-                  src="/landing/company-page.png"
+                  src="/landing/landing2.png"
                   alt="Company Recruit Page"
                   className="h-full w-full object-cover"
                 />
@@ -172,7 +172,7 @@ export default function RecruitPage() {
                   <div className="text-center text-3xl font-bold text-white">
                     COMPANY
                     <br />
-                    RECRUIT PAGE
+                    RECRUITMENT PAGE
                   </div>
                 </div>
               </motion.div>
@@ -195,7 +195,7 @@ export default function RecruitPage() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <img
-                  src="/landing/ai-recruit.png"
+                  src="/landing/landing3.png"
                   alt="AI Recruiting Assistant"
                   className="h-full w-full object-cover"
                 />
@@ -218,7 +218,7 @@ export default function RecruitPage() {
             </p>
             <div>
               <Button className="mt-4 rounded-full bg-yellow-600/50 px-8 py-6 text-lg font-medium text-white hover:bg-yellow-600/70">
-                PAGE MAKING
+                Under Construction
               </Button>
             </div>
           </div>

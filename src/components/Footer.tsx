@@ -27,12 +27,12 @@ export default function Footer({ root }: { root?: boolean }) {
             </div>
             <div className="flex flex-col items-center sm:items-start">
               <h2 className="text-xl font-semibold">
-                <Link href="/rpo">RPO</Link>
+                <Link href="/rpo">Saiyou Support</Link>
               </h2>
             </div>
             <div className="flex flex-col items-center sm:items-start">
               <h2 className="text-xl font-semibold">
-                <Link href="/website">Recruit Website</Link>
+                <Link href="/website">Recruitment Website</Link>
               </h2>
             </div>
           </div>
