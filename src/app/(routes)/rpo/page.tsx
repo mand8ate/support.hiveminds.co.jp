@@ -185,7 +185,7 @@ export default function RecruitmentOutsourcingPage() {
         </div>
       </div>
 
-      {/* Service Introduction - Improved spacing and animations */}
+      {/* Service Introduction - With improved responsive buttons for RPO page */}
       <div className="bg-gradient-to-b from-stone-950 to-stone-900 py-16 md:py-20">
         <div className="container mx-auto max-w-5xl px-4">
           <motion.div
@@ -208,43 +208,49 @@ export default function RecruitmentOutsourcingPage() {
                 <span className="mb-4 block font-normal">
                   「従業員100名以下の中小企業」で採用業務を行ってきた、
                 </span>
-
                 <span className="mb-4 block">
                   <span className="font-bold text-amber-500">
                     「中小企業採用の専門家」
                   </span>
                   <span className="font-normal">が、</span>
                 </span>
-
                 <span className="block font-normal">
                   御社の採用業務をお引き受けし、円滑でしっかり向き合った採用活動を創ります。
                 </span>
               </p>
             </div>
           </motion.div>
+
+          {/* Improved responsive buttons */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeInUp}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-12 flex flex-col justify-center gap-5 sm:flex-row"
+            className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row"
           >
-            <Link href="https://hiveminds.co.jp/contact">
+            <Link
+              href="https://hiveminds.co.jp/contact"
+              className="w-full max-w-xs sm:w-auto"
+            >
               <Button
                 variant="destructive"
                 size="lg"
-                className="rounded-full px-6 py-3 text-base font-medium shadow-lg transition-all duration-300 hover:scale-105 md:px-8 md:py-4 md:text-lg"
+                className="w-full rounded-full px-6 py-3 text-base font-medium shadow-lg transition-all duration-300 hover:scale-105 md:px-8 md:py-4 md:text-lg"
               >
                 すぐ見積もり相談する{" "}
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
-            <Link href="https://hiveminds.co.jp/contact">
+            <Link
+              href="https://hiveminds.co.jp/contact"
+              className="w-full max-w-xs sm:w-auto"
+            >
               <Button
                 variant="default"
                 size="lg"
-                className="rounded-full bg-amber-500 px-6 py-3 text-base font-medium shadow-lg transition-all duration-300 hover:scale-105 hover:bg-amber-600 md:px-8 md:py-4 md:text-lg"
+                className="w-full rounded-full bg-amber-500 px-6 py-3 text-base font-medium shadow-lg transition-all duration-300 hover:scale-105 hover:bg-amber-600 md:px-8 md:py-4 md:text-lg"
               >
                 まずは無料相談をする{" "}
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
@@ -775,7 +781,7 @@ export default function RecruitmentOutsourcingPage() {
         </div>
       </section>
 
-      {/* Case Studies - Improved tabs and responsiveness */}
+      {/* Case Studies - Improved tabs with better responsiveness */}
       <section className="bg-stone-950 py-16 md:py-20">
         <div className="container mx-auto max-w-5xl px-4">
           <motion.div
@@ -790,14 +796,16 @@ export default function RecruitmentOutsourcingPage() {
           </motion.div>
 
           <Tabs defaultValue="case1" className="w-full">
-            <TabsList className="mb-8 flex h-auto w-full flex-wrap rounded-lg bg-stone-800 p-1.5">
+            {/* Improved TabsList for better responsive behavior */}
+            <TabsList className="mb-8 grid h-auto w-full grid-cols-2 gap-1 rounded-lg bg-stone-800 p-1.5 sm:grid-cols-2 md:flex md:flex-wrap md:gap-0">
               {caseStudies.map((caseItem, index) => (
                 <TabsTrigger
                   key={`tab-${index + 1}`}
                   value={`case${index + 1}`}
-                  className="min-w-[120px] flex-1 rounded-md py-2.5 text-sm transition-all duration-200 data-[state=active]:bg-green-500 data-[state=active]:text-white md:text-base"
+                  className="min-h-[40px] overflow-hidden text-ellipsis whitespace-nowrap px-2 py-2.5 text-xs transition-all duration-200 data-[state=active]:bg-green-500 data-[state=active]:text-white sm:text-sm md:min-w-[120px] md:flex-1 md:px-3 md:text-base"
                 >
-                  {caseItem.company}
+                  <span className="hidden sm:inline">{caseItem.company}</span>
+                  <span className="sm:hidden">Case {index + 1}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -933,7 +941,7 @@ export default function RecruitmentOutsourcingPage() {
         </div>
       </section>
 
-      {/* Call to Action - Improved animations and spacing */}
+      {/* Call to Action - Improved animations and spacing with better mobile button display */}
       <section className="bg-gradient-to-b from-stone-900 to-stone-950 py-16 md:py-24">
         <div className="container mx-auto max-w-5xl px-4">
           <motion.div
@@ -960,23 +968,29 @@ export default function RecruitmentOutsourcingPage() {
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeInUp}
             transition={{ delay: 0.2, duration: 0.7 }}
-            className="flex flex-col justify-center gap-6 sm:flex-row"
+            className="flex flex-col items-center justify-center gap-6 sm:flex-row"
           >
-            <Link href="https://hiveminds.co.jp/contact">
+            <Link
+              href="https://hiveminds.co.jp/contact"
+              className="w-full max-w-xs sm:w-auto"
+            >
               <Button
                 variant="destructive"
                 size="lg"
-                className="rounded-full px-6 py-3 text-base font-medium shadow-lg transition-all duration-300 hover:scale-105 md:px-8 md:py-4 md:text-lg"
+                className="w-full rounded-full px-6 py-3 text-base font-medium shadow-lg transition-all duration-300 hover:scale-105 md:px-8 md:py-4 md:text-lg"
               >
                 すぐ見積もり相談する{" "}
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
-            <Link href="https://hiveminds.co.jp/contact">
+            <Link
+              href="https://hiveminds.co.jp/contact"
+              className="w-full max-w-xs sm:w-auto"
+            >
               <Button
                 variant="default"
                 size="lg"
-                className="rounded-full bg-amber-500 px-6 py-3 text-base font-medium shadow-lg transition-all duration-300 hover:scale-105 hover:bg-amber-600 md:px-8 md:py-4 md:text-lg"
+                className="w-full rounded-full bg-amber-500 px-6 py-3 text-base font-medium shadow-lg transition-all duration-300 hover:scale-105 hover:bg-amber-600 md:px-8 md:py-4 md:text-lg"
               >
                 まずは無料相談をする{" "}
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
