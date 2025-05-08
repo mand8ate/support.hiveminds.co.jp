@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mails } from "lucide-react";
+import { Mails, MapPin } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -43,6 +43,29 @@ export default function Footer({ root }: { root?: boolean }) {
           </div>
         </div>
       </div>
+
+      {/* Company Information Section */}
+      <div className="bg-foreground/10 py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center justify-center space-y-3 text-center md:flex-row md:space-x-6 md:space-y-0 md:text-left">
+            <div className="flex items-center">
+              <span className="font-medium">商号：</span>
+              <span>合同会社HiveMinds</span>
+            </div>
+            <div className="flex items-center">
+              <MapPin className="mr-1 h-4 w-4" />
+              <span>東京都港区南青山2丁目2番15号 WIN青山531</span>
+            </div>
+            <div className="flex items-center">
+              <span className="mr-1">Mail:</span>
+              <a href="mailto:info@hiveminds.co.jp" className="hover:underline">
+                info@hiveminds.co.jp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="flex items-center justify-center bg-foreground py-12">
         <p className="text-background">
           Copyright &copy; HiveMinds, LLC. All Rights Reserved.
