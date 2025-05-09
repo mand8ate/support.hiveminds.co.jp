@@ -27,7 +27,7 @@ export default function RoutesLayout({
   return (
     <>
       <html lang="en">
-        <GoogleTagManager gtmId="" />
+        <GoogleTagManager gtmId="G-2PD9T1R70" />
         <GoogleAnalytics gaId="AW-16938504623" />
         <GoogleAnalytics gaId="G-2PD9T1R70G" />
         <body className={(cn("antialiased"), inter.className)}>
