@@ -9,6 +9,7 @@ import ProgressBar from "@/components/ProgressBar";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,9 @@ export default function RoutesLayout({
   return (
     <>
       <html lang="en">
+        <GoogleTagManager gtmId="" />
+        <GoogleAnalytics gaId="AW-16938504623" />
+        <GoogleAnalytics gaId="G-2PD9T1R70G" />
         <body className={(cn("antialiased"), inter.className)}>
           <ThemeProvider
             attribute="class"
