@@ -14,7 +14,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "HiveMinds Global Support",
+  title: "HiveMinds Saiyou Support",
   description:
     "Your dream, Your reality! 私たちは、魅力的なランディングページから包括的な電子商取引プラットフォーム、革新的なモバイルアプリに至るまで、理想的なブランド作りを専門としています。私たちのコンサルティングは、デジタルエクスペリエンスの全ての面に及びます。ブランドをレベルアップしませんか？お問い合わせフォーム、ライン、またはどのプラットフォームからでもご連絡ください。一緒にこのワクワクする旅を始めましょう！",
 };
@@ -27,9 +27,8 @@ export default function RoutesLayout({
   return (
     <>
       <html lang="en">
-        <GoogleTagManager gtmId="G-2PD9T1R70" />
+        <GoogleTagManager gtmId="GTM-5WLC6DQM" />
         <GoogleAnalytics gaId="AW-16938504623" />
-        <GoogleAnalytics gaId="G-2PD9T1R70G" />
         <body className={(cn("antialiased"), inter.className)}>
           <ThemeProvider
             attribute="class"
