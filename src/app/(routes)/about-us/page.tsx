@@ -73,7 +73,10 @@ const AboutUsPage = () => {
         </div>
         <button
           onClick={handleTeamClick}
-          className="text-md rounded-full bg-orange-400 px-6 py-3 font-bold tracking-wider text-white shadow-lg transition-colors duration-200 hover:bg-orange-500 md:px-8 md:py-4 md:text-lg md:tracking-widest"
+          className="text-md rounded-full bg-orange-400 px-6 py-3 font-bold tracking-wider text-white shadow-lg transition-all duration-200 hover:bg-orange-500 active:translate-y-1 active:shadow-none md:px-8 md:py-4 md:text-lg md:tracking-widest"
+          style={{
+            boxShadow: "0 6px 0 #cc5500, 0 12px 20px rgba(0, 0, 0, 0.5)",
+          }}
         >
           HiveMindsのTeamを知る
         </button>

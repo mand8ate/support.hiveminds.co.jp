@@ -9,10 +9,10 @@ export default function Footer({ root }: { root?: boolean }) {
       {/* Main Footer Content */}
       <div className="bg-foreground/30 text-white backdrop-blur-xl">
         <div className="container mx-auto px-8 py-16">
-          <div className="flex flex-col gap-4 lg:items-start lg:justify-between xl:flex-row">
+          <div className="flex flex-col gap-8 lg:items-start lg:justify-between xl:flex-row xl:gap-4">
             <div className="lg: flex w-full flex-col justify-center gap-4 lg:flex-row">
               {/* Left Side: Logo and Social Links */}
-              <div className="mb-8 flex flex-col justify-center lg:mb-0">
+              <div className="flex flex-col justify-center lg:mb-0">
                 <Link
                   href="/"
                   className="relative block h-[80px] w-full lg:w-[200px]"
@@ -25,7 +25,7 @@ export default function Footer({ root }: { root?: boolean }) {
                   />
                 </Link>
                 {/* Social Links - Below Logo */}
-                <div className="mt-4 flex justify-center gap-3">
+                <div className="my-2 flex justify-center gap-3">
                   <a
                     href="https://www.linkedin.com/company/hivemindsjapan"
                     target="_blank"
@@ -52,7 +52,7 @@ export default function Footer({ root }: { root?: boolean }) {
               </div>
 
               {/* Right Side: Navigation Menu */}
-              <div className="mb-8 grid grid-cols-2 gap-6 md:grid-cols-4 lg:mb-0">
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:mb-0">
                 {/* Home Navigation */}
                 <div>
                   <h3 className="mb-2 text-lg font-semibold text-white md:mb-6">
@@ -64,7 +64,7 @@ export default function Footer({ root }: { root?: boolean }) {
                         href="/"
                         className="text-gray-300 transition-colors hover:text-white"
                       >
-                        Top
+                        Home
                       </Link>
                     </li>
                   </ul>
@@ -111,7 +111,8 @@ export default function Footer({ root }: { root?: boolean }) {
                   <ul className="space-y-3 text-sm">
                     <li>
                       <Link
-                        href="/projects"
+                        href="https://hiveminds.co.jp/projects"
+                        target="_blank"
                         className="text-gray-300 transition-colors hover:text-white"
                       >
                         Projects
@@ -128,6 +129,15 @@ export default function Footer({ root }: { root?: boolean }) {
                   <ul className="space-y-3 text-sm">
                     <li>
                       <Link
+                        href="https://hiveminds.co.jp/company/team"
+                        target="_blank"
+                        className="text-gray-300 transition-colors hover:text-white"
+                      >
+                        Team
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
                         href="/about-us"
                         className="text-gray-300 transition-colors hover:text-white"
                       >
@@ -136,7 +146,8 @@ export default function Footer({ root }: { root?: boolean }) {
                     </li>
                     <li>
                       <Link
-                        href="/company"
+                        href="https://hiveminds.co.jp/company"
+                        target="_blank"
                         className="text-gray-300 transition-colors hover:text-white"
                       >
                         Company
@@ -149,7 +160,7 @@ export default function Footer({ root }: { root?: boolean }) {
             {/* Contact and Download Cards - Added more gap from navigation */}
             <div className="flex w-full flex-col justify-center gap-6 md:flex-row lg:gap-8">
               {/* Contact Card */}
-              <div className="flex w-full flex-col items-center rounded-lg bg-gray-200 p-6 text-gray-800">
+              <div className="flex w-full flex-col items-center rounded-lg bg-gray-200 p-4 text-gray-800">
                 <div className="mb-3 flex items-center justify-end gap-4">
                   <h3 className="text-lg font-bold text-black">CONTACT</h3>
                   <Mail className="h-12 w-12 text-gray-700" />
@@ -165,7 +176,7 @@ export default function Footer({ root }: { root?: boolean }) {
               </div>
 
               {/* Download Card */}
-              <div className="flex w-full flex-col items-center rounded-lg bg-gray-200 p-6 text-gray-800">
+              <div className="flex w-full flex-col items-center rounded-lg bg-gray-200 p-4 text-gray-800">
                 <div className="mb-3 flex items-center justify-end gap-4">
                   <h3 className="text-lg font-bold text-black">DOWNLOAD</h3>
                   <FileText className="h-12 w-12 text-gray-700" />
