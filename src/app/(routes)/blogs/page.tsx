@@ -1,83 +1,162 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useBlogsData, useCategories } from "@/hooks/useBlogsData";
+import Image from "next/image";
+import { urlFor } from "@/sanity/imageUrl";
+
+// Declare global type for Sender.net
+declare global {
+  interface Window {
+    sender?: any;
+  }
+}
 
 const HERO_TITLE = "社員100名未満の中小企業のための";
 const HERO_SUBTITLE = "採用お役立ち情報";
-
-// Mock blog data
-const mockBlogs = [
-  {
-    id: 1,
-    title: "中小企業の採用における最新トレンド",
-    summary: "2024年の中小企業採用市場の変化と対策について詳しく解説します。",
-    category: "#category",
-    date: "2024.8.30",
-    image: "/rpo/case1Pic1.png",
-  },
-  {
-    id: 2,
-    title: "効果的な求人票の書き方",
-    summary: "応募者の心を掴む求人票作成のポイントをご紹介します。",
-    category: "#category",
-    date: "2024.8.25",
-    image: "/rpo/case2Pic1.png",
-  },
-  {
-    id: 3,
-    title: "面接官のためのスキルアップガイド",
-    summary: "優秀な人材を見極めるための面接テクニックを学びましょう。",
-    category: "#category",
-    date: "2024.8.20",
-    image: "/rpo/case3Pic1.png",
-  },
-  {
-    id: 4,
-    title: "リモートワーク時代の採用戦略",
-    summary: "コロナ後の働き方に対応した新しい採用アプローチについて。",
-    category: "#category",
-    date: "2024.8.15",
-    image: "/rpo/case4Pic1.png",
-  },
-  {
-    id: 5,
-    title: "採用コストを削減する方法",
-    summary: "限られた予算で最大の効果を得るための具体的な手法をご紹介。",
-    category: "#category",
-    date: "2024.8.10",
-    image: "/rpo/case1Pic2.png",
-  },
-  {
-    id: 6,
-    title: "若手社員の定着率向上のコツ",
-    summary: "新卒・若手社員が長く働ける環境づくりのポイントを解説。",
-    category: "#category",
-    date: "2024.8.05",
-    image: "/rpo/case2Pic2.png",
-  },
-];
-
 const BLOGS_PER_PAGE = 4;
+
+const SENDER_FORM_ID = "b68M47"; // Replace with your actual Sender.net form ID
 
 const BlogsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(mockBlogs.length / BLOGS_PER_PAGE);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [showSenderPopup, setShowSenderPopup] = useState(false);
 
-  const getCurrentBlogs = () => {
-    const startIndex = (currentPage - 1) * BLOGS_PER_PAGE;
-    const endIndex = startIndex + BLOGS_PER_PAGE;
-    return mockBlogs.slice(startIndex, endIndex);
+  // Try to load Sender.net script for fallback
+  useEffect(() => {
+    if (showSenderPopup && typeof window !== 'undefined') {
+      console.log('Modal opened - running Sender.net script');
+      
+      // Clean up any existing Sender.net scripts and global objects
+      const existingScripts = document.querySelectorAll('script[src*="sender.net"], script[src*="universal.js"]');
+      existingScripts.forEach(script => script.remove());
+      
+      // Clear any existing sender objects
+      if (window.sender) {
+        delete window.sender;
+      }
+      
+      // Clear the form container
+      const formContainer = document.querySelector('.sender-form-field[data-sender-form-id="' + SENDER_FORM_ID + '"]');
+      if (formContainer) {
+        formContainer.innerHTML = '';
+      }
+      
+      // Wait a bit for cleanup, then load fresh script
+      setTimeout(() => {
+        const script = document.createElement('script');
+        script.innerHTML = `
+          (function (s, e, n, d, er) {
+            s['Sender'] = er;
+            s[er] = s[er] || function () {
+              (s[er].q = s[er].q || []).push(arguments)
+            }, s[er].l = 1 * new Date();
+            var a = e.createElement(n),
+                m = e.getElementsByTagName(n)[0];
+            a.async = 1;
+            a.src = d;
+            m.parentNode.insertBefore(a, m)
+          })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
+          sender('129e9322ab0463');
+        `;
+        
+        script.onload = () => {
+          console.log('Sender.net script loaded, trying form render');
+          setTimeout(() => {
+            try {
+              if (window.sender) {
+                window.sender('form', SENDER_FORM_ID);
+                console.log('Script method: Form render attempted');
+              }
+            } catch (error) {
+              console.error('Script method failed:', error);
+            }
+          }, 1000);
+        };
+        
+        script.onerror = () => {
+          console.error('Failed to load Sender.net script');
+        };
+        
+        document.head.appendChild(script);
+      }, 100);
+    }
+  }, [showSenderPopup]);
+
+  const closeSenderPopup = () => {
+    setShowSenderPopup(false);
   };
+  
+  // Fetch categories for filtering
+  const { categories, loading: categoriesLoading } = useCategories();
+  
+  // Memoize the pagination and filters objects to prevent infinite re-renders
+  const pagination = useMemo(() => ({ 
+    page: currentPage, 
+    limit: BLOGS_PER_PAGE 
+  }), [currentPage]);
+  
+  const filters = useMemo(() => ({ 
+    categories: selectedCategories 
+  }), [selectedCategories]);
+  
+  // Fetch blogs with pagination and filtering
+  const {
+    posts,
+    totalCount,
+    hasNextPage,
+    hasPrevPage,
+    totalPages,
+    loading: postsLoading,
+    error,
+    refetch
+  } = useBlogsData({
+    pagination,
+    filters,
+    enableAutoLoad: true
+  });
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
+  const handleCategoryFilter = (categoryId: string) => {
+    setSelectedCategories(prev => {
+      const isSelected = prev.includes(categoryId);
+      const newSelection = isSelected 
+        ? prev.filter(id => id !== categoryId)
+        : [...prev, categoryId];
+      
+      // Reset to page 1 when filter changes
+      setCurrentPage(1);
+      return newSelection;
+    });
+  };
+
+  const clearAllFilters = () => {
+    setSelectedCategories([]);
+    setCurrentPage(1);
+  };
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('ja-JP', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric'
+    }).replace(/\//g, '.');
+  };
+
   const handleTeamClick = () => {
-    window.open("https://hiveminds.co.jp/company/team", "_blank");
+    setShowSenderPopup(true);
+  };
+
+  const handleContactClick = () => {
+    window.open("https://hiveminds.co.jp/contact", "_blank");
   };
 
   return (
-    <>
+    <>      
       <section
         className="relative flex h-[340px] w-full items-center justify-center overflow-hidden pt-[72px] md:h-[420px]"
         style={{ background: "#f5f6f7" }}
@@ -154,75 +233,238 @@ const BlogsPage = () => {
 
           {/* Category Tags */}
           <div className="mb-12 flex flex-wrap justify-center gap-2">
-            <span className="rounded-full bg-blue-500 px-4 py-2 text-sm font-medium text-white">
-              N
-            </span>
-            {[...Array(8)].map((_, i) => (
-              <span
-                key={i}
-                className="rounded-full border border-gray-500 px-4 py-2 text-sm text-gray-300"
-              >
-                #category
-              </span>
-            ))}
+            {/* All Posts Button */}
+            <button
+              onClick={clearAllFilters}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                selectedCategories.length === 0
+                  ? "bg-blue-500 text-white"
+                  : "border border-gray-500 text-gray-300 hover:bg-gray-700"
+              }`}
+            >
+              すべて
+            </button>
+            
+            {/* Category Filter Buttons */}
+            {categoriesLoading ? (
+              <span className="text-gray-400">カテゴリー読み込み中...</span>
+            ) : (
+              categories.map((category) => (
+                <button
+                  key={category._id}
+                  onClick={() => handleCategoryFilter(category._id)}
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    selectedCategories.includes(category._id)
+                      ? "bg-blue-500 text-white"
+                      : "border border-gray-500 text-gray-300 hover:bg-gray-700"
+                  }`}
+                >
+                  #{category.title}
+                </button>
+              ))
+            )}
           </div>
 
           {/* Blog Grid */}
-          <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-            {getCurrentBlogs().map((blog) => (
-              <div
-                key={blog.id}
-                className="cursor-pointer overflow-hidden rounded-lg bg-white text-black"
-                onClick={() => window.open(`/blogs/${blog.id}`, "_blank")}
-              >
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="h-48 w-full object-cover"
-                />
-                <div className="p-6">
-                  <div className="mb-2 text-sm text-gray-500">{blog.date}</div>
-                  <h3 className="mb-3 text-lg font-bold">{blog.title}</h3>
-                  <div className="mb-4 text-sm text-gray-600">
-                    {blog.category}
-                  </div>
-                  <p className="text-sm leading-relaxed text-gray-700">
-                    {blog.summary}
-                  </p>
-                </div>
+          {postsLoading ? (
+            <div className="mb-12 flex justify-center">
+              <div className="text-center">
+                <div className="mx-auto h-8 w-8 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"></div>
+                <p className="mt-2 text-gray-400">記事を読み込み中...</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ) : error ? (
+            <div className="mb-12 text-center text-red-400">
+              <p>エラーが発生しました: {error}</p>
+              <button
+                onClick={refetch}
+                className="mt-2 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+              >
+                再試行
+              </button>
+            </div>
+          ) : posts.length === 0 ? (
+            <div className="mb-12 text-center text-gray-400">
+              <p>該当する記事が見つかりません。</p>
+            </div>
+          ) : (
+            <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+              {posts.map((post) => (
+                <div
+                  key={post._id}
+                  className="cursor-pointer overflow-hidden rounded-lg bg-white text-black transition-transform hover:scale-[1.02]"
+                  onClick={() => window.open(`/blogs/${post.slug.current}`, "_blank")}
+                >
+                  {post.mainImage ? (
+                    <Image
+                      src={urlFor(post.mainImage).width(400).height(200).url()}
+                      alt={post.title}
+                      width={400}
+                      height={200}
+                      className="h-48 w-full object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-48 w-full items-center justify-center bg-gray-200">
+                      <span className="text-gray-500">画像がありません</span>
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="mb-2 text-sm text-gray-500">
+                      {formatDate(post.publishedAt)}
+                    </div>
+                    <h3 className="mb-3 text-lg font-bold overflow-hidden" style={{ 
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical'
+                    }}>
+                      {post.title}
+                    </h3>
+                    <div className="mb-4 flex flex-wrap gap-1">
+                      {post.categories?.map((category) => (
+                        <span
+                          key={category._id}
+                          className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-600"
+                        >
+                          #{category.title}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* Pagination */}
-          <div className="flex items-center justify-center space-x-2">
-            {[...Array(totalPages)].map((_, i) => (
-              <button
-                key={i + 1}
-                onClick={() => handlePageChange(i + 1)}
-                className={`h-10 w-10 rounded-full text-sm font-medium transition-colors ${
-                  currentPage === i + 1
-                    ? "bg-orange-500 text-white"
-                    : "border border-gray-500 text-gray-300 hover:bg-gray-700"
-                }`}
-              >
-                {i + 1}
-              </button>
-            ))}
-            <span className="ml-4 text-sm text-gray-400">次へ</span>
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center space-x-2">
+              {/* Previous button */}
+              {hasPrevPage && (
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  className="h-10 px-3 rounded text-sm font-medium border border-gray-500 text-gray-300 hover:bg-gray-700 transition-colors"
+                >
+                  前へ
+                </button>
+              )}
+              
+              {/* Page numbers */}
+              {[...Array(totalPages)].map((_, i) => {
+                const pageNum = i + 1;
+                // Show page numbers with ellipsis for large number of pages
+                if (totalPages > 7) {
+                  if (pageNum === 1 || pageNum === totalPages || 
+                      (pageNum >= currentPage - 1 && pageNum <= currentPage + 1)) {
+                    return (
+                      <button
+                        key={pageNum}
+                        onClick={() => handlePageChange(pageNum)}
+                        className={`h-10 w-10 rounded-full text-sm font-medium transition-colors ${
+                          currentPage === pageNum
+                            ? "bg-orange-500 text-white"
+                            : "border border-gray-500 text-gray-300 hover:bg-gray-700"
+                        }`}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  } else if (pageNum === 2 && currentPage > 4) {
+                    return <span key={pageNum} className="text-gray-400">...</span>;
+                  } else if (pageNum === totalPages - 1 && currentPage < totalPages - 3) {
+                    return <span key={pageNum} className="text-gray-400">...</span>;
+                  }
+                  return null;
+                } else {
+                  return (
+                    <button
+                      key={pageNum}
+                      onClick={() => handlePageChange(pageNum)}
+                      className={`h-10 w-10 rounded-full text-sm font-medium transition-colors ${
+                        currentPage === pageNum
+                          ? "bg-orange-500 text-white"
+                          : "border border-gray-500 text-gray-300 hover:bg-gray-700"
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  );
+                }
+              })}
+              
+              {/* Next button */}
+              {hasNextPage && (
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  className="h-10 px-3 rounded text-sm font-medium border border-gray-500 text-gray-300 hover:bg-gray-700 transition-colors"
+                >
+                  次へ
+                </button>
+              )}
+            </div>
+          )}
+          
+          {/* Results info */}
+          <div className="mt-4 text-center text-sm text-gray-400">
+            {totalCount > 0 && (
+              <p>
+                {totalCount}件中 {((currentPage - 1) * BLOGS_PER_PAGE) + 1} - {Math.min(currentPage * BLOGS_PER_PAGE, totalCount)}件を表示
+              </p>
+            )}
           </div>
 
           {/* Action Buttons */}
           <div className="mt-16 flex flex-col justify-center gap-4 sm:flex-row">
-            <button className="rounded-full bg-[#EA3E3E] px-8 py-3 font-bold text-white transition-all duration-200 hover:bg-[#D32F2F] active:translate-y-1 active:shadow-none">
+            <button 
+              onClick={handleTeamClick}
+              className="rounded-full bg-[#EA3E3E] px-8 py-3 font-bold text-white transition-all duration-200 hover:bg-[#D32F2F] active:translate-y-1 active:shadow-none"
+            >
               最新コンテンツを受け取る
             </button>
-            <button className="rounded-full border-2 border-orange-400 px-8 py-3 font-bold text-orange-400 transition-all duration-200 hover:bg-orange-400 hover:text-white">
+            <button 
+              onClick={handleContactClick}
+              className="rounded-full border-2 border-orange-400 px-8 py-3 font-bold text-orange-400 transition-all duration-200 hover:bg-orange-400 hover:text-white"
+            >
               採用についてご相談する
             </button>
           </div>
         </div>
       </section>
+
+      {/* Sender.net Popup */}
+      {showSenderPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="relative max-h-[90vh] w-full max-w-md overflow-auto rounded-lg bg-white p-6 shadow-xl">
+            {/* Close button */}
+            <button
+              onClick={closeSenderPopup}
+              className="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
+            >
+              ✕
+            </button>
+            
+            {/* Popup content */}
+            <div className="mb-4">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">
+                最新の採用情報を受け取る
+              </h3>
+              <p className="text-sm text-gray-600">
+                メルマガ登録で最新の採用ノウハウをお届けします。
+              </p>
+            </div>
+            
+            {/* Sender.net Embedded Form - Script Method (Working!) */}
+            <div className="w-full">
+              <div 
+                className="sender-form-field"
+                data-sender-form-id={SENDER_FORM_ID}
+                style={{ minHeight: '400px', placeSelf: 'center' }}
+              >
+                {/* Script injects the working form here */}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

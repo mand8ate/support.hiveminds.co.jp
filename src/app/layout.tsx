@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import "@/styles/custom.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-
 import Navigation from "@/components/Navigation";
 import ProgressBar from "@/components/ProgressBar";
 import Footer from "@/components/Footer";
@@ -29,7 +28,7 @@ export default function RoutesLayout({
       <html lang="en">
         <GoogleTagManager gtmId="GTM-5WLC6DQM" />
         <GoogleAnalytics gaId="AW-16938504623" />
-        <body className={(cn("antialiased"), inter.className)}>
+        <body className={(cn("antialiased"), inter.className)}>          
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"

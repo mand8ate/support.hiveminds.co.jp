@@ -78,7 +78,7 @@ export default function Footer({ root }: { root?: boolean }) {
                   <ul className="space-y-3 text-sm">
                     <li>
                       <Link
-                        href="/rpo"
+                        href="https://hiveminds.co.jp/service"
                         className="text-gray-300 transition-colors hover:text-white"
                       >
                         Branding
@@ -86,7 +86,7 @@ export default function Footer({ root }: { root?: boolean }) {
                     </li>
                     <li>
                       <Link
-                        href="/website"
+                        href="https://support.hiveminds.co.jp"
                         className="text-gray-300 transition-colors hover:text-white"
                       >
                         Saiyou
@@ -94,7 +94,7 @@ export default function Footer({ root }: { root?: boolean }) {
                     </li>
                     <li>
                       <Link
-                        href="/global"
+                        href="https://global.hiveminds.co.jp"
                         className="text-gray-300 transition-colors hover:text-white"
                       >
                         Global
