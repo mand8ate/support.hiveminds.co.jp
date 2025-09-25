@@ -301,7 +301,7 @@ const BlogsPage = () => {
                       alt={post.title}
                       width={400}
                       height={200}
-                      className="h-48 w-full object-cover"
+                      className="h-48 w-full object-contain object-center bg-white"
                     />
                   ) : (
                     <div className="flex h-48 w-full items-center justify-center bg-gray-200">
