@@ -7,44 +7,31 @@ const AboutUsPage = () => {
     window.open("https://hiveminds.co.jp/company/team", "_blank");
   };
 
+  const handleProductClick = (url: string) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <>
-      <section
-        className="relative flex h-[340px] w-full items-center justify-center overflow-hidden pt-[72px] md:h-[420px]"
-        style={{ background: "#f5f6f7" }}
-      >
-        {/* Single hero background image, responsive */}
-        <img
-          src="/about-us/hero.png"
-          alt="about us hero background"
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none object-cover object-center"
-          style={{
-            objectPosition: "center",
-          }}
-        />
-        {/* Text Overlay */}
-        <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-4 text-center">
-          <h1
-            className="font-bold text-white drop-shadow-lg"
-            style={{
-              fontSize: "clamp(1.25rem, 5vw, 48px)", // smaller on mobile
-              lineHeight: 1.1,
-              textShadow: "0 2px 8px rgba(0,0,0,0.25)",
-              marginBottom: "0.5rem", // smaller margin on mobile
-            }}
-          >
+      <section className="relative h-[500px] w-full overflow-hidden pt-14 sm:h-[550px] md:h-[580px]">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/about-us/hero.png"
+            alt="about us hero background"
+            className="h-full w-full object-cover"
+          />
+          {/* stronger gradient like RPO for consistent look */}
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/50 to-amber-700/40" />
+        </div>
+
+        <div className="container relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+          <h1 className="mb-8 text-3xl font-bold leading-tight text-white [text-shadow:_2px_2px_4px_rgb(0_0_0_/_0.3)] md:text-5xl lg:text-6xl">
             {HERO_TITLE}
           </h1>
-          <h2
-            className="font-semibold text-white drop-shadow-md"
-            style={{
-              fontSize: "clamp(1.25rem, 5vw, 48px)", // smaller on mobile
-              lineHeight: 1.1,
-              textShadow: "0 2px 8px rgba(0,0,0,0.18)",
-            }}
-          >
+
+          <p className="mx-auto max-w-2xl text-lg text-white [text-shadow:_1px_1px_2px_rgb(0_0_0_/_0.3)] md:text-xl">
             {HERO_SUBTITLE}
-          </h2>
+          </p>
         </div>
       </section>
 
@@ -142,27 +129,31 @@ const AboutUsPage = () => {
               </div>
               <div className="space-y-5 text-left text-base leading-relaxed text-gray-200 md:text-lg lg:text-xl xl:text-2xl">
                 <div>
-                  <span className="font-bold">一社に合ったアドバイザリー</span>
-                  <br />
+                  <span className="mb-2 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
+                    一社に合ったアドバイザリー
+                  </span>
                   現代の中小企業採用に求められているミスマッチのない採用方針。
                   <br />
                   一般論ではなく会社ごとに合った、正しい指針を提示いたします。
                 </div>
                 <div>
-                  <span className="font-bold">現場主義思想</span>
-                  <br />
+                  <span className="mb-2 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
+                    現場主義思想
+                  </span>
                   理論や上から見たものではなく、現場で培った成果が担保されているアクションプラン、実行をご提供いたします。
                 </div>
                 <div>
-                  <span className="font-bold">無駄を省く効果的な情報提供</span>
-                  <br />
+                  <span className="mb-2 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
+                    無駄を省く効果的な情報提供
+                  </span>
                   中小企業の採用現場では採用コストも大変重要な指標です。
                   <br />
                   コストパフォーマンスの高い、最適な採用投資判断と活用方法をご提供いたします。
                 </div>
                 <div>
-                  <span className="font-bold">資産としての採用力</span>
-                  <br />
+                  <span className="mb-2 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
+                    資産としての採用力
+                  </span>
                   採用活動は半永久的に続きます。
                   <br />
                   一時的な人材獲得ではなく、長期的な人材獲得ができる、資産としての採用力を蓄けることに貢献いたします。
@@ -209,7 +200,10 @@ const AboutUsPage = () => {
               <img
                 src="/about-us/2.png"
                 alt="採用代行／アドバイザリー - 社員100名以下の中小企業対象"
-                className="h-auto w-full rounded-lg object-cover"
+                className="h-auto w-full cursor-pointer rounded-lg object-cover"
+                onClick={() => {
+                  handleProductClick("https://support.hiveminds.co.jp/rpo");
+                }}
               />
             </div>
             <div className="w-full md:w-1/2">

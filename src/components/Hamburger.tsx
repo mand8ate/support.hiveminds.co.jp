@@ -169,19 +169,6 @@ const HamburgerMenu = () => {
               className="my-2 text-xl sm:my-4"
               variants={itemVariants}
             >
-              <a
-                href="https://hiveminds.co.jp/contact"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Contact
-              </a>
-            </motion.div>
-
-            <motion.div
-              className="my-2 text-xl sm:my-4"
-              variants={itemVariants}
-            >
               <Link href="/about-us">About Us</Link>
             </motion.div>
 
@@ -190,6 +177,19 @@ const HamburgerMenu = () => {
               variants={itemVariants}
             >
               <Link href="/blogs">Blogs</Link>
+            </motion.div>
+
+            <motion.div
+              className="my-2 text-xl sm:my-4"
+              variants={itemVariants}
+            >
+              <a
+                href="https://hiveminds.co.jp/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact
+              </a>
             </motion.div>
           </motion.div>
         )}

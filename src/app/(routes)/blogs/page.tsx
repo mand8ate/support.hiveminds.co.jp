@@ -24,27 +24,31 @@ const BlogsPage = () => {
 
   // Try to load Sender.net script for fallback
   useEffect(() => {
-    if (showSenderPopup && typeof window !== 'undefined') {
-      console.log('Modal opened - running Sender.net script');
-      
+    if (showSenderPopup && typeof window !== "undefined") {
+      console.log("Modal opened - running Sender.net script");
+
       // Clean up any existing Sender.net scripts and global objects
-      const existingScripts = document.querySelectorAll('script[src*="sender.net"], script[src*="universal.js"]');
-      existingScripts.forEach(script => script.remove());
-      
+      const existingScripts = document.querySelectorAll(
+        'script[src*="sender.net"], script[src*="universal.js"]',
+      );
+      existingScripts.forEach((script) => script.remove());
+
       // Clear any existing sender objects
       if (window.sender) {
         delete window.sender;
       }
-      
+
       // Clear the form container
-      const formContainer = document.querySelector('.sender-form-field[data-sender-form-id="' + SENDER_FORM_ID + '"]');
+      const formContainer = document.querySelector(
+        '.sender-form-field[data-sender-form-id="' + SENDER_FORM_ID + '"]',
+      );
       if (formContainer) {
-        formContainer.innerHTML = '';
+        formContainer.innerHTML = "";
       }
-      
+
       // Wait a bit for cleanup, then load fresh script
       setTimeout(() => {
-        const script = document.createElement('script');
+        const script = document.createElement("script");
         script.innerHTML = `
           (function (s, e, n, d, er) {
             s['Sender'] = er;
@@ -59,25 +63,25 @@ const BlogsPage = () => {
           })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
           sender('129e9322ab0463');
         `;
-        
+
         script.onload = () => {
-          console.log('Sender.net script loaded, trying form render');
+          console.log("Sender.net script loaded, trying form render");
           setTimeout(() => {
             try {
               if (window.sender) {
-                window.sender('form', SENDER_FORM_ID);
-                console.log('Script method: Form render attempted');
+                window.sender("form", SENDER_FORM_ID);
+                console.log("Script method: Form render attempted");
               }
             } catch (error) {
-              console.error('Script method failed:', error);
+              console.error("Script method failed:", error);
             }
           }, 1000);
         };
-        
+
         script.onerror = () => {
-          console.error('Failed to load Sender.net script');
+          console.error("Failed to load Sender.net script");
         };
-        
+
         document.head.appendChild(script);
       }, 100);
     }
@@ -86,20 +90,26 @@ const BlogsPage = () => {
   const closeSenderPopup = () => {
     setShowSenderPopup(false);
   };
-  
+
   // Fetch categories for filtering
   const { categories, loading: categoriesLoading } = useCategories();
-  
+
   // Memoize the pagination and filters objects to prevent infinite re-renders
-  const pagination = useMemo(() => ({ 
-    page: currentPage, 
-    limit: BLOGS_PER_PAGE 
-  }), [currentPage]);
-  
-  const filters = useMemo(() => ({ 
-    categories: selectedCategories 
-  }), [selectedCategories]);
-  
+  const pagination = useMemo(
+    () => ({
+      page: currentPage,
+      limit: BLOGS_PER_PAGE,
+    }),
+    [currentPage],
+  );
+
+  const filters = useMemo(
+    () => ({
+      categories: selectedCategories,
+    }),
+    [selectedCategories],
+  );
+
   // Fetch blogs with pagination and filtering
   const {
     posts,
@@ -109,11 +119,11 @@ const BlogsPage = () => {
     totalPages,
     loading: postsLoading,
     error,
-    refetch
+    refetch,
   } = useBlogsData({
     pagination,
     filters,
-    enableAutoLoad: true
+    enableAutoLoad: true,
   });
 
   const handlePageChange = (page: number) => {
@@ -121,12 +131,12 @@ const BlogsPage = () => {
   };
 
   const handleCategoryFilter = (categoryId: string) => {
-    setSelectedCategories(prev => {
+    setSelectedCategories((prev) => {
       const isSelected = prev.includes(categoryId);
-      const newSelection = isSelected 
-        ? prev.filter(id => id !== categoryId)
+      const newSelection = isSelected
+        ? prev.filter((id) => id !== categoryId)
         : [...prev, categoryId];
-      
+
       // Reset to page 1 when filter changes
       setCurrentPage(1);
       return newSelection;
@@ -140,11 +150,13 @@ const BlogsPage = () => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('ja-JP', {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric'
-    }).replace(/\//g, '.');
+    return date
+      .toLocaleDateString("ja-JP", {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+      })
+      .replace(/\//g, ".");
   };
 
   const handleTeamClick = () => {
@@ -156,43 +168,24 @@ const BlogsPage = () => {
   };
 
   return (
-    <>      
-      <section
-        className="relative flex h-[340px] w-full items-center justify-center overflow-hidden pt-[72px] md:h-[420px]"
-        style={{ background: "#f5f6f7" }}
-      >
-        {/* Single hero background image, responsive */}
-        <img
-          src="/about-us/hero.png"
-          alt="about us hero background"
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none object-cover object-center"
-          style={{
-            objectPosition: "center",
-          }}
-        />
-        {/* Text Overlay */}
-        <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-4 text-center">
-          <h1
-            className="font-bold text-white drop-shadow-lg"
-            style={{
-              fontSize: "clamp(1.25rem, 5vw, 48px)", // smaller on mobile
-              lineHeight: 1.1,
-              textShadow: "0 2px 8px rgba(0,0,0,0.25)",
-              marginBottom: "0.5rem", // smaller margin on mobile
-            }}
-          >
+    <>
+      <section className="relative h-[500px] w-full overflow-hidden pt-14 sm:h-[550px] md:h-[580px]">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/blogs/hero.png"
+            alt="blogs hero background"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/50 to-amber-700/40" />
+        </div>
+
+        <div className="container relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+          <h1 className="mb-8 text-3xl font-bold leading-tight text-white [text-shadow:_2px_2px_4px_rgb(0_0_0_/_0.3)] md:text-5xl lg:text-6xl">
             {HERO_TITLE}
           </h1>
-          <h2
-            className="font-semibold text-white drop-shadow-md"
-            style={{
-              fontSize: "clamp(1.25rem, 5vw, 48px)", // smaller on mobile
-              lineHeight: 1.1,
-              textShadow: "0 2px 8px rgba(0,0,0,0.18)",
-            }}
-          >
+          <p className="mx-auto max-w-2xl text-lg text-white [text-shadow:_1px_1px_2px_rgb(0_0_0_/_0.3)] md:text-xl">
             {HERO_SUBTITLE}
-          </h2>
+          </p>
         </div>
       </section>
 
@@ -244,7 +237,7 @@ const BlogsPage = () => {
             >
               すべて
             </button>
-            
+
             {/* Category Filter Buttons */}
             {categoriesLoading ? (
               <span className="text-gray-400">カテゴリー読み込み中...</span>
@@ -293,7 +286,9 @@ const BlogsPage = () => {
                 <div
                   key={post._id}
                   className="cursor-pointer overflow-hidden rounded-lg bg-white text-black transition-transform hover:scale-[1.02]"
-                  onClick={() => window.open(`/blogs/${post.slug.current}`, "_blank")}
+                  onClick={() =>
+                    window.open(`/blogs/${post.slug.current}`, "_blank")
+                  }
                 >
                   {post.mainImage ? (
                     <Image
@@ -301,7 +296,7 @@ const BlogsPage = () => {
                       alt={post.title}
                       width={400}
                       height={200}
-                      className="h-48 w-full object-contain object-center bg-white"
+                      className="h-48 w-full bg-white object-contain object-center"
                     />
                   ) : (
                     <div className="flex h-48 w-full items-center justify-center bg-gray-200">
@@ -312,11 +307,14 @@ const BlogsPage = () => {
                     <div className="mb-2 text-sm text-gray-500">
                       {formatDate(post.publishedAt)}
                     </div>
-                    <h3 className="mb-3 text-lg font-bold overflow-hidden" style={{ 
-                      display: '-webkit-box',
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical'
-                    }}>
+                    <h3
+                      className="mb-3 overflow-hidden text-lg font-bold"
+                      style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                      }}
+                    >
                       {post.title}
                     </h3>
                     <div className="mb-4 flex flex-wrap gap-1">
@@ -342,19 +340,22 @@ const BlogsPage = () => {
               {hasPrevPage && (
                 <button
                   onClick={() => handlePageChange(currentPage - 1)}
-                  className="h-10 px-3 rounded text-sm font-medium border border-gray-500 text-gray-300 hover:bg-gray-700 transition-colors"
+                  className="h-10 rounded border border-gray-500 px-3 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-700"
                 >
                   前へ
                 </button>
               )}
-              
+
               {/* Page numbers */}
               {[...Array(totalPages)].map((_, i) => {
                 const pageNum = i + 1;
                 // Show page numbers with ellipsis for large number of pages
                 if (totalPages > 7) {
-                  if (pageNum === 1 || pageNum === totalPages || 
-                      (pageNum >= currentPage - 1 && pageNum <= currentPage + 1)) {
+                  if (
+                    pageNum === 1 ||
+                    pageNum === totalPages ||
+                    (pageNum >= currentPage - 1 && pageNum <= currentPage + 1)
+                  ) {
                     return (
                       <button
                         key={pageNum}
@@ -369,9 +370,20 @@ const BlogsPage = () => {
                       </button>
                     );
                   } else if (pageNum === 2 && currentPage > 4) {
-                    return <span key={pageNum} className="text-gray-400">...</span>;
-                  } else if (pageNum === totalPages - 1 && currentPage < totalPages - 3) {
-                    return <span key={pageNum} className="text-gray-400">...</span>;
+                    return (
+                      <span key={pageNum} className="text-gray-400">
+                        ...
+                      </span>
+                    );
+                  } else if (
+                    pageNum === totalPages - 1 &&
+                    currentPage < totalPages - 3
+                  ) {
+                    return (
+                      <span key={pageNum} className="text-gray-400">
+                        ...
+                      </span>
+                    );
                   }
                   return null;
                 } else {
@@ -390,41 +402,42 @@ const BlogsPage = () => {
                   );
                 }
               })}
-              
+
               {/* Next button */}
               {hasNextPage && (
                 <button
                   onClick={() => handlePageChange(currentPage + 1)}
-                  className="h-10 px-3 rounded text-sm font-medium border border-gray-500 text-gray-300 hover:bg-gray-700 transition-colors"
+                  className="h-10 rounded border border-gray-500 px-3 text-sm font-medium text-gray-300 transition-colors hover:bg-gray-700"
                 >
                   次へ
                 </button>
               )}
             </div>
           )}
-          
+
           {/* Results info */}
           <div className="mt-4 text-center text-sm text-gray-400">
             {totalCount > 0 && (
               <p>
-                {totalCount}件中 {((currentPage - 1) * BLOGS_PER_PAGE) + 1} - {Math.min(currentPage * BLOGS_PER_PAGE, totalCount)}件を表示
+                {totalCount}件中 {(currentPage - 1) * BLOGS_PER_PAGE + 1} -{" "}
+                {Math.min(currentPage * BLOGS_PER_PAGE, totalCount)}件を表示
               </p>
             )}
           </div>
 
           {/* Action Buttons */}
           <div className="mt-16 flex flex-col justify-center gap-4 sm:flex-row">
-            <button 
+            <button
               onClick={handleTeamClick}
               className="rounded-full bg-[#EA3E3E] px-8 py-3 font-bold text-white transition-all duration-200 hover:bg-[#D32F2F] active:translate-y-1 active:shadow-none"
             >
               最新コンテンツを受け取る
             </button>
-            <button 
+            <button
               onClick={handleContactClick}
-              className="rounded-full border-2 border-orange-400 px-8 py-3 font-bold text-orange-400 transition-all duration-200 hover:bg-orange-400 hover:text-white"
+              className="rounded-full border-2 border-orange-400 bg-orange-400 px-8 py-3 font-bold text-white transition-all duration-200 hover:bg-orange-500 hover:text-white"
             >
-              採用についてご相談する
+              採用について相談する
             </button>
           </div>
         </div>
@@ -441,7 +454,7 @@ const BlogsPage = () => {
             >
               ✕
             </button>
-            
+
             {/* Popup content */}
             <div className="mb-4">
               <h3 className="mb-2 text-xl font-bold text-gray-900">
@@ -451,13 +464,13 @@ const BlogsPage = () => {
                 メルマガ登録で最新の採用ノウハウをお届けします。
               </p>
             </div>
-            
+
             {/* Sender.net Embedded Form - Script Method (Working!) */}
             <div className="w-full">
-              <div 
+              <div
                 className="sender-form-field"
                 data-sender-form-id={SENDER_FORM_ID}
-                style={{ minHeight: '400px', placeSelf: 'center' }}
+                style={{ minHeight: "400px", placeSelf: "center" }}
               >
                 {/* Script injects the working form here */}
               </div>
