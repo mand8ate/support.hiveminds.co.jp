@@ -127,9 +127,9 @@ const AboutUsPage = () => {
               <div className="mb-5 text-left text-2xl font-extrabold md:mb-7 md:text-3xl lg:text-4xl xl:text-5xl">
                 その一社に合った、正しい選択肢と行動指針
               </div>
-              <div className="space-y-5 text-left text-base leading-relaxed text-gray-200 md:text-lg lg:text-xl xl:text-2xl">
+              <div className="md:text-md space-y-5 text-left text-sm leading-relaxed text-gray-200 lg:text-lg xl:text-xl">
                 <div>
-                  <span className="mb-2 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
+                  <span className="mb-4 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
                     一社に合ったアドバイザリー
                   </span>
                   現代の中小企業採用に求められているミスマッチのない採用方針。
@@ -137,13 +137,13 @@ const AboutUsPage = () => {
                   一般論ではなく会社ごとに合った、正しい指針を提示いたします。
                 </div>
                 <div>
-                  <span className="mb-2 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
+                  <span className="mb-4 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
                     現場主義思想
                   </span>
                   理論や上から見たものではなく、現場で培った成果が担保されているアクションプラン、実行をご提供いたします。
                 </div>
                 <div>
-                  <span className="mb-2 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
+                  <span className="mb-4 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
                     無駄を省く効果的な情報提供
                   </span>
                   中小企業の採用現場では採用コストも大変重要な指標です。
@@ -151,7 +151,7 @@ const AboutUsPage = () => {
                   コストパフォーマンスの高い、最適な採用投資判断と活用方法をご提供いたします。
                 </div>
                 <div>
-                  <span className="mb-2 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
+                  <span className="mb-4 block text-lg font-bold md:text-xl lg:text-2xl xl:text-3xl">
                     資産としての採用力
                   </span>
                   採用活動は半永久的に続きます。
@@ -171,7 +171,7 @@ const AboutUsPage = () => {
         </h2>
         <div className="mx-auto mb-16 h-1 w-12 rounded-full bg-green-400" />
 
-        <div className="w-full max-w-5xl space-y-16 md:space-y-20 xl:max-w-6xl">
+        <div className="w-full max-w-5xl space-y-16 md:space-y-20 xl:max-w-7xl">
           {/* Product 1: Saiyoujin */}
           <div className="flex flex-col items-center gap-8 md:flex-row md:gap-12 lg:gap-16">
             <div className="w-full md:w-1/2">

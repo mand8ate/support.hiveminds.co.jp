@@ -13,7 +13,7 @@ declare global {
 
 const HERO_TITLE = "社員100名未満の中小企業のための";
 const HERO_SUBTITLE = "採用お役立ち情報";
-const BLOGS_PER_PAGE = 4;
+const BLOGS_PER_PAGE = 7;
 
 const SENDER_FORM_ID = "b68M47"; // Replace with your actual Sender.net form ID
 
